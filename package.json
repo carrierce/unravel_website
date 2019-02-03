@@ -17,7 +17,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-server": "nodemon app.js"
+    "start-server": "nodemon app.js",
+    "start-test": "mocha ./test --recursive",
+    "start-test-watch": "mocha --watch ./test --recursive"
   },
   "eslintConfig": {
     "extends": "react-app"
