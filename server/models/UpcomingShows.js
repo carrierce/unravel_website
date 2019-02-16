@@ -17,7 +17,7 @@ const upcomingShowsSchema = new mongoose.Schema({
     required: true
   },
   showBlurb: {
-    type: Date
+    type: String
   },
   ticketUrl: {
     type: String,
