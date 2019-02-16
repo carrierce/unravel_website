@@ -1,28 +1,28 @@
 const UpcomingShows = require('../models/UpComingShows');
 
 exports.postUpcomingShows = (req, res) => {
-  UpcomingShows.create(req.body, (err, post) => {
+  UpcomingShows.create(req.body, (err, result) => {
     if (err) {
-      return err;
+      return res.status(500).send(err.message);
     }
 
-    res.json(post);
+    res.json(result);
   });
 };
 
 exports.getUpcomingShows = (req, res) => {
-  UpcomingShows.find((err, upComingShowData) => {
+  UpcomingShows.find((err, result) => {
     if (err) {
-      return err;
+      return res.status(500).send(err.message);
     }
-    res.json(upComingShowData);
+    res.json(result);
   });
 };
 
 exports.getUpcomingShowById = (req, res) => {
   UpcomingShows.findOne({ _id: req.params.id }, (err, result) => {
     if (err) {
-      return err;
+      return res.status(500).send(err.message);
     }
     res.json(result);
   });
@@ -34,7 +34,7 @@ exports.updateUpcomingShowById = (req, res) => {
     req.body,
     (err, result) => {
       if (err) {
-        return err;
+        return res.status(500).send(err.message);
       }
       res.json(result);
     }
@@ -47,7 +47,7 @@ exports.deleteUpcomingShowById = (req, res) => {
     req.body,
     (err, result) => {
       if (err) {
-        return err;
+        return res.status(500).send(err.message);
       }
       res.json(result);
     }
