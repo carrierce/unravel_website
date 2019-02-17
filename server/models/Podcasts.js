@@ -23,7 +23,7 @@ const podcastsSchema = new mongoose.Schema({
     type: String,
     minlength: 5
   },
-  podcastCoverImageLink: {
+  podcastEmbedLink: {
     type: String,
     required: true,
     minlength: 5,
