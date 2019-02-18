@@ -29,6 +29,6 @@ describe('Request data', () => {
     request(app)
       .get('/')
       .expect(200)
-      .expect({ message: 'Hello ' }, done);
+      .expect({ message: 'Hello World' }, done);
   });
 });
