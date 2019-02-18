@@ -1,7 +1,7 @@
-const UpcomingShows = require('../models/UpComingShows');
+const PastShows = require('../models/PastShows');
 
-exports.postUpcomingShows = (req, res) => {
-  UpcomingShows.create(req.body, (err, result) => {
+exports.postPastShow = (req, res) => {
+  PastShows.create(req.body, (err, result) => {
     if (err) {
       return res.status(500).send(err.message);
     }
@@ -10,8 +10,8 @@ exports.postUpcomingShows = (req, res) => {
   });
 };
 
-exports.getUpcomingShows = (req, res) => {
-  UpcomingShows.find((err, result) => {
+exports.getPastShows = (req, res) => {
+  PastShows.find((err, result) => {
     if (err) {
       return res.status(500).send(err.message);
     }
@@ -19,8 +19,8 @@ exports.getUpcomingShows = (req, res) => {
   });
 };
 
-exports.getUpcomingShowById = (req, res) => {
-  UpcomingShows.findOne({ _id: req.params.id }, (err, result) => {
+exports.getPastShowById = (req, res) => {
+  PastShows.findOne({ _id: req.params.id }, (err, result) => {
     if (err) {
       return res.status(500).send(err.message);
     }
@@ -28,8 +28,8 @@ exports.getUpcomingShowById = (req, res) => {
   });
 };
 
-exports.updateUpcomingShowById = (req, res) => {
-  UpcomingShows.findOneAndUpdate(
+exports.updatePastShowById = (req, res) => {
+  PastShows.findOneAndUpdate(
     { _id: req.params.id },
     req.body,
     (err, result) => {
@@ -41,8 +41,8 @@ exports.updateUpcomingShowById = (req, res) => {
   );
 };
 
-exports.deleteUpcomingShowById = (req, res) => {
-  UpcomingShows.findOneAndRemove(
+exports.deletePastShowById = (req, res) => {
+  PastShows.findOneAndRemove(
     { _id: req.params.id },
     req.body,
     (err, result) => {

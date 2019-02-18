@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const upcomingShowsSchema = new mongoose.Schema({
-  posterImageLink: {
+const pastShowsSchema = new mongoose.Schema({
+  photoImageLink: {
     type: String,
     required: true,
     minlength: 5,
@@ -15,14 +15,7 @@ const upcomingShowsSchema = new mongoose.Schema({
   venue: {
     type: String,
     required: true
-  },
-  showBlurb: {
-    type: String
-  },
-  ticketUrl: {
-    type: String,
-    required: true
   }
 });
 
-module.exports = mongoose.model('UpcomingShows', upcomingShowsSchema);
+module.exports = mongoose.model('PastShows', pastShowsSchema);
