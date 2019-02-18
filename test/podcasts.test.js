@@ -26,6 +26,7 @@ describe('Checks Podcasts CRUD functions', () => {
   });
 
   let successful_Post_Podcast_Data = {
+    _id: '5c6939db70b3037c9a5d9fa8',
     podcastCoverImageLink: 'dummy',
     podcastName: 'dummy',
     podcastBlurb: 'dummy',
@@ -42,7 +43,7 @@ describe('Checks Podcasts CRUD functions', () => {
 
   let failed_Post_Podcast_Data = {
     // podcastCoverImageLink: 'dummy',
-    podcastName: 'dummy',
+    podcastName: 'dummyXXXXXX',
     podcastBlurb: 'dummy',
     podcastShowNotes: 'dummy',
     podcastEmbedLink: 'dummy'
@@ -58,8 +59,8 @@ describe('Checks Podcasts CRUD functions', () => {
 
   it('DELETE /api/podcasts | deletes an existing podcast', function(done) {
     request(app)
-      .delete('/api/podcasts/5c6939db70b3037c9a5d9fa')
-      .expect('Content-Type', /text/, done);
+      .delete('/api/podcasts/5c6939db70b3037c9a5d9fa8')
+      .expect('Content-Type', /json/, done);
   });
 
   it('DELETE /api/podcasts | fails to deletes an existing podcast-podcast not found', function(done) {
