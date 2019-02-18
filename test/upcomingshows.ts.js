@@ -26,6 +26,7 @@ describe('Checks UpcomingShows CRUD functions', () => {
   });
 
   let successful_Post_Upcoming_Shows_Data = {
+    _id: '5c67f0fb523d44da9f1dcfbb',
     posterImageLink: 'dummy',
     showDate: new Date(),
     venue: 'dummy',
