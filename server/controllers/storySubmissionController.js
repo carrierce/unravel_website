@@ -18,3 +18,12 @@ exports.getStorySubmission = (req, res) => {
     res.json(result);
   });
 };
+
+exports.getStorySubmissionById = (req, res) => {
+  StorySubmission.find((err, result) => {
+    if (err) {
+      return res.status(500).send(err.message);
+    }
+    res.json(result);
+  });
+};
