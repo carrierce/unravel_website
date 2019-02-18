@@ -13,7 +13,7 @@ describe('Checks UpcomingShows CRUD functions', () => {
 
   it('GET /api/upcomingshows/:id | checks get an individual upcomingshows', done => {
     request(app)
-      .get('/api/upcomingshows/5c67f0fb523d44da9f1dcfbb')
+      .get('/api/upcomingshows/5c67f116523d44da9f1dcfbd')
       .expect('Content-Type', /json/)
       .expect(200, done);
   });
@@ -26,11 +26,11 @@ describe('Checks UpcomingShows CRUD functions', () => {
   });
 
   let successful_Post_Upcoming_Shows_Data = {
-    upcoming_shows_posterImageLink: 'dummy',
-    upcoming_shows_showDate: 'dummy',
-    upcoming_shows_venue: 'dummy',
-    upcoming_shows_showBlurb: 'dummy',
-    upcoming_shows_ticketUrl: 'dummy'
+    posterImageLink: 'dummy',
+    showDate: 'dummy',
+    venue: 'dummy',
+    showBlurb: 'dummy',
+    ticketUrl: 'dummy'
   };
 
   it('POST /api/upcomingshows | creates a new upcomingshows', function(done) {
@@ -41,11 +41,11 @@ describe('Checks UpcomingShows CRUD functions', () => {
   });
 
   let failed_Post_Upcoming_Shows_Data = {
-    // upcomingshowsCoverImageLink: 'dummy',
-    upcomingshowsName: 'dummy',
-    upcomingshowsBlurb: 'dummy',
-    upcomingshowshowNotes: 'dummy',
-    upcomingshowsEmbedLink: 'dummy'
+    // posterImageLink: 'dummy',
+    showDate: 'dummy',
+    venue: 'dummy',
+    showBlurb: 'dummy',
+    ticketUrl: 'dummy'
   };
 
   it('POST /api/upcomingshows | fails to create a new upcomingshows', function(done) {
