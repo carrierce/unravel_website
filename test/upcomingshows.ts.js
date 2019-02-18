@@ -57,19 +57,6 @@ describe('Checks UpcomingShows CRUD functions', () => {
       .expect(500, done);
   });
 
-  it('DELETE /api/upcomingshows | deletes an existing upcomingshows', function(done) {
-    request(app)
-      .delete('/api/upcomingshows/5c67f0fb523d44da9f1dcfbb')
-      .expect('Content-Type', /json/, done);
-  });
-
-  it('DELETE /api/upcomingshows | fails to deletes an existing upcomingshows-upcomingshows not found', function(done) {
-    request(app)
-      .delete('/api/upcomingshows/non-existant-id')
-      .expect('Content-Type', /text/)
-      .expect(500, done);
-  });
-
   let successful_Put_Upcoming_Show_Data = {
     upcomingshowsCoverImageLink: 'dummy_update',
     upcomingshowsName: 'dummy_update',
@@ -80,23 +67,28 @@ describe('Checks UpcomingShows CRUD functions', () => {
 
   it('PUT /api/upcomingshows | updates an existing upcomingshows', function(done) {
     request(app)
-      .put('/api/upcomingshows/add_real_data')
+      .put('/api/upcomingshows/5c67f0fb523d44da9f1dcfbb')
       .send(successful_Put_Upcoming_Show_Data)
-      .expect('Content-Type', /text/, done);
+      .expect('Content-Type', /json/, done);
   });
-
-  let failed_Put_Upcoming_Show_Data = {
-    // upcomingshowsCoverImageLink: 'dummy_update',
-    upcomingshowsName: 'dummy_update',
-    upcomingshowsBlurb: 'dummy_update',
-    upcomingshowshowNotes: 'dummy_update',
-    upcomingshowsEmbedLink: 'dummy_update'
-  };
 
   it('PUT /api/upcomingshows | fails to update an existing upcomingshows', function(done) {
     request(app)
-      .put('/api/upcomingshows/5c6939db70b3037c9a5d9fa')
-      .send(failed_Put_Upcoming_Show_Data)
+      .put('/api/upcomingshows/no_endpoint')
+      .send(successful_Put_Upcoming_Show_Data)
+      .expect('Content-Type', /text/)
+      .expect(500, done);
+  });
+
+  it('DELETE /api/upcomingshows | deletes an existing upcomingshows', function(done) {
+    request(app)
+      .delete('/api/upcomingshows/5c67f0fb523d44da9f1dcfbb')
+      .expect('Content-Type', /json/, done);
+  });
+
+  it('DELETE /api/upcomingshows | fails to deletes an existing upcomingshows-upcomingshows not found', function(done) {
+    request(app)
+      .delete('/api/upcomingshows/non-existant-id')
       .expect('Content-Type', /text/)
       .expect(500, done);
   });

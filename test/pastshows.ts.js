@@ -53,19 +53,6 @@ describe('Checks pastshows CRUD functions', () => {
       .expect(500, done);
   });
 
-  it('DELETE /api/pastshows | deletes an existing pastshows', function(done) {
-    request(app)
-      .delete('/api/pastshows/5c67f0fb523d44da9f1dcfbb')
-      .expect('Content-Type', /json/, done);
-  });
-
-  it('DELETE /api/pastshows | fails to deletes an existing pastshows-pastshows not found', function(done) {
-    request(app)
-      .delete('/api/pastshows/non-existant-id')
-      .expect('Content-Type', /text/)
-      .expect(500, done);
-  });
-
   let successful_Put_Past_Show_Data = {
     pastshowsCoverImageLink: 'dummy_update',
     pastshowsName: 'dummy_update',
@@ -76,23 +63,28 @@ describe('Checks pastshows CRUD functions', () => {
 
   it('PUT /api/pastshows | updates an existing pastshows', function(done) {
     request(app)
-      .put('/api/pastshows/add_real_data')
+      .put('/api/pastshows/5c67f0fb523d44da9f1dcfbb')
       .send(successful_Put_Past_Show_Data)
-      .expect('Content-Type', /text/, done);
+      .expect('Content-Type', /json/, done);
   });
-
-  let failed_Put_Past_Show_Data = {
-    // pastshowsCoverImageLink: 'dummy_update',
-    pastshowsName: 'dummy_update',
-    pastshowsBlurb: 'dummy_update',
-    pastshowshowNotes: 'dummy_update',
-    pastshowsEmbedLink: 'dummy_update'
-  };
 
   it('PUT /api/pastshows | fails to update an existing pastshows', function(done) {
     request(app)
-      .put('/api/pastshows/5c6939db70b3037c9a5d9fa')
-      .send(failed_Put_Upcoming_Show_Data)
+      .put('/api/pastshows/no_id')
+      .send(successful_Put_Past_Show_Data)
+      .expect('Content-Type', /text/)
+      .expect(500, done);
+  });
+
+  it('DELETE /api/pastshows | deletes an existing pastshows', function(done) {
+    request(app)
+      .delete('/api/pastshows/5c67f0fb523d44da9f1dcfbb')
+      .expect('Content-Type', /json/, done);
+  });
+
+  it('DELETE /api/pastshows | fails to deletes an existing pastshows-pastshows not found', function(done) {
+    request(app)
+      .delete('/api/pastshows/non-existant-id')
       .expect('Content-Type', /text/)
       .expect(500, done);
   });
