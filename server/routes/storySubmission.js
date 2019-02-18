@@ -4,5 +4,6 @@ const storySubmissionController = require('../controllers/storySubmissionControl
 
 router.post('/', storySubmissionController.postStorySubmission);
 router.get('/', storySubmissionController.getStorySubmission);
+router.get('/:id', storySubmissionController.getStorySubmissionById);
 
 module.exports = router;

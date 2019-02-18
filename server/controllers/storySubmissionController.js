@@ -20,7 +20,7 @@ exports.getStorySubmission = (req, res) => {
 };
 
 exports.getStorySubmissionById = (req, res) => {
-  StorySubmission.find((err, result) => {
+  StorySubmission.findOne({ _id: req.params.id }, (err, result) => {
     if (err) {
       return res.status(500).send(err.message);
     }

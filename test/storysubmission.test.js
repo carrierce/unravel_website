@@ -45,8 +45,7 @@ describe('Checks storysubmission CRUD functions', () => {
   });
 
   let failed_Post_Story_Submission_Data = {
-    // podcastCoverImageLink: 'dummy',
-    name: 'dummyXXXXXX',
+    // name: 'dummy',
     email: 'dummy',
     story: 'dummy',
     questionOrComment: 'dummy'
