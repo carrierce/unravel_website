@@ -27,7 +27,7 @@ describe('Checks UpcomingShows CRUD functions', () => {
 
   let successful_Post_Upcoming_Shows_Data = {
     posterImageLink: 'dummy',
-    showDate: 'dummy',
+    showDate: new Date(),
     venue: 'dummy',
     showBlurb: 'dummy',
     ticketUrl: 'dummy'
@@ -42,7 +42,7 @@ describe('Checks UpcomingShows CRUD functions', () => {
 
   let failed_Post_Upcoming_Shows_Data = {
     // posterImageLink: 'dummy',
-    showDate: 'dummy',
+    showDate: new Date(),
     venue: 'dummy',
     showBlurb: 'dummy',
     ticketUrl: 'dummy'
@@ -59,12 +59,12 @@ describe('Checks UpcomingShows CRUD functions', () => {
   it('DELETE /api/upcomingshows | deletes an existing upcomingshows', function(done) {
     request(app)
       .delete('/api/upcomingshows/5c67f0fb523d44da9f1dcfbb')
-      .expect('Content-Type', /text/, done);
+      .expect('Content-Type', /json/, done);
   });
 
   it('DELETE /api/upcomingshows | fails to deletes an existing upcomingshows-upcomingshows not found', function(done) {
     request(app)
-      .delete('/api/upcomingshows/5c67efc7ab57f4d92bb26280')
+      .delete('/api/upcomingshows/non-existant-id')
       .expect('Content-Type', /text/)
       .expect(500, done);
   });
