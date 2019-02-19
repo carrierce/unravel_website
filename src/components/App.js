@@ -1,7 +1,8 @@
 import React from 'react';
+import UpcomingShows from './UpcomingShows';
 
 const App = () => {
-  return <div>Hi there! </div>;
+  return <UpcomingShows />;
 };
 
 export default App;
