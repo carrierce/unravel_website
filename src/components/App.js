@@ -3,6 +3,7 @@ import StorySubmission from './StorySubmission';
 import axios from 'axios';
 import UpcomingShows from './UpcomingShows';
 import CreateUpcomingShow from './CreateUpcomingShow';
+import Podcasts from './Podcasts';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,13 +11,15 @@ class App extends React.Component {
     this.state = {
       toDos: [],
       storysubmission: [],
-      upcomingShows: []
+      upcomingShows: [],
+      podcasts: []
     };
   }
 
   componentDidMount() {
     // this.getStoryDataFromDb();
     this.getUpcomingShowsFromDb();
+    this.getUpcomingPodcastsFromDb();
   }
 
   getStoryDataFromDb = () => {
@@ -39,8 +42,22 @@ class App extends React.Component {
     });
   };
 
+  getUpcomingPodcastsFromDb = () => {
+    axios.get('http://localhost:8000/api/podcasts/').then(response => {
+      this.setState({
+        podcasts: response.data
+      });
+      console.log(this.state.podcasts[0]);
+    });
+  };
+
   deleteUpcomingShow = index => {
     axios.delete('http://localhost:8000/api/upcomingshows/' + index);
+    console.log('Called deleteUpcomingShow');
+  };
+
+  deletePodcast = index => {
+    axios.delete('http://localhost:8000/api/podcasts/' + index);
     console.log('Called deleteUpcomingShow');
   };
 
@@ -74,15 +91,18 @@ class App extends React.Component {
     return (
       <div>
         <h1>HELLO FROM APP.JS!</h1>
-        {/* <StorySubmission storysubmission={this.state.storysubmission} /> */}
+        <Podcasts
+          podcasts={this.state.podcasts}
+          deletepodcast={this.deletePodcast}
+        />
         {/* <CreateUpcomingShow postupcomingshow={this.postUpcomingShow} /> */}
         <br />
         <hr />
-        <UpcomingShows
+        {/* <UpcomingShows
           deleteupcomingshow={this.deleteUpcomingShow}
           upcomingshows={this.state.upcomingShows}
           editupcomingshow={this.editUpcomingShow}
-        />
+        /> */}
       </div>
     );
   }
