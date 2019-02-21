@@ -73,7 +73,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>HELLO FROM APP.JS</h1>
+        <h1>HELLO FROM APP.JS!</h1>
         {/* <StorySubmission storysubmission={this.state.storysubmission} /> */}
         {/* <CreateUpcomingShow postupcomingshow={this.postUpcomingShow} /> */}
         <br />
