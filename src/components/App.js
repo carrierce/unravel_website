@@ -55,18 +55,34 @@ class App extends React.Component {
     });
   };
 
+  editUpcomingShow = edittedUpcomingShow => {
+    console.log('editUpcomingShow Called');
+    console.log(edittedUpcomingShow);
+    axios.put(
+      'http://localhost:8000/api/upcomingshows/' + edittedUpcomingShow._id,
+      {
+        posterImageLink: edittedUpcomingShow.posterImageLink,
+        showDate: edittedUpcomingShow.showDate,
+        venue: edittedUpcomingShow.venue,
+        showBlurb: edittedUpcomingShow.showBlurb,
+        ticketUrl: edittedUpcomingShow.ticketUrl
+      }
+    );
+  };
+
   render() {
     return (
       <div>
         <h1>HELLO FROM APP.JS</h1>
-        <StorySubmission storysubmission={this.state.storysubmission} />
-        <CreateUpcomingShow
-          postupcomingshow={this.postUpcomingShow}
-          deleteupcomingshow={this.deleteUpcomingShow}
-        />
+        {/* <StorySubmission storysubmission={this.state.storysubmission} /> */}
+        {/* <CreateUpcomingShow postupcomingshow={this.postUpcomingShow} /> */}
         <br />
         <hr />
-        <UpcomingShows upcomingshows={this.state.upcomingShows} />
+        <UpcomingShows
+          deleteupcomingshow={this.deleteUpcomingShow}
+          upcomingshows={this.state.upcomingShows}
+          editupcomingshow={this.editUpcomingShow}
+        />
       </div>
     );
   }

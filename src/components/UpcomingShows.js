@@ -9,15 +9,26 @@ class UpcomingShows extends React.Component {
   render() {
     const renderedList = this.props.upcomingshows.map((upcomingshow, index) => {
       return (
-        <div>
+        <div index={index}>
           <button onClick={() => this.deleteUpcomingShow(upcomingshow._id)}>
             Delete Upcoming show
           </button>
-          <UpcomingShowItem upcomingshow={upcomingshow} index={index} />
+          <UpcomingShowItem
+            editupcomingshow={this.props.editupcomingshow}
+            upcomingshow={upcomingshow}
+            index={index}
+          />
         </div>
       );
     });
-    return <div>{renderedList}</div>;
+    return (
+      <div>
+        {/* <button onClick={() => this.props.editupcomingshow()}>
+          Edit Upcoming show
+        </button> */}
+        {renderedList}
+      </div>
+    );
   }
 }
 
