@@ -2,6 +2,7 @@ import React from 'react';
 import StorySubmission from './StorySubmission';
 import axios from 'axios';
 import UpcomingShows from './UpcomingShows';
+import CreateUpcomingShow from './CreateUpcomingShow';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class App extends React.Component {
   componentDidMount() {
     // this.getStoryDataFromDb();
     this.getUpcomingShowsFromDb();
-    // this.deleteUpcomingShow('XXXX');
   }
 
   getStoryDataFromDb = () => {
@@ -60,11 +60,13 @@ class App extends React.Component {
       <div>
         <h1>HELLO FROM APP.JS</h1>
         <StorySubmission storysubmission={this.state.storysubmission} />
-        <UpcomingShows
+        <CreateUpcomingShow
           postupcomingshow={this.postUpcomingShow}
           deleteupcomingshow={this.deleteUpcomingShow}
-          upcomingshows={this.state.upcomingShows}
         />
+        <br />
+        <hr />
+        <UpcomingShows upcomingshows={this.state.upcomingShows} />
       </div>
     );
   }
