@@ -1,9 +1,10 @@
 import React from 'react';
 import StorySubmission from './StorySubmission';
 import axios from 'axios';
-import UpcomingShows from './UpcomingShows';
-import CreateUpcomingShow from './CreateUpcomingShow';
-import Podcasts from './Podcasts';
+import UpcomingShows from './upcomingshows/UpcomingShows';
+import CreateUpcomingShow from './upcomingshows/CreateUpcomingShow';
+import Podcasts from './podcasts/Podcasts';
+import CreatePodcast from './podcasts/CreatePodcast';
 
 class App extends React.Component {
   constructor(props) {
@@ -62,13 +63,22 @@ class App extends React.Component {
   };
 
   postUpcomingShow = upcomingShow => {
-    console.log(typeof upcomingShow.posterImageLink);
     axios.post('http://localhost:8000/api/upcomingshows/', {
       posterImageLink: upcomingShow.posterImageLink,
       showDate: upcomingShow.showDate,
       venue: upcomingShow.venue,
       showBlurb: upcomingShow.showBlurb,
       ticketUrl: upcomingShow.ticketUrl
+    });
+  };
+
+  postPodcast = podcast => {
+    axios.post('http://localhost:8000/api/podcasts/', {
+      podcastCoverImageLink: podcast.podcastCoverImageLink,
+      podcastName: podcast.podcastName,
+      podcastBlurb: podcast.podcastBlurb,
+      podcastShowNotes: podcast.podcastShowNotes,
+      podcastEmbedLink: podcast.podcastEmbedLink
     });
   };
 
@@ -91,6 +101,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>HELLO FROM APP.JS!</h1>
+        <CreatePodcast postpodcast={this.postPodcast} />
         <Podcasts
           podcasts={this.state.podcasts}
           deletepodcast={this.deletePodcast}
