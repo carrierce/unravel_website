@@ -44,12 +44,24 @@ class App extends React.Component {
     console.log('Called deleteUpcomingShow');
   };
 
+  postUpcomingShow = upcomingShow => {
+    console.log(typeof upcomingShow.posterImageLink);
+    axios.post('http://localhost:8000/api/upcomingshows/', {
+      posterImageLink: upcomingShow.posterImageLink,
+      showDate: upcomingShow.showDate,
+      venue: upcomingShow.venue,
+      showBlurb: upcomingShow.showBlurb,
+      ticketUrl: upcomingShow.ticketUrl
+    });
+  };
+
   render() {
     return (
       <div>
         <h1>HELLO FROM APP.JS</h1>
         <StorySubmission storysubmission={this.state.storysubmission} />
         <UpcomingShows
+          postupcomingshow={this.postUpcomingShow}
           deleteupcomingshow={this.deleteUpcomingShow}
           upcomingshows={this.state.upcomingShows}
         />

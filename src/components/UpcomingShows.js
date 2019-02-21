@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 class StorySubmission extends React.Component {
   constructor(props) {
@@ -18,12 +17,11 @@ class StorySubmission extends React.Component {
 
   formChange = e => {
     this.setState({ [e.target.id]: e.target.value });
-    // console.log(this.state);
   };
 
   submitForm = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.postupcomingshow(this.state);
   };
 
   render() {
@@ -42,7 +40,10 @@ class StorySubmission extends React.Component {
       <div>
         <h1>Hello from UpcomingShows!</h1>
         <form onSubmit={() => this.submitForm()}>
-          <h5>Submit Upcoming Show Data</h5>
+          <h5>
+            Submit Upcoming Show Data (poster image url needs to be at least 5
+            characters longs)
+          </h5>
           <input
             id="posterImageLink"
             value={this.state.posterImageLink}
