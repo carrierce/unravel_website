@@ -11,7 +11,7 @@ const mongoose = require('./server/db/mongoose');
 
 //Middleware
 app.use(express.json());
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8000;
 
 app.use('/api/upcomingshows', upcomingShowsAPI);
 app.use('/api/pastshows', pastShowsAPI);
