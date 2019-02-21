@@ -14,7 +14,7 @@ class Podcasts extends React.Component {
             Delete Podcast show
           </button>
           <PodcastItem
-            editupcomingshow={this.props.editupcomingshow}
+            editpodcast={this.props.editpodcast}
             podcast={podcast}
             index={index}
           />

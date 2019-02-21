@@ -1,8 +1,10 @@
 import React from 'react';
+import EditPodcast from './EditPodcast';
 
 const PodcastItem = props => {
   return (
     <div key={props.index}>
+      <EditPodcast editpodcast={props.editpodcast} podcast={props.podcast} />
       <br />
       <hr />
       <h4>PODCAST</h4>

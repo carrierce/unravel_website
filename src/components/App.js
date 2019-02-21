@@ -97,6 +97,16 @@ class App extends React.Component {
     );
   };
 
+  editPodcast = edittedPodcast => {
+    axios.put('http://localhost:8000/api/podcasts/' + edittedPodcast._id, {
+      podcastCoverImageLink: edittedPodcast.podcastCoverImageLink,
+      podcastName: edittedPodcast.podcastName,
+      podcastBlurb: edittedPodcast.podcastBlurb,
+      podcastShowNotes: edittedPodcast.podcastShowNotes,
+      podcastEmbedLink: edittedPodcast.podcastEmbedLink
+    });
+  };
+
   render() {
     return (
       <div>
@@ -105,6 +115,7 @@ class App extends React.Component {
         <Podcasts
           podcasts={this.state.podcasts}
           deletepodcast={this.deletePodcast}
+          editpodcast={this.editPodcast}
         />
         {/* <CreateUpcomingShow postupcomingshow={this.postUpcomingShow} /> */}
         <br />
