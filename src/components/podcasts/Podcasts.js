@@ -11,8 +11,9 @@ class Podcasts extends React.Component {
     const renderedList = this.props.podcasts.map((podcast, index) => {
       console.log(podcast);
       return (
-        <div key={index} className="ui items">
+        <div key={index} className="ui segment">
           <PodcastItem
+            className="ui items"
             editpodcast={this.props.editpodcast}
             podcast={podcast}
             index={index}
@@ -24,7 +25,7 @@ class Podcasts extends React.Component {
     return (
       <div>
         <CreatePodcast postpodcast={this.props.postpodcast} />
-        <div className="ui segment">{renderedList}</div>
+        <div>{renderedList}</div>
       </div>
     );
   }

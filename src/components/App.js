@@ -15,7 +15,8 @@ class App extends React.Component {
       toDos: [],
       storysubmission: [],
       upcomingShows: [],
-      podcasts: []
+      podcasts: [],
+      intervalIsSet: false
     };
   }
 
@@ -23,6 +24,10 @@ class App extends React.Component {
     // this.getStoryDataFromDb();
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
+    // if (!this.state.intervalIsSet) {
+    //   let interval = setInterval(this.getUpcomingPodcastsFromDb, 1000);
+    //   this.setState({ intervalIsSet: interval });
+    // }
   }
 
   getStoryDataFromDb = () => {
@@ -61,7 +66,7 @@ class App extends React.Component {
 
   deletePodcast = index => {
     axios.delete('http://localhost:5000/api/podcasts/' + index);
-    console.log('Called deletePodcast');
+    console.log(index);
   };
 
   postUpcomingShow = upcomingShow => {

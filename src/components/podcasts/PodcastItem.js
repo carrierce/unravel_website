@@ -52,7 +52,7 @@ class PodcastItem extends React.Component {
         </button>
         <button
           className="negative ui button"
-          onClick={() => this.props.deletepodcast(this.state._id)}
+          onClick={() => this.props.deletepodcast(this.props.podcast._id)}
         >
           Delete Podcast
         </button>
@@ -65,7 +65,6 @@ class PodcastItem extends React.Component {
             podcast={this.props.podcast}
           />
         </div>
-        <div className="ui divider" />
       </div>
     );
   }
