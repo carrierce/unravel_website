@@ -21,14 +21,7 @@ class UpcomingShows extends React.Component {
         </div>
       );
     });
-    return (
-      <div>
-        {/* <button onClick={() => this.props.editupcomingshow()}>
-          Edit Upcoming show
-        </button> */}
-        {renderedList}
-      </div>
-    );
+    return <div>{renderedList}</div>;
   }
 }
 
