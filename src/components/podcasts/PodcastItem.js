@@ -17,13 +17,34 @@ class PodcastItem extends React.Component {
   render() {
     return (
       <div key={this.props.index}>
-        <div className="ui item">
-          <h2>Podcast Data</h2>
-          <p>Cover Image Link: {this.props.podcast.podcastCoverImageLink}</p>
-          <p>Name: {this.props.podcast.podcastName}</p>
-          <p>Blurb: {this.props.podcast.podcastBlurb}</p>
-          <p>Show Notes: {this.props.podcast.podcastShowNotes}</p>
-          <p>Embed Link: {this.props.podcast.podcastEmbedLink}</p>
+        <h2>{this.props.podcast.podcastName}</h2>
+        <div className="ui relaxed divided list">
+          <div className="item">
+            <div className="header">Name</div>
+            <div className="description">{this.props.podcast.podcastName}</div>
+          </div>
+          <div className="item">
+            <div className="header">Blurb</div>
+            <div className="description">{this.props.podcast.podcastBlurb}</div>
+          </div>
+          <div className="item">
+            <div className="header">Show Notes</div>
+            <div className="description">
+              {this.props.podcast.podcastShowNotes}
+            </div>
+          </div>
+          <div className="item">
+            <div className="header">Cover Image Link</div>
+            <div className="description">
+              {this.props.podcast.podcastCoverImageLink}
+            </div>
+          </div>
+          <div className="item">
+            <div className="header">Embed Link</div>
+            <div className="description">
+              {this.props.podcast.podcastEmbedLink}
+            </div>
+          </div>
         </div>
         <br />
         <button className="positive ui button" onClick={this.handleClick}>
@@ -35,8 +56,8 @@ class PodcastItem extends React.Component {
         >
           Delete Podcast
         </button>
-        <div className="ui divider" />
         <div style={{ display: this.state.isToggle ? 'block' : 'none' }}>
+          <div className="ui divider" />
           <EditPodcast
             toggleeditcomponent={this.handleClick}
             deletepodcast={this.props.deletepodcast}
@@ -44,6 +65,7 @@ class PodcastItem extends React.Component {
             podcast={this.props.podcast}
           />
         </div>
+        <div className="ui divider" />
       </div>
     );
   }

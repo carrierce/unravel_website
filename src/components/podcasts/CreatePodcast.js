@@ -25,16 +25,6 @@ class CreatePodcast extends React.Component {
       <div className="ui segment">
         <h2>Create New Podcast</h2>
         <form className="ui form" onSubmit={() => this.submitForm()}>
-          {/* Change them to look like this. */}
-          <div className="field">
-            <label>Cover Image Link</label>
-            <input
-              id="podcastCoverImageLink"
-              value={this.state.podcastCoverImageLink}
-              onChange={e => this.formChange(e)}
-              placeholder="Cover Image Link"
-            />
-          </div>
           <div className="field">
             <label>Episode Title</label>
             <input
@@ -46,7 +36,8 @@ class CreatePodcast extends React.Component {
           </div>
           <div className="field">
             <label>Blurb</label>
-            <input
+            <textarea
+              rows="2"
               id="podcastBlurb"
               value={this.state.podcastBlurb}
               onChange={e => this.formChange(e)}
@@ -55,11 +46,20 @@ class CreatePodcast extends React.Component {
           </div>
           <div className="field">
             <label>Show Notes</label>
-            <input
+            <textarea
               id="podcastShowNotes"
               value={this.state.podcastShowNotes}
               onChange={e => this.formChange(e)}
               placeholder="Show Notes"
+            />
+          </div>
+          <div className="field">
+            <label>Cover Image Link</label>
+            <input
+              id="podcastCoverImageLink"
+              value={this.state.podcastCoverImageLink}
+              onChange={e => this.formChange(e)}
+              placeholder="Cover Image Link"
             />
           </div>
           <div className="field">
@@ -71,8 +71,11 @@ class CreatePodcast extends React.Component {
               placeholder="Podcast Embed Link"
             />
           </div>
-          <button className="ui button" onClick={e => this.submitForm(e)}>
-            Submit
+          <button
+            className="positive ui button"
+            onClick={e => this.submitForm(e)}
+          >
+            Submit New Podcast
           </button>
         </form>
       </div>
