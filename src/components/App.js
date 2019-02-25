@@ -21,32 +21,23 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // this.getStoryDataFromDb();
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
-    // if (!this.state.intervalIsSet) {
-    //   let interval = setInterval(this.getUpcomingPodcastsFromDb, 1000);
-    //   this.setState({ intervalIsSet: interval });
-    // }
   }
 
   getStoryDataFromDb = () => {
     axios.get('http://localhost:5000/api/storysubmission/').then(response => {
-      // console.log(typeof response.data);
       this.setState({
         storysubmission: response.data
       });
-      // console.log(this.state);
     });
   };
 
   getUpcomingShowsFromDb = () => {
     axios.get('http://localhost:5000/api/upcomingshows/').then(response => {
-      // console.log(response);
       this.setState({
         upcomingShows: response.data
       });
-      // console.log(this.state);
     });
   };
 
@@ -55,18 +46,15 @@ class App extends React.Component {
       this.setState({
         podcasts: response.data
       });
-      console.log(this.state);
     });
   };
 
   deleteUpcomingShow = index => {
     axios.delete('http://localhost:5000/api/upcomingshows/' + index);
-    console.log('Called deleteUpcomingShow');
   };
 
   deletePodcast = index => {
     axios.delete('http://localhost:5000/api/podcasts/' + index);
-    console.log(index);
   };
 
   postUpcomingShow = upcomingShow => {
@@ -88,8 +76,7 @@ class App extends React.Component {
         podcastShowNotes: podcast.podcastShowNotes,
         podcastEmbedLink: podcast.podcastEmbedLink
       })
-      .then(this.setState({ podcasts: [...this.state.podcasts, podcast] }))
-      .then(console.log(this.state.podcasts));
+      .then(this.setState({ podcasts: [...this.state.podcasts, podcast] }));
   };
 
   editUpcomingShow = edittedUpcomingShow => {
@@ -108,13 +95,29 @@ class App extends React.Component {
   };
 
   editPodcast = edittedPodcast => {
-    axios.put('http://localhost:5000/api/podcasts/' + edittedPodcast._id, {
-      podcastCoverImageLink: edittedPodcast.podcastCoverImageLink,
-      podcastName: edittedPodcast.podcastName,
-      podcastBlurb: edittedPodcast.podcastBlurb,
-      podcastShowNotes: edittedPodcast.podcastShowNotes,
-      podcastEmbedLink: edittedPodcast.podcastEmbedLink
-    });
+    console.log('editUpcomingPodcast Called');
+    // console.log(edittedPodcast);
+    const updatedPodcastIndex = this.state.podcasts.findIndex(
+      podcast => podcast._id === edittedPodcast._id
+    );
+    console.log(updatedPodcastIndex);
+    const updatedPodcast = this.state.podcasts.find(
+      podcast => podcast._id === edittedPodcast._id
+    );
+    const updatedPodcasts = [
+      ...this.state.podcasts.slice(0, updatedPodcastIndex),
+      edittedPodcast,
+      ...this.state.podcasts.slice(updatedPodcastIndex + 1)
+    ];
+    axios
+      .put('http://localhost:5000/api/podcasts/' + edittedPodcast._id, {
+        podcastCoverImageLink: edittedPodcast.podcastCoverImageLink,
+        podcastName: edittedPodcast.podcastName,
+        podcastBlurb: edittedPodcast.podcastBlurb,
+        podcastShowNotes: edittedPodcast.podcastShowNotes,
+        podcastEmbedLink: edittedPodcast.podcastEmbedLink
+      })
+      .then(this.setState({ podcasts: updatedPodcasts }));
   };
 
   render() {

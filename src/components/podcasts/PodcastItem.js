@@ -18,6 +18,7 @@ class PodcastItem extends React.Component {
     return (
       <div key={this.props.index}>
         <h2>{this.props.podcast.podcastName}</h2>
+        <h3>{this.props.podcast._id}</h3>
         <div className="ui relaxed divided list">
           <div className="item">
             <div className="header">Name</div>
