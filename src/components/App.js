@@ -80,13 +80,16 @@ class App extends React.Component {
   };
 
   postPodcast = podcast => {
-    axios.post('http://localhost:5000/api/podcasts/', {
-      podcastCoverImageLink: podcast.podcastCoverImageLink,
-      podcastName: podcast.podcastName,
-      podcastBlurb: podcast.podcastBlurb,
-      podcastShowNotes: podcast.podcastShowNotes,
-      podcastEmbedLink: podcast.podcastEmbedLink
-    });
+    axios
+      .post('http://localhost:5000/api/podcasts/', {
+        podcastCoverImageLink: podcast.podcastCoverImageLink,
+        podcastName: podcast.podcastName,
+        podcastBlurb: podcast.podcastBlurb,
+        podcastShowNotes: podcast.podcastShowNotes,
+        podcastEmbedLink: podcast.podcastEmbedLink
+      })
+      .then(this.setState({ podcasts: [...this.state.podcasts, podcast] }))
+      .then(console.log(this.state.podcasts));
   };
 
   editUpcomingShow = edittedUpcomingShow => {
