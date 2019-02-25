@@ -55,7 +55,6 @@ class App extends React.Component {
       this.setState({
         podcasts: response.data
       });
-      console.log(this.state);
     });
   };
 

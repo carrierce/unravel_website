@@ -10,7 +10,15 @@ class CreatePodcast extends React.Component {
       podcastShowNotes: '',
       podcastEmbedLink: ''
     };
+    this.initialState = {
+      podcastCoverImageLink: '',
+      podcastName: '',
+      podcastBlurb: '',
+      podcastShowNotes: '',
+      podcastEmbedLink: ''
+    };
   }
+
   formChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -18,6 +26,7 @@ class CreatePodcast extends React.Component {
   submitForm = e => {
     e.preventDefault();
     this.props.postpodcast(this.state);
+    this.setState(this.initialState);
   };
 
   render() {
