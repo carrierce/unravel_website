@@ -28,19 +28,6 @@ class EditPodcast extends React.Component {
       <div>
         <h1>Edit Podcast</h1>
         <form className="ui form" onSubmit={() => this.submitForm()}>
-          <h5>
-            Edit Podcast(podcastCoverImageLink needs to be at least 5 characters
-            longs)
-          </h5>
-          <div className="field">
-            <label>Cover Image Link</label>
-            <input
-              id="podcastCoverImageLink"
-              value={this.state.podcastCoverImageLink}
-              onChange={e => this.formChange(e)}
-              placeholder="Cover Image Link"
-            />
-          </div>
           <div className="field">
             <label>Episode Title</label>
             <input
@@ -67,6 +54,16 @@ class EditPodcast extends React.Component {
               value={this.state.podcastShowNotes}
               onChange={e => this.formChange(e)}
               placeholder="Show Notes"
+            />
+          </div>
+          <div className="field">
+            <label>Cover Image Link</label>
+            <h5>Cover image link must be at least 5 characters long</h5>
+            <input
+              id="podcastCoverImageLink"
+              value={this.state.podcastCoverImageLink}
+              onChange={e => this.formChange(e)}
+              placeholder="Cover Image Link"
             />
           </div>
           <div className="field">

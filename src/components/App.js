@@ -24,10 +24,10 @@ class App extends React.Component {
     // this.getStoryDataFromDb();
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
-    // if (!this.state.intervalIsSet) {
-    //   let interval = setInterval(this.getUpcomingPodcastsFromDb, 1000);
-    //   this.setState({ intervalIsSet: interval });
-    // }
+    if (!this.state.intervalIsSet) {
+      let interval = setInterval(this.getUpcomingPodcastsFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
   }
 
   getStoryDataFromDb = () => {
