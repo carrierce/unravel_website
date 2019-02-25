@@ -38,6 +38,7 @@ class PodcastItem extends React.Component {
         <div className="ui divider" />
         <div style={{ display: this.state.isToggle ? 'block' : 'none' }}>
           <EditPodcast
+            toggleeditcomponent={this.handleClick}
             deletepodcast={this.props.deletepodcast}
             editpodcast={this.props.editpodcast}
             podcast={this.props.podcast}

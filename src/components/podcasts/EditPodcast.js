@@ -20,6 +20,7 @@ class EditPodcast extends React.Component {
   submitForm = e => {
     e.preventDefault();
     this.props.editpodcast(this.state);
+    this.props.toggleeditcomponent();
   };
 
   render() {
@@ -80,13 +81,7 @@ class EditPodcast extends React.Component {
             className="positive ui button"
             onClick={e => this.submitForm(e)}
           >
-            Updated Podcast Submit
-          </button>
-          <button
-            className="negative ui button"
-            onClick={() => this.props.deletepodcast(this.state._id)}
-          >
-            Delete Podcast
+            Submit Updated Podcast
           </button>
         </form>
       </div>
