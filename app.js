@@ -6,12 +6,14 @@ const storySubmissionAPI = require('./server/routes/storySubmission');
 const impactFormAPI = require('./server/routes/impactForm');
 const upcomingShowsAPI = require('./server/routes/upcomingShows');
 const pastShowsAPI = require('./server/routes/pastShows');
+const cors = require('cors');
 
 const mongoose = require('./server/db/mongoose');
 
 //Middleware
+app.use(cors());
 app.use(express.json());
-const port = process.env.PORT || 8000;
+const port = process.env.BACKEND_PORT || 5000;
 
 app.use('/api/upcomingshows', upcomingShowsAPI);
 app.use('/api/pastshows', pastShowsAPI);

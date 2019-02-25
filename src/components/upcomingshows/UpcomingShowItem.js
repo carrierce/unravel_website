@@ -3,11 +3,7 @@ import EditShow from './EditShow';
 
 const UpcomingShowItem = props => {
   return (
-    <div key={props.index}>
-      <EditShow
-        editupcomingshow={props.editupcomingshow}
-        showinfo={props.upcomingshow}
-      />
+    <div className="ui item" key={props.index}>
       <br />
       <hr />
       <h4>SHOW</h4>
@@ -17,6 +13,10 @@ const UpcomingShowItem = props => {
       <h5>{props.upcomingshow.venue}</h5>
       <h5>{props.upcomingshow.showBlurb}</h5>
       <h5>{props.upcomingshow.ticketUrl}</h5>
+      <EditShow
+        editupcomingshow={props.editupcomingshow}
+        showinfo={props.upcomingshow}
+      />
       <br />
     </div>
   );

@@ -5,7 +5,7 @@ class EditPodcast extends React.Component {
     super(props);
     this.state = {
       _id: props.podcast._id,
-      podcastCoverImageLink: props.podcast.posterpodcastCoverImageLinkImageLink,
+      podcastCoverImageLink: props.podcast.podcastCoverImageLink,
       podcastName: props.podcast.podcastName,
       podcastBlurb: props.podcast.podcastBlurb,
       podcastShowNotes: props.podcast.podcastShowNotes,
@@ -25,46 +25,70 @@ class EditPodcast extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello from Edit Podcast</h1>
-        <form onSubmit={() => this.submitForm()}>
+        <h1>Edit Podcast</h1>
+        <form className="ui form" onSubmit={() => this.submitForm()}>
           <h5>
-            Edit Upcoming Show Data (poster image url needs to be at least 5
-            characters longs)
+            Edit Podcast(podcastCoverImageLink needs to be at least 5 characters
+            longs)
           </h5>
-          <input
-            id="podcastCoverImageLink"
-            value={this.state.podcastCoverImageLink}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastCoverImageLink"
-          />
-          <input
-            id="podcastName"
-            value={this.state.podcastName}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastName"
-          />
-          <input
-            id="podcastBlurb"
-            value={this.state.podcastBlurb}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastBlurb"
-          />
-          <input
-            id="podcastShowNotes"
-            value={this.state.podcastShowNotes}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastShowNotes"
-          />
-          <input
-            id="podcastEmbedLink"
-            value={this.state.podcastEmbedLink}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastEmbedLink"
-          />
-          <button onClick={e => this.submitForm(e)}>Submit</button>
+          <div className="field">
+            <label>Cover Image Link</label>
+            <input
+              id="podcastCoverImageLink"
+              value={this.state.podcastCoverImageLink}
+              onChange={e => this.formChange(e)}
+              placeholder="Cover Image Link"
+            />
+          </div>
+          <div className="field">
+            <label>Episode Title</label>
+            <input
+              id="podcastName"
+              value={this.state.podcastName}
+              onChange={e => this.formChange(e)}
+              placeholder="Episode Title"
+            />
+          </div>
+          <div className="field">
+            <label>Blurb</label>
+            <input
+              id="podcastBlurb"
+              value={this.state.podcastBlurb}
+              onChange={e => this.formChange(e)}
+              placeholder="Blurb"
+            />
+          </div>
+          <div className="field">
+            <label>Show Notes</label>
+            <input
+              id="podcastShowNotes"
+              value={this.state.podcastShowNotes}
+              onChange={e => this.formChange(e)}
+              placeholder="Show Notes"
+            />
+          </div>
+          <div className="field">
+            <label>Podcast Embed Link</label>
+            <input
+              id="podcastEmbedLink"
+              value={this.state.podcastEmbedLink}
+              onChange={e => this.formChange(e)}
+              placeholder="Podcast Embed Link"
+            />
+          </div>
+          <button
+            className="positive ui button"
+            onClick={e => this.submitForm(e)}
+          >
+            Updated Podcast Submit
+          </button>
+          <button
+            className="negative ui button"
+            onClick={() => this.props.deletepodcast(this.state._id)}
+          >
+            Delete Podcast
+          </button>
         </form>
-        <h5>Hello from Edit Show</h5>
-        <h1>{this.props.podcast.podcastCoverImageLink}</h1>
       </div>
     );
   }

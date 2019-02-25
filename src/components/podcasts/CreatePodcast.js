@@ -22,42 +22,58 @@ class CreatePodcast extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello from CreateUpcomingShow</h1>
-        <form onSubmit={() => this.submitForm()}>
-          <h5>Submit Podcast Data</h5>
-          <input
-            id="podcastCoverImageLink"
-            value={this.state.podcastCoverImageLink}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastCoverImageLink"
-          />
-          <input
-            type="date"
-            id="podcastName"
-            value={this.state.podcastName}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastName"
-          />
-          <input
-            id="podcastBlurb"
-            value={this.state.podcastBlurb}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastBlurb"
-          />
-          <input
-            id="podcastShowNotes"
-            value={this.state.podcastShowNotes}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastShowNotes"
-          />
-          <input
-            id="podcastEmbedLink"
-            value={this.state.podcastEmbedLink}
-            onChange={e => this.formChange(e)}
-            placeholder="podcastEmbedLink"
-          />
-          <button onClick={e => this.submitForm(e)}>Submit</button>
+      <div className="ui segment">
+        <h2>Create New Podcast</h2>
+        <form className="ui form" onSubmit={() => this.submitForm()}>
+          {/* Change them to look like this. */}
+          <div className="field">
+            <label>Cover Image Link</label>
+            <input
+              id="podcastCoverImageLink"
+              value={this.state.podcastCoverImageLink}
+              onChange={e => this.formChange(e)}
+              placeholder="Cover Image Link"
+            />
+          </div>
+          <div className="field">
+            <label>Episode Title</label>
+            <input
+              id="podcastName"
+              value={this.state.podcastName}
+              onChange={e => this.formChange(e)}
+              placeholder="Episode Title"
+            />
+          </div>
+          <div className="field">
+            <label>Blurb</label>
+            <input
+              id="podcastBlurb"
+              value={this.state.podcastBlurb}
+              onChange={e => this.formChange(e)}
+              placeholder="Blurb"
+            />
+          </div>
+          <div className="field">
+            <label>Show Notes</label>
+            <input
+              id="podcastShowNotes"
+              value={this.state.podcastShowNotes}
+              onChange={e => this.formChange(e)}
+              placeholder="Show Notes"
+            />
+          </div>
+          <div className="field">
+            <label>Podcast Embed Link</label>
+            <input
+              id="podcastEmbedLink"
+              value={this.state.podcastEmbedLink}
+              onChange={e => this.formChange(e)}
+              placeholder="Podcast Embed Link"
+            />
+          </div>
+          <button className="ui button" onClick={e => this.submitForm(e)}>
+            Submit
+          </button>
         </form>
       </div>
     );
