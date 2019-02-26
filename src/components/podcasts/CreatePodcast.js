@@ -10,7 +10,15 @@ class CreatePodcast extends React.Component {
       podcastShowNotes: '',
       podcastEmbedLink: ''
     };
+    this.initialState = {
+      podcastCoverImageLink: '',
+      podcastName: '',
+      podcastBlurb: '',
+      podcastShowNotes: '',
+      podcastEmbedLink: ''
+    };
   }
+
   formChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -18,6 +26,7 @@ class CreatePodcast extends React.Component {
   submitForm = e => {
     e.preventDefault();
     this.props.postpodcast(this.state);
+    this.setState(this.initialState);
   };
 
   render() {
@@ -47,6 +56,7 @@ class CreatePodcast extends React.Component {
           <div className="field">
             <label>Show Notes</label>
             <textarea
+              rows="3"
               id="podcastShowNotes"
               value={this.state.podcastShowNotes}
               onChange={e => this.formChange(e)}
@@ -54,7 +64,10 @@ class CreatePodcast extends React.Component {
             />
           </div>
           <div className="field">
-            <label>Cover Image Link</label>
+            <label>
+              Cover Image Link (Cover Image Link must be at least 5 characters
+              long)
+            </label>
             <input
               id="podcastCoverImageLink"
               value={this.state.podcastCoverImageLink}

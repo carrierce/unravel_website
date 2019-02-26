@@ -23,6 +23,10 @@ class EditPodcast extends React.Component {
     this.props.toggleeditcomponent();
   };
 
+  cancelEdit = () => {
+    this.props.toggleeditcomponent();
+  };
+
   render() {
     return (
       <div>
@@ -50,6 +54,7 @@ class EditPodcast extends React.Component {
           <div className="field">
             <label>Show Notes</label>
             <textarea
+              rows="3"
               id="podcastShowNotes"
               value={this.state.podcastShowNotes}
               onChange={e => this.formChange(e)}
@@ -57,8 +62,10 @@ class EditPodcast extends React.Component {
             />
           </div>
           <div className="field">
-            <label>Cover Image Link</label>
-            <h5>Cover image link must be at least 5 characters long</h5>
+            <label>
+              Cover Image Link (Cover image link must be at least 5 characters
+              long)
+            </label>
             <input
               id="podcastCoverImageLink"
               value={this.state.podcastCoverImageLink}
@@ -80,6 +87,9 @@ class EditPodcast extends React.Component {
             onClick={e => this.submitForm(e)}
           >
             Submit Updated Podcast
+          </button>
+          <button class="ui primary button" onClick={e => this.cancelEdit()}>
+            Discard Edits
           </button>
         </form>
       </div>
