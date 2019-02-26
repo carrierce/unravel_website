@@ -15,9 +15,7 @@ class App extends React.Component {
       toDos: [],
       storysubmission: [],
       upcomingShows: [],
-      podcasts: [],
-      intervalIsSet: false,
-      refreshPodcasts: false
+      podcasts: []
     };
   }
 
@@ -68,14 +66,8 @@ class App extends React.Component {
 
   deletePodcast = index => {
     axios.delete('http://localhost:5000/api/podcasts/' + index).then(() => {
-      axios.get('http://localhost:5000/api/podcasts/').then(response => {
-        console.log(response);
-        this.setState({
-          podcasts: response.data
-        });
-      });
+      this.getUpcomingPodcastsFromDb();
     });
-    console.log(index);
   };
 
   postUpcomingShow = upcomingShow => {
@@ -125,12 +117,7 @@ class App extends React.Component {
         podcastEmbedLink: edittedPodcast.podcastEmbedLink
       })
       .then(() => {
-        axios.get('http://localhost:5000/api/podcasts/').then(response => {
-          console.log(response);
-          this.setState({
-            podcasts: response.data
-          });
-        });
+        this.getUpcomingPodcastsFromDb();
       });
   };
 
