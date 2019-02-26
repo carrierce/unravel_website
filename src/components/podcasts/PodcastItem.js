@@ -18,7 +18,10 @@ class PodcastItem extends React.Component {
     return (
       <div key={this.props.index}>
         <h2>{this.props.podcast.podcastName}</h2>
-        <div className="ui relaxed divided list">
+        <div
+          style={{ display: this.state.isToggle ? 'none' : 'block' }}
+          className="ui relaxed divided list"
+        >
           <div className="item">
             <div className="header">Name</div>
             <div className="description">{this.props.podcast.podcastName}</div>
@@ -47,17 +50,21 @@ class PodcastItem extends React.Component {
           </div>
         </div>
         <br />
-        <button className="positive ui button" onClick={this.handleClick}>
-          Edit Podcast
-        </button>
-        <button
-          className="negative ui button"
-          onClick={() => this.props.deletepodcast(this.props.podcast._id)}
+        <div
+          style={{ display: this.state.isToggle ? 'none' : 'block' }}
+          className="ui relaxed divided list"
         >
-          Delete Podcast
-        </button>
+          <button className="positive ui button" onClick={this.handleClick}>
+            Edit Podcast
+          </button>
+          <button
+            className="negative ui button"
+            onClick={() => this.props.deletepodcast(this.props.podcast._id)}
+          >
+            Delete Podcast
+          </button>
+        </div>
         <div style={{ display: this.state.isToggle ? 'block' : 'none' }}>
-          <div className="ui divider" />
           <EditPodcast
             toggleeditcomponent={this.handleClick}
             deletepodcast={this.props.deletepodcast}
