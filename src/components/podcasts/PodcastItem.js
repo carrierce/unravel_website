@@ -5,13 +5,18 @@ class PodcastItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggle: false
+      isToggle: false,
+      isToggleForEditPodcast: false
     };
   }
 
-  handleClick = e => {
-    this.setState({ isToggle: !this.state.isToggle });
-    console.log(this.state);
+  handleClick = () => {
+    console.log('handleclick is called!!');
+    this.props.getpodcastsfromdb();
+    this.setState({
+      isToggle: !this.state.isToggle,
+      isToggleForEditPodcast: !this.state.isToggleForEditPodcast
+    });
   };
 
   render() {
@@ -66,6 +71,7 @@ class PodcastItem extends React.Component {
         </div>
         <div style={{ display: this.state.isToggle ? 'block' : 'none' }}>
           <EditPodcast
+            toggledforedit={this.state.isToggleForEditPodcast}
             toggleeditcomponent={this.handleClick}
             deletepodcast={this.props.deletepodcast}
             editpodcast={this.props.editpodcast}

@@ -3,16 +3,37 @@ import PodcastItem from './PodcastItem';
 import CreatePodcast from './CreatePodcast';
 
 class Podcasts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      podcasts: this.props.podcasts
+    };
+  }
+
+  componentWillMount() {
+    this.setState({
+      podcasts: this.props.podcasts
+    });
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      podcasts: this.props.podcasts
+    });
+  }
+
   deletePodcast = index => {
     this.props.deletepodcast(index);
   };
 
   render() {
+    // console.log('hello from podcasts.js render');
+    // console.log(this.props.podcasts);
+    // console.log(this.state);
     const renderedList = this.props.podcasts
       .slice(0)
       .reverse()
       .map((podcast, index) => {
-        console.log(podcast);
         return (
           <div key={index} className="ui segment">
             <PodcastItem
@@ -21,6 +42,7 @@ class Podcasts extends React.Component {
               podcast={podcast}
               index={index}
               deletepodcast={this.deletePodcast}
+              getpodcastsfromdb={this.props.getpodcastsfromdb}
             />
           </div>
         );
