@@ -63,7 +63,10 @@ class PodcastItem extends React.Component {
           <button className="positive ui button" onClick={this.handleClick}>
             Edit Podcast
           </button>
-          <ConfirmDelete />
+          <ConfirmDelete
+            deletepodcast={this.props.deletepodcast}
+            podcast={this.props.podcast}
+          />
           {/* <button
             className="negative ui button"
             onClick={() => this.props.deletepodcast(this.props.podcast._id)}

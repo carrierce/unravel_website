@@ -1,20 +1,30 @@
-import React from 'react';
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Button, Confirm } from 'semantic-ui-react';
 
-const ModalBasicExample = () => (
-  <Modal trigger={<Button>Delete Podcast</Button>} basic size="small">
-    <Header icon="archive" content="Delete Podcast" />
-    <Modal.Content>
-      <p>Confirm Delete Podcast</p>
-    </Modal.Content>
-    <Modal.Actions>
-      <Button basic color="blue" inverted>
-        <Icon name="remove" /> No
-      </Button>
-      <Button color="red" inverted>
-        <Icon name="checkmark" /> Yes
-      </Button>
-    </Modal.Actions>
-  </Modal>
-);
-export default ModalBasicExample;
+class ConfirmDelete extends Component {
+  state = { open: false };
+
+  open = () => {
+    this.setState({ open: true });
+  };
+  close = () => {
+    this.props.deletepodcast(this.props.podcast._id);
+    console.log(this.props.podcast._id);
+    this.setState({ open: false });
+  };
+
+  render() {
+    return (
+      <div>
+        <Button onClick={this.open}>Show</Button>
+        <Confirm
+          open={this.state.open}
+          onCancel={this.close}
+          onConfirm={this.close}
+        />
+      </div>
+    );
+  }
+}
+
+export default ConfirmDelete;
