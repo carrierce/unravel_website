@@ -6,6 +6,7 @@ import CreateUpcomingShow from './upcomingshows/CreateUpcomingShow';
 import Podcasts from './podcasts/Podcasts';
 import CreatePodcast from './podcasts/CreatePodcast';
 import EditPodcast from './podcasts/EditPodcast';
+import ConfirmDelete from './modals/ConfirmDelete';
 import './App.css';
 
 class App extends React.Component {
@@ -15,7 +16,8 @@ class App extends React.Component {
       toDos: [],
       storysubmission: [],
       upcomingShows: [],
-      podcasts: []
+      podcasts: [],
+      showConfirmDeleteModal: false
     };
   }
 
@@ -119,6 +121,12 @@ class App extends React.Component {
       .then(() => {
         this.getUpcomingPodcastsFromDb();
       });
+  };
+
+  showConfirmDeleteModal = () => {
+    this.setState({
+      showConfirmDeleteModal: !this.state.showConfirmDeleteModal
+    });
   };
 
   render() {

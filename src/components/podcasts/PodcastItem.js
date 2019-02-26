@@ -1,5 +1,6 @@
 import React from 'react';
 import EditPodcast from './EditPodcast';
+import ConfirmDelete from '../modals/ConfirmDelete';
 
 class PodcastItem extends React.Component {
   constructor(props) {
@@ -62,12 +63,13 @@ class PodcastItem extends React.Component {
           <button className="positive ui button" onClick={this.handleClick}>
             Edit Podcast
           </button>
-          <button
+          <ConfirmDelete />
+          {/* <button
             className="negative ui button"
             onClick={() => this.props.deletepodcast(this.props.podcast._id)}
           >
             Delete Podcast
-          </button>
+          </button> */}
         </div>
         <div style={{ display: this.state.isToggle ? 'block' : 'none' }}>
           <EditPodcast
