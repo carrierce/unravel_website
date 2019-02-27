@@ -4,6 +4,7 @@ class EditPodcast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      toggledforedit: props.toggledforedit,
       _id: props.podcast._id,
       podcastCoverImageLink: props.podcast.podcastCoverImageLink,
       podcastName: props.podcast.podcastName,
@@ -11,6 +12,17 @@ class EditPodcast extends React.Component {
       podcastShowNotes: props.podcast.podcastShowNotes,
       podcastEmbedLink: props.podcast.podcastEmbedLink
     };
+  }
+
+  componentWillReceiveProps() {
+    this.setState({
+      _id: this.props.podcast._id,
+      podcastCoverImageLink: this.props.podcast.podcastCoverImageLink,
+      podcastName: this.props.podcast.podcastName,
+      podcastBlurb: this.props.podcast.podcastBlurb,
+      podcastShowNotes: this.props.podcast.podcastShowNotes,
+      podcastEmbedLink: this.props.podcast.podcastEmbedLink
+    });
   }
 
   formChange = e => {
@@ -88,7 +100,10 @@ class EditPodcast extends React.Component {
           >
             Submit Updated Podcast
           </button>
-          <button class="ui primary button" onClick={e => this.cancelEdit()}>
+          <button
+            className="ui primary button"
+            onClick={e => this.cancelEdit()}
+          >
             Discard Edits
           </button>
         </form>

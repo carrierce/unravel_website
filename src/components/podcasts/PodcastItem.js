@@ -1,17 +1,23 @@
 import React from 'react';
 import EditPodcast from './EditPodcast';
+import ConfirmDelete from '../modals/ConfirmDelete';
 
 class PodcastItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggle: false
+      isToggle: false,
+      isToggleForEditPodcast: false
     };
   }
 
-  handleClick = e => {
-    this.setState({ isToggle: !this.state.isToggle });
-    console.log(this.state);
+  handleClick = () => {
+    console.log('handleclick is called!!');
+    this.props.getpodcastsfromdb();
+    this.setState({
+      isToggle: !this.state.isToggle,
+      isToggleForEditPodcast: !this.state.isToggleForEditPodcast
+    });
   };
 
   render() {
@@ -52,20 +58,23 @@ class PodcastItem extends React.Component {
         <br />
         <div
           style={{ display: this.state.isToggle ? 'none' : 'block' }}
-          className="ui relaxed divided list"
+          className="ui horizontal list"
         >
-          <button className="positive ui button" onClick={this.handleClick}>
-            Edit Podcast
-          </button>
-          <button
-            className="negative ui button"
-            onClick={() => this.props.deletepodcast(this.props.podcast._id)}
-          >
-            Delete Podcast
-          </button>
+          <div className="item">
+            <button className="positive ui button" onClick={this.handleClick}>
+              Edit Podcast
+            </button>
+          </div>
+          <div className="item">
+            <ConfirmDelete
+              deletepodcast={this.props.deletepodcast}
+              podcast={this.props.podcast}
+            />
+          </div>
         </div>
         <div style={{ display: this.state.isToggle ? 'block' : 'none' }}>
           <EditPodcast
+            toggledforedit={this.state.isToggleForEditPodcast}
             toggleeditcomponent={this.handleClick}
             deletepodcast={this.props.deletepodcast}
             editpodcast={this.props.editpodcast}
