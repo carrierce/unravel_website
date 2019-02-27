@@ -132,48 +132,56 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <h1>Unravel CMS</h1>
-        <nav className="navbar navbar-light">
-          <ul className="nav navbar-nav">
-            <li>
+        <div className="ui inverted menu">
+          <div className="middle aligned left menu">
+            <h2 className="item">Unravel CMS</h2>
+          </div>
+          <ul className="right menu">
+            <li className="item">
               <Link to="/">Podcasts</Link>
             </li>
-            <li>
-              <Link to="/upcomingshows">Up ComingShows</Link>
+            <li className="item">
+              <Link to="/upcomingshows">Upcoming Shows</Link>
             </li>
-            <li>
-              <Link to="/products">Products</Link>
+            <li className="item">
+              <Link to="/impact">Impact</Link>
+            </li>
+            <li className="item">
+              <Link to="/pastshows">Past Shows</Link>
+            </li>
+            <li className="item">
+              <Link to="/storysubmission">Story Submission</Link>
             </li>
           </ul>
-        </nav>
-
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <Podcasts
-              podcasts={this.state.podcasts}
-              className="ui segment"
-              postpodcast={this.postPodcast}
-              podcasts={this.state.podcasts}
-              deletepodcast={this.deletePodcast}
-              editpodcast={this.editPodcast}
-              getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
-            />
-          )}
-        />
-        <Route
-          path="/upcomingshows"
-          render={() => (
-            <UpcomingShows
-              className="ui segment"
-              deleteupcomingshow={this.deleteUpcomingShow}
-              upcomingshows={this.state.upcomingShows}
-              editupcomingshow={this.editUpcomingShow}
-            />
-          )}
-        />
-
+        </div>
+        <div>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Podcasts
+                podcasts={this.state.podcasts}
+                className="ui segment"
+                postpodcast={this.postPodcast}
+                podcasts={this.state.podcasts}
+                deletepodcast={this.deletePodcast}
+                editpodcast={this.editPodcast}
+                getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
+              />
+            )}
+          />
+          <Route
+            path="/upcomingshows"
+            render={() => (
+              <UpcomingShows
+                className="ui segment"
+                deleteupcomingshow={this.deleteUpcomingShow}
+                upcomingshows={this.state.upcomingShows}
+                editupcomingshow={this.editUpcomingShow}
+              />
+            )}
+          />
+        </div>
         {/*         
         <Podcasts
           className="ui segment"
