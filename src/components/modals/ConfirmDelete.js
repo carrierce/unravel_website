@@ -23,6 +23,10 @@ class ConfirmDelete extends Component {
           Delete Podcast
         </Button>
         <Confirm
+          header="Confirm Delete Podcast"
+          content="Are you sure you want to delete this podcast?"
+          cancelButton="Cancel"
+          confirmButton="Delete Podcast"
           open={this.state.open}
           onCancel={this.close}
           onConfirm={this.deletepodcast}

@@ -58,12 +58,14 @@ class PodcastItem extends React.Component {
         <br />
         <div
           style={{ display: this.state.isToggle ? 'none' : 'block' }}
-          className="ui relaxed divided list"
+          className="ui horizontal list"
         >
-          <button className="positive ui button" onClick={this.handleClick}>
-            Edit Podcast
-          </button>
-          <div>
+          <div className="item">
+            <button className="positive ui button" onClick={this.handleClick}>
+              Edit Podcast
+            </button>
+          </div>
+          <div className="item">
             <ConfirmDelete
               deletepodcast={this.props.deletepodcast}
               podcast={this.props.podcast}
