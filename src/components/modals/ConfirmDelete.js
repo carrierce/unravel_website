@@ -8,19 +8,24 @@ class ConfirmDelete extends Component {
     this.setState({ open: true });
   };
   close = () => {
+    this.setState({ open: false });
+  };
+
+  deletepodcast = () => {
     this.props.deletepodcast(this.props.podcast._id);
-    console.log(this.props.podcast._id);
     this.setState({ open: false });
   };
 
   render() {
     return (
       <div>
-        <Button onClick={this.open}>Show</Button>
+        <Button className="negative ui button" onClick={this.open}>
+          Delete Podcast
+        </Button>
         <Confirm
           open={this.state.open}
           onCancel={this.close}
-          onConfirm={this.close}
+          onConfirm={this.deletepodcast}
         />
       </div>
     );
