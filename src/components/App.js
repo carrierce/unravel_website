@@ -22,26 +22,20 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
   }
 
   componentDidMount() {
-    // this.getStoryDataFromDb();
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
-    // if (!this.state.intervalIsSet) {
-    //   let interval = setInterval(this.getUpcomingPodcastsFromDb, 1000);
-    //   this.setState({ intervalIsSet: interval });
-    // }
   }
 
   getStoryDataFromDb = () => {
     axios.get('http://localhost:5000/api/storysubmission/').then(response => {
-      // console.log(typeof response.data);
       this.setState({
         storysubmission: response.data
       });
-      // console.log(this.state);
     });
   };
 
@@ -62,8 +56,11 @@ class App extends React.Component {
   };
 
   deleteUpcomingShow = index => {
-    axios.delete('http://localhost:5000/api/upcomingshows/' + index);
-    console.log('Called deleteUpcomingShow');
+    axios
+      .delete('http://localhost:5000/api/upcomingshows/' + index)
+      .then(() => {
+        this.getUpcomingPodcastsFromDb();
+      });
   };
 
   deletePodcast = index => {
@@ -73,13 +70,19 @@ class App extends React.Component {
   };
 
   postUpcomingShow = upcomingShow => {
-    axios.post('http://localhost:5000/api/upcomingshows/', {
-      posterImageLink: upcomingShow.posterImageLink,
-      showDate: upcomingShow.showDate,
-      venue: upcomingShow.venue,
-      showBlurb: upcomingShow.showBlurb,
-      ticketUrl: upcomingShow.ticketUrl
-    });
+    axios
+      .post('http://localhost:5000/api/upcomingshows/', {
+        posterImageLink: upcomingShow.posterImageLink,
+        showDate: upcomingShow.showDate,
+        venue: upcomingShow.venue,
+        showBlurb: upcomingShow.showBlurb,
+        ticketUrl: upcomingShow.ticketUrl
+      })
+      .then(response => {
+        this.setState({
+          upcomingShows: [...this.state.upcomingShows, response.data]
+        });
+      });
   };
 
   postPodcast = podcast => {
@@ -97,16 +100,20 @@ class App extends React.Component {
   };
 
   editUpcomingShow = edittedUpcomingShow => {
-    axios.put(
-      'http://localhost:5000/api/upcomingshows/' + edittedUpcomingShow._id,
-      {
-        posterImageLink: edittedUpcomingShow.posterImageLink,
-        showDate: edittedUpcomingShow.showDate,
-        venue: edittedUpcomingShow.venue,
-        showBlurb: edittedUpcomingShow.showBlurb,
-        ticketUrl: edittedUpcomingShow.ticketUrl
-      }
-    );
+    axios
+      .put(
+        'http://localhost:5000/api/upcomingshows/' + edittedUpcomingShow._id,
+        {
+          posterImageLink: edittedUpcomingShow.posterImageLink,
+          showDate: edittedUpcomingShow.showDate,
+          venue: edittedUpcomingShow.venue,
+          showBlurb: edittedUpcomingShow.showBlurb,
+          ticketUrl: edittedUpcomingShow.ticketUrl
+        }
+      )
+      .then(() => {
+        this.getUpcomingShowsFromDb();
+      });
   };
 
   editPodcast = edittedPodcast => {
