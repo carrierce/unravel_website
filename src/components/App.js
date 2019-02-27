@@ -7,7 +7,7 @@ import Podcasts from './podcasts/Podcasts';
 import CreatePodcast from './podcasts/CreatePodcast';
 import EditPodcast from './podcasts/EditPodcast';
 import ConfirmDelete from './modals/ConfirmDelete';
-import './App.css';
+import { Link, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -132,8 +132,57 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <h1>Unravel CMS</h1>
-
+        <div className="ui inverted menu">
+          <div className="middle aligned left menu">
+            <h2 className="item">Unravel CMS</h2>
+          </div>
+          <ul className="right menu">
+            <li className="item">
+              <Link to="/">Podcasts</Link>
+            </li>
+            <li className="item">
+              <Link to="/upcomingshows">Upcoming Shows</Link>
+            </li>
+            <li className="item">
+              <Link to="/impact">Impact</Link>
+            </li>
+            <li className="item">
+              <Link to="/pastshows">Past Shows</Link>
+            </li>
+            <li className="item">
+              <Link to="/storysubmission">Story Submission</Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <Podcasts
+                podcasts={this.state.podcasts}
+                className="ui segment"
+                postpodcast={this.postPodcast}
+                podcasts={this.state.podcasts}
+                deletepodcast={this.deletePodcast}
+                editpodcast={this.editPodcast}
+                getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
+              />
+            )}
+          />
+          <Route
+            path="/upcomingshows"
+            render={() => (
+              <UpcomingShows
+                className="ui segment"
+                deleteupcomingshow={this.deleteUpcomingShow}
+                upcomingshows={this.state.upcomingShows}
+                editupcomingshow={this.editUpcomingShow}
+              />
+            )}
+          />
+        </div>
+        {/*         
         <Podcasts
           className="ui segment"
           postpodcast={this.postPodcast}
@@ -141,7 +190,7 @@ class App extends React.Component {
           deletepodcast={this.deletePodcast}
           editpodcast={this.editPodcast}
           getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
-        />
+        /> */}
         {/* <CreateUpcomingShow postupcomingshow={this.postUpcomingShow} /> */}
         {/* <UpcomingShows
           deleteupcomingshow={this.deleteUpcomingShow}
