@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Podcast.css';
 class CreatePodcast extends React.Component {
   constructor(props) {
     super(props);
@@ -41,6 +41,7 @@ class CreatePodcast extends React.Component {
               value={this.state.podcastName}
               onChange={e => this.formChange(e)}
               placeholder="Episode Title"
+              required
             />
           </div>
           <div className="field">
@@ -51,6 +52,7 @@ class CreatePodcast extends React.Component {
               value={this.state.podcastBlurb}
               onChange={e => this.formChange(e)}
               placeholder="Blurb"
+              required
             />
           </div>
           <div className="field">
@@ -61,6 +63,7 @@ class CreatePodcast extends React.Component {
               value={this.state.podcastShowNotes}
               onChange={e => this.formChange(e)}
               placeholder="Show Notes"
+              required
             />
           </div>
           <div className="field">
@@ -73,6 +76,7 @@ class CreatePodcast extends React.Component {
               value={this.state.podcastCoverImageLink}
               onChange={e => this.formChange(e)}
               placeholder="Cover Image Link"
+              required
             />
           </div>
           <div className="field">
@@ -82,6 +86,7 @@ class CreatePodcast extends React.Component {
               value={this.state.podcastEmbedLink}
               onChange={e => this.formChange(e)}
               placeholder="Podcast Embed Link"
+              required
             />
           </div>
           <button

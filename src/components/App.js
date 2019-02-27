@@ -7,7 +7,7 @@ import Podcasts from './podcasts/Podcasts';
 import CreatePodcast from './podcasts/CreatePodcast';
 import EditPodcast from './podcasts/EditPodcast';
 import ConfirmDelete from './modals/ConfirmDelete';
-import './App.css';
+import { Link, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -133,7 +133,48 @@ class App extends React.Component {
     return (
       <div className="ui container">
         <h1>Unravel CMS</h1>
+        <nav className="navbar navbar-light">
+          <ul className="nav navbar-nav">
+            <li>
+              <Link to="/">Podcasts</Link>
+            </li>
+            <li>
+              <Link to="/upcomingshows">Up ComingShows</Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
+          </ul>
+        </nav>
 
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Podcasts
+              podcasts={this.state.podcasts}
+              className="ui segment"
+              postpodcast={this.postPodcast}
+              podcasts={this.state.podcasts}
+              deletepodcast={this.deletePodcast}
+              editpodcast={this.editPodcast}
+              getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
+            />
+          )}
+        />
+        <Route
+          path="/upcomingshows"
+          render={() => (
+            <UpcomingShows
+              className="ui segment"
+              deleteupcomingshow={this.deleteUpcomingShow}
+              upcomingshows={this.state.upcomingShows}
+              editupcomingshow={this.editUpcomingShow}
+            />
+          )}
+        />
+
+        {/*         
         <Podcasts
           className="ui segment"
           postpodcast={this.postPodcast}
@@ -141,7 +182,7 @@ class App extends React.Component {
           deletepodcast={this.deletePodcast}
           editpodcast={this.editPodcast}
           getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
-        />
+        /> */}
         {/* <CreateUpcomingShow postupcomingshow={this.postUpcomingShow} /> */}
         {/* <UpcomingShows
           deleteupcomingshow={this.deleteUpcomingShow}
