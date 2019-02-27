@@ -1,5 +1,4 @@
 import React from 'react';
-import './Podcast.css';
 class CreatePodcast extends React.Component {
   constructor(props) {
     super(props);
