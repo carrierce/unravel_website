@@ -5,5 +5,7 @@ const storySubmissionController = require('../controllers/storySubmissionControl
 router.post('/', storySubmissionController.postStorySubmission);
 router.get('/', storySubmissionController.getStorySubmission);
 router.get('/:id', storySubmissionController.getStorySubmissionById);
+router.delete('/:id', storySubmissionController.deleteStorySubmissionById);
+router.put('/:id', storySubmissionController.updateStorySubmissionById);
 
 module.exports = router;

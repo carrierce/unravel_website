@@ -1,5 +1,4 @@
 import React from 'react';
-import StorySubmission from './StorySubmission';
 import axios from 'axios';
 import UpcomingShows from './upcomingshows/UpcomingShows';
 import CreateUpcomingShow from './upcomingshows/CreateUpcomingShow';
@@ -8,6 +7,7 @@ import CreatePodcast from './podcasts/CreatePodcast';
 import EditPodcast from './podcasts/EditPodcast';
 import PastShows from './pastshows/PastShows';
 import ConfirmDelete from './modals/ConfirmDelete';
+import StorySubmissions from './storysubmissions/StorySubmissions';
 import { Link, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
@@ -15,7 +15,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       toDos: [],
-      storysubmission: [],
+      storysubmissions: [],
       upcomingShows: [],
       podcasts: [],
       pastshows: [],
@@ -27,6 +27,7 @@ class App extends React.Component {
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
     this.getPastShowsFromDb();
+    this.getStorySubmissionsFromDb();
   }
 
   // do i need componentDidMount?
@@ -34,12 +35,13 @@ class App extends React.Component {
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
     this.getPastShowsFromDb();
+    this.getStorySubmissionsFromDb();
   }
 
-  getStoryDataFromDb = () => {
+  getStorySubmissionsFromDb = () => {
     axios.get('http://localhost:5000/api/storysubmission/').then(response => {
       this.setState({
-        storysubmission: response.data
+        storysubmissions: response.data
       });
     });
   };
@@ -68,6 +70,14 @@ class App extends React.Component {
     });
   };
 
+  deleteStorySubmission = index => {
+    axios
+      .delete('http://localhost:5000/api/storysubmission/' + index)
+      .then(() => {
+        this.getStorySubmissionsFromDb();
+      });
+  };
+
   deleteUpcomingShow = index => {
     axios
       .delete('http://localhost:5000/api/upcomingshows/' + index)
@@ -86,6 +96,21 @@ class App extends React.Component {
     axios.delete('http://localhost:5000/api/pastshows/' + index).then(() => {
       this.getPastShowsFromDb();
     });
+  };
+
+  postStorySubmission = storysubmission => {
+    axios
+      .post('http://localhost:5000/api/storysubmission/', {
+        name: storysubmission.name,
+        email: storysubmission.email,
+        story: storysubmission.story,
+        questionOrComment: storysubmission.questionOrComment
+      })
+      .then(response => {
+        this.setState({
+          storysubmissions: [...this.state.storysubmissions, response.data]
+        });
+      });
   };
 
   postUpcomingShow = upcomingShow => {
@@ -126,6 +151,23 @@ class App extends React.Component {
       })
       .then(response => {
         this.setState({ pastshows: [...this.state.pastshows, response.data] });
+      });
+  };
+
+  editStorySubmission = edittedStorySubmission => {
+    axios
+      .put(
+        'http://localhost:5000/api/storysubmission/' +
+          edittedStorySubmission._id,
+        {
+          name: edittedStorySubmission.name,
+          email: edittedStorySubmission.email,
+          story: edittedStorySubmission.story,
+          questionOrComment: edittedStorySubmission.questionOrComment
+        }
+      )
+      .then(() => {
+        this.getStorySubmissionsFromDb();
       });
   };
 
@@ -192,7 +234,7 @@ class App extends React.Component {
               <Link to="/pastshows">Past Shows</Link>
             </li>
             <li className="item">
-              <Link to="/storysubmission">Story Submission</Link>
+              <Link to="/storysubmissions">Story Submission</Link>
             </li>
           </ul>
         </div>
@@ -234,6 +276,19 @@ class App extends React.Component {
                 deletepastshow={this.deletePastShow}
                 editpastshow={this.editPastShow}
                 getpastshowsfromdb={this.getPastShowsFromDb}
+              />
+            )}
+          />
+          <Route
+            path="/storysubmissions"
+            render={() => (
+              <StorySubmissions
+                className="ui segment"
+                storysubmissions={this.state.storysubmissions}
+                poststorysubmission={this.postStorySubmission}
+                deletestorysubmission={this.deleteStorySubmission}
+                editstorysubmission={this.editStorySubmission}
+                getstorysubmissionsfromdb={this.getStorySubmissionsFromDb}
               />
             )}
           />
