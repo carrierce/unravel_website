@@ -6,6 +6,7 @@ import CreateUpcomingShow from './upcomingshows/CreateUpcomingShow';
 import Podcasts from './podcasts/Podcasts';
 import CreatePodcast from './podcasts/CreatePodcast';
 import EditPodcast from './podcasts/EditPodcast';
+import PastShows from './pastshows/PastShows';
 import ConfirmDelete from './modals/ConfirmDelete';
 import { Link, Route, Switch } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ class App extends React.Component {
       storysubmission: [],
       upcomingShows: [],
       podcasts: [],
+      pastshows: [],
       showConfirmDeleteModal: false
     };
   }
@@ -24,11 +26,14 @@ class App extends React.Component {
   componentWillMount() {
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
+    this.getPastShowsFromDb();
   }
 
+  // do i need componentDidMount?
   componentDidMount() {
     this.getUpcomingShowsFromDb();
     this.getUpcomingPodcastsFromDb();
+    this.getPastShowsFromDb();
   }
 
   getStoryDataFromDb = () => {
@@ -55,17 +60,31 @@ class App extends React.Component {
     });
   };
 
+  getPastShowsFromDb = () => {
+    axios.get('http://localhost:5000/api/pastshows/').then(response => {
+      this.setState({
+        pastshows: response.data
+      });
+    });
+  };
+
   deleteUpcomingShow = index => {
     axios
       .delete('http://localhost:5000/api/upcomingshows/' + index)
       .then(() => {
-        this.getUpcomingPodcastsFromDb();
+        this.getUpcomingShowsFromDb();
       });
   };
 
   deletePodcast = index => {
     axios.delete('http://localhost:5000/api/podcasts/' + index).then(() => {
       this.getUpcomingPodcastsFromDb();
+    });
+  };
+
+  deletePastShow = index => {
+    axios.delete('http://localhost:5000/api/pastshows/' + index).then(() => {
+      this.getPastShowsFromDb();
     });
   };
 
@@ -96,6 +115,17 @@ class App extends React.Component {
       })
       .then(response => {
         this.setState({ podcasts: [...this.state.podcasts, response.data] });
+      });
+  };
+  postPastShow = pastshow => {
+    axios
+      .post('http://localhost:5000/api/pastshows/', {
+        photoImageLink: pastshow.photoImageLink,
+        showDate: pastshow.showDate,
+        venue: pastshow.venue
+      })
+      .then(response => {
+        this.setState({ pastshows: [...this.state.pastshows, response.data] });
       });
   };
 
@@ -130,12 +160,17 @@ class App extends React.Component {
       });
   };
 
-  showConfirmDeleteModal = () => {
-    this.setState({
-      showConfirmDeleteModal: !this.state.showConfirmDeleteModal
-    });
+  editPastShow = edittedPastShow => {
+    axios
+      .put('http://localhost:5000/api/pastshows/' + edittedPastShow._id, {
+        photoImageLink: edittedPastShow.photoImageLink,
+        showDate: edittedPastShow.showDate,
+        venue: edittedPastShow.venue
+      })
+      .then(() => {
+        this.getPastShowsFromDb();
+      });
   };
-
   render() {
     return (
       <div className="ui container">
@@ -167,10 +202,9 @@ class App extends React.Component {
             path="/"
             render={() => (
               <Podcasts
-                podcasts={this.state.podcasts}
                 className="ui segment"
-                postpodcast={this.postPodcast}
                 podcasts={this.state.podcasts}
+                postpodcast={this.postPodcast}
                 deletepodcast={this.deletePodcast}
                 editpodcast={this.editPodcast}
                 getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
@@ -182,28 +216,28 @@ class App extends React.Component {
             render={() => (
               <UpcomingShows
                 className="ui segment"
-                deleteupcomingshow={this.deleteUpcomingShow}
                 upcomingshows={this.state.upcomingShows}
+                postupcomingshow={this.postUpcomingShow}
+                deleteupcomingshow={this.deleteUpcomingShow}
                 editupcomingshow={this.editUpcomingShow}
+                getupcomingshowsfromdb={this.getUpcomingShowsFromDb}
+              />
+            )}
+          />
+          <Route
+            path="/pastshows"
+            render={() => (
+              <PastShows
+                className="ui segment"
+                pastshows={this.state.pastshows}
+                postpastshow={this.postPastShow}
+                deletepastshow={this.deletePastShow}
+                editpastshow={this.editPastShow}
+                getpastshowsfromdb={this.getPastShowsFromDb}
               />
             )}
           />
         </div>
-        {/*         
-        <Podcasts
-          className="ui segment"
-          postpodcast={this.postPodcast}
-          podcasts={this.state.podcasts}
-          deletepodcast={this.deletePodcast}
-          editpodcast={this.editPodcast}
-          getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
-        /> */}
-        {/* <CreateUpcomingShow postupcomingshow={this.postUpcomingShow} /> */}
-        {/* <UpcomingShows
-          deleteupcomingshow={this.deleteUpcomingShow}
-          upcomingshows={this.state.upcomingShows}
-          editupcomingshow={this.editUpcomingShow}
-        /> */}
       </div>
     );
   }

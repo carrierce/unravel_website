@@ -31,7 +31,7 @@ class CreatePodcast extends React.Component {
   render() {
     return (
       <div className="ui segment">
-        <h2>Create New Podcast</h2>
+        <h2>Create Podcast</h2>
         <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
             <label>Episode Title</label>

@@ -1,45 +1,41 @@
 import React from 'react';
-
-class CreateUpcomingShow extends React.Component {
+class CreatePastShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posterImageLink: '',
+      photoImageLink: '',
       showDate: '',
-      venue: '',
-      showBlurb: '',
-      ticketUrl: ''
+      venue: ''
     };
     this.initialState = {
-      posterImageLink: '',
+      photoImageLink: '',
       showDate: '',
-      venue: '',
-      showBlurb: '',
-      ticketUrl: ''
+      venue: ''
     };
   }
+
   formChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
   submitForm = e => {
     e.preventDefault();
-    this.props.postupcomingshow(this.state);
+    this.props.postpastshow(this.state);
     this.setState(this.initialState);
   };
 
   render() {
     return (
       <div className="ui segment">
-        <h2>Create Upcoming Show</h2>
+        <h2>Create Past Show</h2>
         <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
-            <label>Poster Image Link</label>
+            <label>Photo Image Link</label>
             <input
-              id="posterImageLink"
-              value={this.state.posterImageLink}
+              id="photoImageLink"
+              value={this.state.photoImageLink}
               onChange={e => this.formChange(e)}
-              placeholder="Poster Image Link"
+              placeholder="Past Show Photo Image Link"
               required
             />
           </div>
@@ -65,31 +61,11 @@ class CreateUpcomingShow extends React.Component {
               required
             />
           </div>
-          <div className="field">
-            <label>Show Blurb</label>
-            <input
-              id="showBlurb"
-              value={this.state.showBlurb}
-              onChange={e => this.formChange(e)}
-              placeholder="Blurb"
-              required
-            />
-          </div>
-          <div className="field">
-            <label>Ticket Url</label>
-            <input
-              id="ticketUrl"
-              value={this.state.ticketUrl}
-              onChange={e => this.formChange(e)}
-              placeholder="Ticket Url"
-              required
-            />
-          </div>
           <button
             className="positive ui button"
             onClick={e => this.submitForm(e)}
           >
-            Submit New Show
+            Submit Past Show
           </button>
         </form>
       </div>
@@ -97,4 +73,4 @@ class CreateUpcomingShow extends React.Component {
   }
 }
 
-export default CreateUpcomingShow;
+export default CreatePastShow;

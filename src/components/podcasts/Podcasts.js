@@ -27,9 +27,6 @@ class Podcasts extends React.Component {
   };
 
   render() {
-    // console.log('hello from podcasts.js render');
-    // console.log(this.props.podcasts);
-    // console.log(this.state);
     const renderedList = this.props.podcasts
       .slice(0)
       .reverse()
