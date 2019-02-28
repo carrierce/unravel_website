@@ -27,3 +27,29 @@ exports.getImpactFormsById = (req, res) => {
     res.json(result);
   });
 };
+
+exports.updateImpactFormsById = (req, res) => {
+  ImpactForm.findOneAndUpdate(
+    { _id: req.params.id },
+    req.body,
+    (err, result) => {
+      if (err) {
+        return res.status(500).send(err.message);
+      }
+      res.json(result);
+    }
+  );
+};
+
+exports.deleteImpactFormsById = (req, res) => {
+  ImpactForm.findOneAndRemove(
+    { _id: req.params.id },
+    req.body,
+    (err, result) => {
+      if (err) {
+        return res.status(500).send(err.message);
+      }
+      res.json(result);
+    }
+  );
+};

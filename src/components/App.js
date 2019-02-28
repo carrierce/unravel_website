@@ -8,6 +8,7 @@ import EditPodcast from './podcasts/EditPodcast';
 import PastShows from './pastshows/PastShows';
 import ConfirmDelete from './modals/ConfirmDelete';
 import StorySubmissions from './storysubmissions/StorySubmissions';
+import ImpactForms from './impacts/ImpactForms';
 import { Link, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
       upcomingShows: [],
       podcasts: [],
       pastshows: [],
+      impactforms: [],
       showConfirmDeleteModal: false
     };
   }
@@ -28,6 +30,7 @@ class App extends React.Component {
     this.getUpcomingPodcastsFromDb();
     this.getPastShowsFromDb();
     this.getStorySubmissionsFromDb();
+    this.getImpactFormsFromDb();
   }
 
   // do i need componentDidMount?
@@ -36,12 +39,21 @@ class App extends React.Component {
     this.getUpcomingPodcastsFromDb();
     this.getPastShowsFromDb();
     this.getStorySubmissionsFromDb();
+    this.getImpactFormsFromDb();
   }
 
   getStorySubmissionsFromDb = () => {
     axios.get('http://localhost:5000/api/storysubmission/').then(response => {
       this.setState({
         storysubmissions: response.data
+      });
+    });
+  };
+
+  getImpactFormsFromDb = () => {
+    axios.get('http://localhost:5000/api/impactform/').then(response => {
+      this.setState({
+        impactforms: response.data
       });
     });
   };
@@ -78,6 +90,12 @@ class App extends React.Component {
       });
   };
 
+  deleteImpactForm = index => {
+    axios.delete('http://localhost:5000/api/impactform/' + index).then(() => {
+      this.getImpactFormsFromDb();
+    });
+  };
+
   deleteUpcomingShow = index => {
     axios
       .delete('http://localhost:5000/api/upcomingshows/' + index)
@@ -109,6 +127,21 @@ class App extends React.Component {
       .then(response => {
         this.setState({
           storysubmissions: [...this.state.storysubmissions, response.data]
+        });
+      });
+  };
+
+  postImpactForm = impactform => {
+    axios
+      .post('http://localhost:5000/api/impactform/', {
+        name: impactform.name,
+        email: impactform.email,
+        organization: impactform.organization,
+        message: impactform.message
+      })
+      .then(response => {
+        this.setState({
+          impactforms: [...this.state.impactforms, response.data]
         });
       });
   };
@@ -168,6 +201,19 @@ class App extends React.Component {
       )
       .then(() => {
         this.getStorySubmissionsFromDb();
+      });
+  };
+
+  editImpactForm = edittedImpactForm => {
+    axios
+      .put('http://localhost:5000/api/impactform/' + edittedImpactForm._id, {
+        name: edittedImpactForm.name,
+        email: edittedImpactForm.email,
+        organization: edittedImpactForm.organization,
+        message: edittedImpactForm.message
+      })
+      .then(() => {
+        this.getImpactFormsFromDb();
       });
   };
 
@@ -236,6 +282,9 @@ class App extends React.Component {
             <li className="item">
               <Link to="/storysubmissions">Story Submission</Link>
             </li>
+            <li className="item">
+              <Link to="/impact">Story Submission</Link>
+            </li>
           </ul>
         </div>
         <div>
@@ -289,6 +338,19 @@ class App extends React.Component {
                 deletestorysubmission={this.deleteStorySubmission}
                 editstorysubmission={this.editStorySubmission}
                 getstorysubmissionsfromdb={this.getStorySubmissionsFromDb}
+              />
+            )}
+          />
+          <Route
+            path="/impact"
+            render={() => (
+              <ImpactForms
+                className="ui segment"
+                impactforms={this.state.impactforms}
+                postimpactform={this.postImpactForm}
+                deleteimpactform={this.deleteImpactForm}
+                editimpactform={this.editImpactForm}
+                getimpactformsfromdb={this.getImpactFormsFromDb}
               />
             )}
           />
