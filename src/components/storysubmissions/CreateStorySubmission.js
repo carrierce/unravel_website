@@ -1,4 +1,6 @@
 import React from 'react';
+import { Form, Text } from 'informed';
+
 class CreateStorySubmission extends React.Component {
   constructor(props) {
     super(props);
@@ -27,12 +29,17 @@ class CreateStorySubmission extends React.Component {
   };
 
   render() {
+    const validate = value => {
+      return !value || value.length < 5
+        ? 'Field must be at least five characters'
+        : undefined;
+    };
     return (
       <div className="ui segment">
         <h2>Create Story Submission</h2>
-        <form className="ui form" onSubmit={() => this.submitForm()}>
+        <Form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
-            <label>Name</label>
+            <label validate={this.validate}>Name</label>
             <input
               id="name"
               value={this.state.name}
@@ -43,8 +50,8 @@ class CreateStorySubmission extends React.Component {
           </div>
           <div className="field">
             <label>Email Address</label>
-            <textarea
-              rows="2"
+            <input
+              type="email"
               id="email"
               value={this.state.email}
               onChange={e => this.formChange(e)}
@@ -80,7 +87,7 @@ class CreateStorySubmission extends React.Component {
           >
             Submit Story Submission
           </button>
-        </form>
+        </Form>
       </div>
     );
   }

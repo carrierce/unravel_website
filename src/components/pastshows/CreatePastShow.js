@@ -41,8 +41,8 @@ class CreatePastShow extends React.Component {
           </div>
           <div className="field">
             <label>Show Date</label>
-            <textarea
-              rows="2"
+            <input
+              type="date"
               id="showDate"
               value={this.state.showDate}
               onChange={e => this.formChange(e)}

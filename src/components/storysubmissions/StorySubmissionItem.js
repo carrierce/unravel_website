@@ -32,9 +32,7 @@ class StorySubmissionItem extends React.Component {
           </div>
           <div className="item">
             <div className="header">Email Address</div>
-            <div className="description">
-              {this.props.storysubmission.email}
-            </div>
+            <div className="email">{this.props.storysubmission.email}</div>
           </div>
           <div className="item">
             <div className="header">Story</div>

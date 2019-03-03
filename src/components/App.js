@@ -8,8 +8,9 @@ import EditPodcast from './podcasts/EditPodcast';
 import PastShows from './pastshows/PastShows';
 import ConfirmDelete from './modals/ConfirmDelete';
 import StorySubmissions from './storysubmissions/StorySubmissions';
-import ImpactForms from './impacts/ImpactForms';
 import { Link, Route, Switch } from 'react-router-dom';
+import ImpactForms from './impacts/ImpactForms';
+import { Form, Text } from 'informed';
 
 class App extends React.Component {
   constructor(props) {
@@ -274,16 +275,13 @@ class App extends React.Component {
               <Link to="/upcomingshows">Upcoming Shows</Link>
             </li>
             <li className="item">
-              <Link to="/impact">Impact</Link>
-            </li>
-            <li className="item">
               <Link to="/pastshows">Past Shows</Link>
             </li>
             <li className="item">
               <Link to="/storysubmissions">Story Submission</Link>
             </li>
             <li className="item">
-              <Link to="/impact">Story Submission</Link>
+              <Link to="/impact">Impact</Link>
             </li>
           </ul>
         </div>

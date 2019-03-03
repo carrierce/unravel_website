@@ -7,7 +7,7 @@ const impactFormAPI = require('./server/routes/impactForm');
 const upcomingShowsAPI = require('./server/routes/upcomingShows');
 const pastShowsAPI = require('./server/routes/pastShows');
 const cors = require('cors');
-
+const path = require('path');
 const mongoose = require('./server/db/mongoose');
 
 //Middleware
@@ -20,6 +20,9 @@ app.use('/api/pastshows', pastShowsAPI);
 app.use('/api/podcasts', podcastsAPI);
 app.use('/api/storysubmission', storySubmissionAPI);
 app.use('/api/impactform', impactFormAPI);
+
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.use('*', express.static(path.join(__dirname, 'build')));
 
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World' });
