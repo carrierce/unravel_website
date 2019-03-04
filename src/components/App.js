@@ -10,7 +10,6 @@ import ConfirmDelete from './modals/ConfirmDelete';
 import StorySubmissions from './storysubmissions/StorySubmissions';
 import { Link, Route, Switch } from 'react-router-dom';
 import ImpactForms from './impacts/ImpactForms';
-import { Form, Text } from 'informed';
 
 class App extends React.Component {
   constructor(props) {

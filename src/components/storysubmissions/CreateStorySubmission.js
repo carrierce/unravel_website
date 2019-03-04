@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form, Text } from 'informed';
 
 class CreateStorySubmission extends React.Component {
   constructor(props) {
@@ -8,7 +7,9 @@ class CreateStorySubmission extends React.Component {
       name: '',
       email: '',
       story: '',
-      questionOrComment: ''
+      questionOrComment: '',
+      error: false,
+      message: ''
     };
     this.initialState = {
       name: '',
@@ -19,44 +20,50 @@ class CreateStorySubmission extends React.Component {
   }
 
   formChange = e => {
+    let val = e.target.id;
+    console.log(this.state[val].length);
+    if (this.state[val].length < 3) {
+      this.setState({ error: true, message: 'there is an error' });
+    } else {
+      this.setState({ error: false, message: 'there is no error' });
+    }
     this.setState({ [e.target.id]: e.target.value });
   };
 
   submitForm = e => {
     e.preventDefault();
+    if (this.state.name.length <= 0) {
+      this.setState({ error: true, message: 'there is an error' });
+      return;
+    }
     this.props.poststorysubmission(this.state);
     this.setState(this.initialState);
   };
 
   render() {
-    const validate = value => {
-      return !value || value.length < 5
-        ? 'Field must be at least five characters'
-        : undefined;
-    };
     return (
       <div className="ui segment">
         <h2>Create Story Submission</h2>
-        <Form className="ui form" onSubmit={() => this.submitForm()}>
+        <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
-            <label validate={this.validate}>Name</label>
+            <label>Name</label>
             <input
               id="name"
               value={this.state.name}
               onChange={e => this.formChange(e)}
               placeholder="Past Show Photo Image Link"
-              required
             />
+            <span>{this.state.name.message}</span>
           </div>
           <div className="field">
             <label>Email Address</label>
             <input
+              name="email"
               type="email"
               id="email"
               value={this.state.email}
               onChange={e => this.formChange(e)}
               placeholder="Email Address"
-              required
             />
           </div>
           <div className="field">
@@ -67,7 +74,6 @@ class CreateStorySubmission extends React.Component {
               value={this.state.story}
               onChange={e => this.formChange(e)}
               placeholder="Story"
-              required
             />
           </div>
           <div className="field">
@@ -78,7 +84,6 @@ class CreateStorySubmission extends React.Component {
               value={this.state.questionOrComment}
               onChange={e => this.formChange(e)}
               placeholder="Question Or Comment"
-              required
             />
           </div>
           <button
@@ -87,7 +92,7 @@ class CreateStorySubmission extends React.Component {
           >
             Submit Story Submission
           </button>
-        </Form>
+        </form>
       </div>
     );
   }
