@@ -23,7 +23,10 @@ class CreateStorySubmission extends React.Component {
     let val = e.target.id;
     console.log(this.state[val].length);
     if (this.state[val].length < 3) {
-      this.setState({ error: true, message: 'there is an error' });
+      this.setState({
+        error: true,
+        message: 'there is an error an inside [e.target.id].upcaser'
+      });
     } else {
       this.setState({ error: false, message: 'there is no error' });
     }

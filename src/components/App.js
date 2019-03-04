@@ -1,15 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import UpcomingShows from './upcomingshows/UpcomingShows';
-import CreateUpcomingShow from './upcomingshows/CreateUpcomingShow';
 import Podcasts from './podcasts/Podcasts';
-import CreatePodcast from './podcasts/CreatePodcast';
-import EditPodcast from './podcasts/EditPodcast';
 import PastShows from './pastshows/PastShows';
-import ConfirmDelete from './modals/ConfirmDelete';
 import StorySubmissions from './storysubmissions/StorySubmissions';
 import { Link, Route, Switch } from 'react-router-dom';
 import ImpactForms from './impacts/ImpactForms';
+import MobileHomePage from './mobile/homepage/MobileHomePage';
 
 class App extends React.Component {
   constructor(props) {
@@ -262,11 +259,14 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <div className="ui inverted menu">
+        {/* <div className="ui inverted menu">
           <div className="middle aligned left menu">
             <h2 className="item">Unravel CMS</h2>
           </div>
           <ul className="right menu">
+            <li className="item">
+              <Link to="/mobile/homepage">MobileHomePage</Link>
+            </li>
             <li className="item">
               <Link to="/">Podcasts</Link>
             </li>
@@ -283,8 +283,9 @@ class App extends React.Component {
               <Link to="/impact">Impact</Link>
             </li>
           </ul>
-        </div>
+        </div> */}
         <div>
+          <Route path="/mobile/homepage" render={() => <MobileHomePage />} />
           <Route
             exact
             path="/"

@@ -1,0 +1,37 @@
+/* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
+
+#mobileHomePageContainer {
+  border: solid 2px red;
+}
+
+#mobileHomePage {
+  font-size: 2em;
+  background-color: #fff6f1;
+  padding: 25px 0 25px 20px;
+}
+
+#bodyText {
+  border: 0px !important;
+  background-color: #107b8c;
+  color: #ffffff;
+  padding: 0 20px 0 20px;
+  margin: none;
+}
+
+#mobileHomePageTicket {
+  color: black;
+  background-color: #fff6f1;
+  text-decoration: underline;
+  text-decoration-color: #ef844f;
+  text-decoration-style: thick;
+  padding-left: 20px;
+}
+
+#mobileHomePageFile {
+  background-color: red;
+}
+
+#imageEmbed {
+  border: solid 5px red;
+  display: block;
+}
