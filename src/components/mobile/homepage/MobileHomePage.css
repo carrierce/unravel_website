@@ -48,8 +48,9 @@
   background-color: red;
 }
 
-/* #imageEmbed {
+#imageEmbed {
   padding: 0px;
   border: solid 2px green;
-  display: block;
-} */
+  width: auto;
+  height: 100%;
+}

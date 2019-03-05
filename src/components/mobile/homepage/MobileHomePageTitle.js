@@ -1,5 +1,8 @@
 import React from 'react';
 
+const crowd = require('/Users/charlescarrier/Dev/unravel_website/src/images/crowd.jpg');
+const woman = require('/Users/charlescarrier/Dev/unravel_website/src/images/woman.jpg');
+
 class MobileHomePageTitle extends React.Component {
   constructor(props) {
     super(props);
@@ -26,22 +29,13 @@ class MobileHomePageTitle extends React.Component {
         >
           Get Tickets To Our Next Show
         </a>
-        <img
-          id="imageEmbed"
-          className="row"
-          src={require('/Users/charlescarrier/Dev/unravel_website/src/components/mobile/homepage/J7A0965.jpg')}
-        />
+        <img id="imageEmbed" className="row" src={crowd} />
         <div id="bodyText" class="row">
           Our mission is to facilitate the awareness of and engagement with our
           shared humanity. Stories are the most fundamental reminder that there
           is so much more that connects us than divides us.
         </div>
-
-        <img
-          id="imageEmbed"
-          className="row"
-          src="https://via.placeholder.com/200x100"
-        />
+        <img id="imageEmbed" className="row" src={woman} />
       </div>
     );
   }
