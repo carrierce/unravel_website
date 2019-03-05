@@ -1,20 +1,37 @@
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#basicSegment {
+  border: solid 1px orange;
+}
+
+#mobileHomePageNavBar {
+  border: solid 2px blue;
+  background-color: #fff6f1;
+}
 #mobileHomePageContainer {
   border: solid 2px red;
 }
 
-#mobileHomePage {
-  font-size: 2em;
+#leftFloatedColumn {
+  border: solid 2px green;
+}
+
+#rightFloatedColumn {
+  border: solid 2px purple;
+}
+
+#mobileHomePageTitle {
+  line-height: 1em;
+  display: flex;
+  font-size: 200%;
   background-color: #fff6f1;
   padding: 25px 0 25px 20px;
 }
 
 #bodyText {
-  border: 0px !important;
   background-color: #107b8c;
   color: #ffffff;
-  padding: 0 20px 0 20px;
+  padding: 20px;
   margin: none;
 }
 
@@ -31,7 +48,8 @@
   background-color: red;
 }
 
-#imageEmbed {
-  border: solid 5px red;
+/* #imageEmbed {
+  padding: 0px;
+  border: solid 2px green;
   display: block;
-}
+} */

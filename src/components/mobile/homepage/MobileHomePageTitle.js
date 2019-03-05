@@ -16,13 +16,12 @@ class MobileHomePageTitle extends React.Component {
   render() {
     return (
       <div id="mobileHomePageContainer" className="ui grid">
-        <div id="mobileHomePage" className="row">
+        <div id="mobileHomePageTitle" className="row">
           Harnessing the power of stories for impact and connection
         </div>
         <a
           className="row"
           id="mobileHomePageTicket"
-          className="row"
           href="https://www.247tickets.com/t/unravel-waves"
         >
           Get Tickets To Our Next Show
@@ -30,7 +29,7 @@ class MobileHomePageTitle extends React.Component {
         <img
           id="imageEmbed"
           className="row"
-          src="https://via.placeholder.com/1000x200"
+          src={require('/Users/charlescarrier/Dev/unravel_website/src/components/mobile/homepage/J7A0965.jpg')}
         />
         <div id="bodyText" class="row">
           Our mission is to facilitate the awareness of and engagement with our
@@ -38,7 +37,11 @@ class MobileHomePageTitle extends React.Component {
           is so much more that connects us than divides us.
         </div>
 
-        <img className="row" src="https://via.placeholder.com/400x200" />
+        <img
+          id="imageEmbed"
+          className="row"
+          src="https://via.placeholder.com/200x100"
+        />
       </div>
     );
   }

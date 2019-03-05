@@ -1,5 +1,6 @@
 import React from 'react';
 import MobileHomePageTitle from './MobileHomePageTitle';
+import MobileHomePageNavBar from './MobileHomePageNavBar';
 import './MobileHomePage.css';
 
 class MobileHomePage extends React.Component {
@@ -18,6 +19,7 @@ class MobileHomePage extends React.Component {
   render() {
     return (
       <div>
+        <MobileHomePageNavBar />
         <MobileHomePageTitle />
       </div>
     );
