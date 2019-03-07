@@ -285,7 +285,12 @@ class App extends React.Component {
           </ul>
         </div> */}
         <div>
-          <Route path="/mobile/homepage" render={() => <MobileHomePage />} />
+          <Route
+            path="/mobile/homepage"
+            render={() => (
+              <MobileHomePage upcomingshows={this.state.upcomingShows} />
+            )}
+          />
           <Route
             exact
             path="/"

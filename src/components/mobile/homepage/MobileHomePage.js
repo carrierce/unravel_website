@@ -1,18 +1,14 @@
 import React from 'react';
 import MobileHomePageTitle from './MobileHomePageTitle';
 import MobileHomePageNavBar from './MobileHomePageNavBar';
+import MobileHomePageUpcomingShows from './MobileHomePageUpcomingShows';
 import './MobileHomePage.css';
 
 class MobileHomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      story: '',
-      questionOrComment: '',
-      error: false,
-      message: ''
+      upcomingshows: this.props.upcomingshows
     };
   }
 
@@ -21,6 +17,7 @@ class MobileHomePage extends React.Component {
       <div>
         <MobileHomePageNavBar />
         <MobileHomePageTitle />
+        <MobileHomePageUpcomingShows upcomingshows={this.props.upcomingshows} />
       </div>
     );
   }

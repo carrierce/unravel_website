@@ -11,7 +11,6 @@ class UpcomingShowItem extends React.Component {
     };
   }
   handleClick = () => {
-    console.log('handleclick is called!!');
     this.props.getupcomingshowsfromdb();
     this.setState({
       isToggle: !this.state.isToggle,
