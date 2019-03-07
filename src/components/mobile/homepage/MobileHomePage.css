@@ -28,6 +28,12 @@
   padding: 25px 0 25px 20px;
 }
 
+#testimonial {
+  padding: 20px 20px 20px 20px;
+  background-color: #107b8c;
+  color: #ffffff;
+}
+
 #bodyText {
   background-color: #107b8c;
   color: #ffffff;
@@ -48,9 +54,23 @@
   background-color: red;
 }
 
-#imageEmbed {
+#imageEmbedFullWidth {
   padding: 0px;
   border: solid 2px green;
   width: auto;
   height: 100%;
+}
+
+#imageEmbedCroppedWidth {
+  height: 100%;
+  width: auto;
+  background-color: #f18448;
+  padding: 20px;
+}
+
+#unravelLiveIntroduction {
+  margin: 0px;
+  background-color: #f18448;
+  border: solid 2px red;
+  padding-left: 20px;
 }
