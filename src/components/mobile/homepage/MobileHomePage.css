@@ -1,0 +1,76 @@
+/* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
+
+#basicSegment {
+  border: solid 1px orange;
+}
+
+#mobileHomePageNavBar {
+  border: solid 2px blue;
+  background-color: #fff6f1;
+}
+#mobileHomePageContainer {
+  border: solid 2px red;
+}
+
+#leftFloatedColumn {
+  border: solid 2px green;
+}
+
+#rightFloatedColumn {
+  border: solid 2px purple;
+}
+
+#mobileHomePageTitle {
+  line-height: 1em;
+  display: flex;
+  font-size: 200%;
+  background-color: #fff6f1;
+  padding: 25px 0 25px 20px;
+}
+
+#testimonial {
+  padding: 20px 20px 20px 20px;
+  background-color: #107b8c;
+  color: #ffffff;
+}
+
+#bodyText {
+  background-color: #107b8c;
+  color: #ffffff;
+  padding: 20px;
+  margin: none;
+}
+
+#mobileHomePageTicket {
+  color: black;
+  background-color: #fff6f1;
+  text-decoration: underline;
+  text-decoration-color: #ef844f;
+  text-decoration-style: thick;
+  padding-left: 20px;
+}
+
+#mobileHomePageFile {
+  background-color: red;
+}
+
+#imageEmbedFullWidth {
+  padding: 0px;
+  border: solid 2px green;
+  width: auto;
+  height: 100%;
+}
+
+#imageEmbedCroppedWidth {
+  height: 100%;
+  width: auto;
+  background-color: #f18448;
+  padding: 20px;
+}
+
+#unravelLiveIntroduction {
+  margin: 0px;
+  background-color: #f18448;
+  border: solid 2px red;
+  padding-left: 20px;
+}

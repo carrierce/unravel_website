@@ -27,3 +27,29 @@ exports.getStorySubmissionById = (req, res) => {
     res.json(result);
   });
 };
+
+exports.deleteStorySubmissionById = (req, res) => {
+  StorySubmission.findOneAndRemove(
+    { _id: req.params.id },
+    req.body,
+    (err, result) => {
+      if (err) {
+        return res.status(500).send(err.message);
+      }
+      res.json(result);
+    }
+  );
+};
+
+exports.updateStorySubmissionById = (req, res) => {
+  StorySubmission.findOneAndUpdate(
+    { _id: req.params.id },
+    req.body,
+    (err, result) => {
+      if (err) {
+        return res.status(500).send(err.message);
+      }
+      res.json(result);
+    }
+  );
+};
