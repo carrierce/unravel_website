@@ -77,8 +77,37 @@
 
 #upcomingShowsTitle {
   padding-left: 20px;
+  background-color: #fff6f1;
 }
 
 #upcomingShowsContainer {
   background-color: #fff6f1;
+  border: solid 2px green;
+}
+
+#mobileUpcomingShow {
+  padding-left: 20px;
+  background-color: #fff6f1;
+}
+
+#mobileUpcomingShowMajorContent {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #fff6f1;
+}
+
+#mobileUpcomingShowPoster {
+  border: solid 2px black;
+  width: auto;
+  height: 100%;
+  background-color: #fff6f1;
+  padding: 20px;
+}
+
+#mobileUpcomingShowContainer {
+  border: solid 10px red;
+}
+
+#mobileUpcomingShowPosterContainer {
+  padding: 50px;
 }

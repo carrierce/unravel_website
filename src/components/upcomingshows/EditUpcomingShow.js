@@ -7,10 +7,11 @@ class EditUpcomingShow extends React.Component {
       toggledforedit: props.toggledforedit,
       _id: props.upcomingshow._id,
       posterImageLink: props.upcomingshow.posterImageLink,
-      showDate: props.upcomingshow.showDate,
+      showDateTime: props.upcomingshow.showDateTime,
       venue: props.upcomingshow.venue,
       showBlurb: props.upcomingshow.showBlurb,
-      ticketUrl: props.upcomingshow.ticketUrl
+      ticketUrl: props.upcomingshow.ticketUrl,
+      showTitle: props.upcomingshow.showTitle
     };
   }
 
@@ -18,10 +19,11 @@ class EditUpcomingShow extends React.Component {
     this.setState({
       _id: this.props.upcomingshow._id,
       posterImageLink: this.props.upcomingshow.posterImageLink,
-      showDate: this.props.upcomingshow.showDate,
+      showDateTime: this.props.upcomingshow.showDateTime,
       venue: this.props.upcomingshow.venue,
       showBlurb: this.props.upcomingshow.showBlurb,
-      ticketUrl: this.props.upcomingshow.ticketUrl
+      ticketUrl: this.props.upcomingshow.ticketUrl,
+      showTitle: this.props.upcomingshow.showTitle
     });
   }
 
@@ -54,13 +56,12 @@ class EditUpcomingShow extends React.Component {
             />
           </div>
           <div className="field">
-            <label>Show Date</label>
-            <textarea
-              rows="2"
-              id="showDate"
-              value={this.state.showDate}
+            <label>Show Date Time | Month/Day/Year, Hours:Minutes AM/PM</label>
+            <input
+              type="dateTime-local"
+              id="showDateTime"
+              value={this.state.showDateTime}
               onChange={e => this.formChange(e)}
-              placeholder="Blurb"
             />
           </div>
           <div className="field">
@@ -75,7 +76,8 @@ class EditUpcomingShow extends React.Component {
           </div>
           <div className="field">
             <label>Show Blurb</label>
-            <input
+            <textarea
+              rows="3"
               id="showBlurb"
               value={this.state.showBlurb}
               onChange={e => this.formChange(e)}

@@ -147,10 +147,11 @@ class App extends React.Component {
     axios
       .post('http://localhost:5000/api/upcomingshows/', {
         posterImageLink: upcomingShow.posterImageLink,
-        showDate: upcomingShow.showDate,
         venue: upcomingShow.venue,
         showBlurb: upcomingShow.showBlurb,
-        ticketUrl: upcomingShow.ticketUrl
+        ticketUrl: upcomingShow.ticketUrl,
+        showDateTime: upcomingShow.showDateTime,
+        showTitle: upcomingShow.showTitle
       })
       .then(response => {
         this.setState({
@@ -220,7 +221,7 @@ class App extends React.Component {
         'http://localhost:5000/api/upcomingshows/' + edittedUpcomingShow._id,
         {
           posterImageLink: edittedUpcomingShow.posterImageLink,
-          showDate: edittedUpcomingShow.showDate,
+          showDateTime: edittedUpcomingShow.showDateTime,
           venue: edittedUpcomingShow.venue,
           showBlurb: edittedUpcomingShow.showBlurb,
           ticketUrl: edittedUpcomingShow.ticketUrl

@@ -47,7 +47,12 @@ class UpcomingShows extends React.Component {
     return (
       <div>
         <CreateUpcomingShow postupcomingshow={this.props.postupcomingshow} />
-        <div>{renderedList}</div>
+        <div
+          id="mobileUpcomingShowContainer"
+          className="ui four column centered grid"
+        >
+          {renderedList}
+        </div>
       </div>
     );
   }

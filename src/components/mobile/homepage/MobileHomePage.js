@@ -17,7 +17,10 @@ class MobileHomePage extends React.Component {
       <div>
         <MobileHomePageNavBar />
         <MobileHomePageTitle />
-        <MobileHomePageUpcomingShows upcomingshows={this.props.upcomingshows} />
+        <MobileHomePageUpcomingShows
+          id="mobileUpcomingShowContainer"
+          upcomingshows={this.props.upcomingshows}
+        />
       </div>
     );
   }

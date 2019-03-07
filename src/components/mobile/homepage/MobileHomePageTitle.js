@@ -23,7 +23,6 @@ class MobileHomePageTitle extends React.Component {
           Harnessing the power of stories for impact and connection
         </div>
         <a
-          className="row"
           id="mobileHomePageTicket"
           href="https://www.247tickets.com/t/unravel-waves"
         >
@@ -45,7 +44,6 @@ class MobileHomePageTitle extends React.Component {
         <h1 className="row" id="unravelLiveIntroduction">
           Unravel Live
         </h1>
-        {/* <div id="imageContainer" className="row"> */}
         <img
           id="imageEmbedCroppedWidth"
           className="row"

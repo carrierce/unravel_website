@@ -1,6 +1,7 @@
 import React from 'react';
 import EditUpcomingShow from './EditUpcomingShow';
 import ConfirmDeleteUpcomingShow from '../modals/ConfirmDeleteUpcomingShow';
+const moment = require('moment');
 
 class UpcomingShowItem extends React.Component {
   constructor(props) {
@@ -17,10 +18,11 @@ class UpcomingShowItem extends React.Component {
       isToggleForEditUpcomingShow: !this.state.isToggleForEditUpcomingShow
     });
   };
+
   render() {
     return (
       <div key={this.props.index}>
-        <h2>{this.props.upcomingshow.showDate}</h2>
+        <h2>{this.props.upcomingshow.showTitle}</h2>
         <div
           style={{ display: this.state.isToggle ? 'none' : 'block' }}
           className="ui relaxed divided list"
@@ -32,9 +34,9 @@ class UpcomingShowItem extends React.Component {
             </div>
           </div>
           <div className="item">
-            <div className="header">Show Date</div>
+            <div className="header">Show Date Time</div>
             <div className="description">
-              {this.props.upcomingshow.showDate}
+              {moment(this.props.upcomingshow.showDateTime).format('LLLL')}
             </div>
           </div>
           <div className="item">
@@ -51,6 +53,13 @@ class UpcomingShowItem extends React.Component {
             <div className="header">Ticket URL</div>
             <div className="description">
               {this.props.upcomingshow.ticketUrl}
+            </div>
+          </div>
+
+          <div className="item">
+            <div className="header">Show Title</div>
+            <div className="description">
+              {this.props.upcomingshow.showTitle}
             </div>
           </div>
         </div>

@@ -5,17 +5,19 @@ class CreateUpcomingShow extends React.Component {
     super(props);
     this.state = {
       posterImageLink: '',
-      showDate: '',
+      showDateTime: '',
       venue: '',
       showBlurb: '',
-      ticketUrl: ''
+      ticketUrl: '',
+      showTitle: ''
     };
     this.initialState = {
       posterImageLink: '',
-      showDate: '',
+      showDateTime: '',
       venue: '',
       showBlurb: '',
-      ticketUrl: ''
+      ticketUrl: '',
+      showTitle: ''
     };
   }
   formChange = e => {
@@ -44,13 +46,26 @@ class CreateUpcomingShow extends React.Component {
             />
           </div>
           <div className="field">
-            <label>Show Date</label>
-            <textarea
+            <label>
+              Show Date & Time | Month/Day/Year, Hours:Minutes AM/PM
+            </label>
+            <input
+              type="datetime-local"
               rows="2"
-              id="showDate"
-              value={this.state.showDate}
+              id="showDateTime"
+              value={this.state.showDateTime}
               onChange={e => this.formChange(e)}
               placeholder="Show Date"
+              required
+            />
+          </div>
+          <div className="field">
+            <label>Show Title</label>
+            <input
+              id="showTitle"
+              value={this.state.showTitle}
+              onChange={e => this.formChange(e)}
+              placeholder="Show Title"
               required
             />
           </div>

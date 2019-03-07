@@ -7,7 +7,7 @@ const upcomingShowsSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 255
   },
-  showDate: {
+  showDateTime: {
     type: Date,
     required: true,
     default: Date.now
@@ -20,6 +20,10 @@ const upcomingShowsSchema = new mongoose.Schema({
     type: String
   },
   ticketUrl: {
+    type: String,
+    required: true
+  },
+  showTitle: {
     type: String,
     required: true
   }
