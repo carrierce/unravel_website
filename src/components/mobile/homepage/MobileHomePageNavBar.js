@@ -3,14 +3,6 @@ import React from 'react';
 class MobileHomePageNavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      email: '',
-      story: '',
-      questionOrComment: '',
-      error: false,
-      message: ''
-    };
   }
 
   render() {

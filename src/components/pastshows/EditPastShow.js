@@ -1,5 +1,5 @@
 import React from 'react';
-
+const moment = require('moment');
 class EditPastShow extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +8,8 @@ class EditPastShow extends React.Component {
       _id: props.pastshow._id,
       photoImageLink: props.pastshow.photoImageLink,
       showDate: props.pastshow.showDate,
-      venue: props.pastshow.venue
+      venue: props.pastshow.venue,
+      showTitle: props.pastshow.showTitle
     };
   }
 
@@ -17,7 +18,8 @@ class EditPastShow extends React.Component {
       _id: this.props.pastshow._id,
       photoImageLink: this.props.pastshow.photoImageLink,
       showDate: this.props.pastshow.showDate,
-      venue: this.props.pastshow.venue
+      venue: this.props.pastshow.venue,
+      showTitle: this.props.pastshow.showTitle
     });
   }
 
@@ -51,8 +53,8 @@ class EditPastShow extends React.Component {
           </div>
           <div className="field">
             <label>Show Date</label>
-            <textarea
-              rows="2"
+            <input
+              type="date"
               id="showDate"
               value={this.state.showDate}
               onChange={e => this.formChange(e)}
@@ -67,6 +69,16 @@ class EditPastShow extends React.Component {
               value={this.state.venue}
               onChange={e => this.formChange(e)}
               placeholder="Venue"
+            />
+          </div>
+          <div className="field">
+            <label>Show Title</label>
+            <textarea
+              rows="3"
+              id="showTitle"
+              value={this.state.showTitle}
+              onChange={e => this.formChange(e)}
+              placeholder="Show Title"
             />
           </div>
           <button

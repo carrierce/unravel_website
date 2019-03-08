@@ -15,6 +15,10 @@ const pastShowsSchema = new mongoose.Schema({
   venue: {
     type: String,
     required: true
+  },
+  showTitle: {
+    type: String,
+    required: true
   }
 });
 

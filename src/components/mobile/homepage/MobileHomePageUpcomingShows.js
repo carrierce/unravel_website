@@ -5,24 +5,15 @@ const cleanShowPoster = require('/Users/charlescarrier/Dev/unravel_website/src/i
 class MobileHomePageUpcomingShows extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      email: '',
-      story: '',
-      questionOrComment: '',
-      error: false,
-      message: ''
-    };
   }
 
   render() {
-    console.log(this.props.upcomingshows);
     const renderedList = this.props.upcomingshows
       .slice(0)
       .reverse()
       .map((upcomingshow, index) => {
         const showDate = moment(upcomingshow.showDateTime).format(
-          'MMMM, D, YYYY'
+          'MMMM D, YYYY'
         );
         const showTime = moment(upcomingshow.showDateTime).format('hh:mm a');
         return (

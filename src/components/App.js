@@ -178,7 +178,8 @@ class App extends React.Component {
       .post('http://localhost:5000/api/pastshows/', {
         photoImageLink: pastshow.photoImageLink,
         showDate: pastshow.showDate,
-        venue: pastshow.venue
+        venue: pastshow.venue,
+        showTitle: pastshow.showTitle
       })
       .then(response => {
         this.setState({ pastshows: [...this.state.pastshows, response.data] });
@@ -251,7 +252,8 @@ class App extends React.Component {
       .put('http://localhost:5000/api/pastshows/' + edittedPastShow._id, {
         photoImageLink: edittedPastShow.photoImageLink,
         showDate: edittedPastShow.showDate,
-        venue: edittedPastShow.venue
+        venue: edittedPastShow.venue,
+        showTitle: edittedPastShow.showTitle
       })
       .then(() => {
         this.getPastShowsFromDb();
@@ -289,7 +291,10 @@ class App extends React.Component {
           <Route
             path="/mobile/homepage"
             render={() => (
-              <MobileHomePage upcomingshows={this.state.upcomingShows} />
+              <MobileHomePage
+                pastshows={this.state.pastshows}
+                upcomingshows={this.state.upcomingShows}
+              />
             )}
           />
           <Route

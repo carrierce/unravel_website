@@ -6,14 +6,6 @@ const unravelLiveIntroductionCrowd = require('/Users/charlescarrier/Dev/unravel_
 class MobileHomePageTitle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: '',
-      email: '',
-      story: '',
-      questionOrComment: '',
-      error: false,
-      message: ''
-    };
   }
 
   render() {

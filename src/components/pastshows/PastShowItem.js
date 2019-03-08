@@ -1,6 +1,7 @@
 import React from 'react';
 import EditPastShow from './EditPastShow';
 import ConfirmDeletePastShow from '../modals/ConfirmDeletePastShow';
+const moment = require('moment');
 
 class PastShowItem extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class PastShowItem extends React.Component {
   render() {
     return (
       <div key={this.props.index}>
-        <h2>{this.props.pastshow.venue}</h2>
+        <h2>{this.props.pastshow.showTitle}</h2>
         <div
           style={{ display: this.state.isToggle ? 'none' : 'block' }}
           className="ui relaxed divided list"
@@ -36,11 +37,19 @@ class PastShowItem extends React.Component {
           </div>
           <div className="item">
             <div className="header">Show Date</div>
-            <div className="description">{this.props.pastshow.showDate}</div>
+            <div className="description">
+              {moment(this.props.pastshow.showDate).format(
+                'dddd, MMMM Do YYYY'
+              )}
+            </div>
           </div>
           <div className="item">
             <div className="header">Venue</div>
             <div className="description">{this.props.pastshow.venue}</div>
+          </div>
+          <div className="item">
+            <div className="header">Show Title</div>
+            <div className="description">{this.props.pastshow.showTitle}</div>
           </div>
         </div>
         <br />

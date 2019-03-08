@@ -5,12 +5,14 @@ class CreatePastShow extends React.Component {
     this.state = {
       photoImageLink: '',
       showDate: '',
-      venue: ''
+      venue: '',
+      showTitle: ''
     };
     this.initialState = {
       photoImageLink: '',
       showDate: '',
-      venue: ''
+      venue: '',
+      showTitle: ''
     };
   }
 
@@ -58,6 +60,17 @@ class CreatePastShow extends React.Component {
               value={this.state.venue}
               onChange={e => this.formChange(e)}
               placeholder="Venue"
+              required
+            />
+          </div>
+          <div className="field">
+            <label>Show Title</label>
+            <textarea
+              rows="3"
+              id="showTitle"
+              value={this.state.showTitle}
+              onChange={e => this.formChange(e)}
+              placeholder="Show Title"
               required
             />
           </div>
