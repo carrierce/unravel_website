@@ -30,16 +30,22 @@ class MobileHomePageTitle extends React.Component {
         </a>
         <img id="imageEmbedFullWidth" className="row" src={crowd} />
         <div id="testimonial" class="row">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec
-          risus blandit, consequat nisi et, tempus arcu. Vestibulum ante ipsum
-          primis in faucibus orci luctus et ultrices posuere cubilia Curae; Ut
-          euismod orci sed metus vehicula, eget mattis velit pharetra." - Person
+          {' '}
+          <p>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            nec risus blandit, consequat nisi et, tempus arcu. Vestibulum ante
+            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+            Curae; Ut euismod orci sed metus vehicula, eget mattis velit
+            pharetra." - Person{' '}
+          </p>
         </div>
         <img id="imageEmbedFullWidth" className="row" src={woman} />
         <div id="bodyText" class="row">
-          Our mission is to facilitate the awareness of and engagement with our
-          shared humanity. Stories are the most fundamental reminder that there
-          is so much more that connects us than divides us.
+          <p>
+            Our mission is to facilitate the awareness of and engagement with
+            our shared humanity. Stories are the most fundamental reminder that
+            there is so much more that connects us than divides us.
+          </p>
         </div>
         <h1 className="row" id="unravelLiveIntroduction">
           Unravel Live

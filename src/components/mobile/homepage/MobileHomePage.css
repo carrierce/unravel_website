@@ -12,14 +12,6 @@
   border: solid 2px red;
 }
 
-#leftFloatedColumn {
-  border: solid 2px green;
-}
-
-#rightFloatedColumn {
-  border: solid 2px purple;
-}
-
 #mobileHomePageTitle {
   line-height: 1em;
   display: flex;
@@ -97,10 +89,16 @@
 }
 
 #mobileUpcomingShowPoster {
-  border: solid 2px black;
   width: auto;
   height: 100%;
   background-color: #fff6f1;
+  padding: 20px;
+}
+
+#imageEmbedCroppedWidth {
+  height: 100%;
+  width: auto;
+  background-color: #f18448;
   padding: 20px;
 }
 
@@ -110,4 +108,28 @@
 
 #mobileUpcomingShowPosterContainer {
   padding: 50px;
+}
+
+#posterEmbedCroppedWidth {
+  /* setting height to 80% seems like a hack */
+  height: 70%;
+  width: auto;
+  background-color: #fff6f1;
+  padding: 20px;
+}
+
+#upcomingshows {
+  background-color: #fff6f1;
+  padding-left: 20px;
+  margin: 0px;
+}
+
+#upcomingshowticketbutton {
+  padding-left: 20px;
+  background-color: #f18448;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 1px 2px;
 }

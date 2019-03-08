@@ -1,6 +1,7 @@
 import React from 'react';
 import './MobileHomePage.css';
 const moment = require('moment');
+const cleanShowPoster = require('/Users/charlescarrier/Dev/unravel_website/src/images/cleanShowPoster.jpg');
 class MobileHomePageUpcomingShows extends React.Component {
   constructor(props) {
     super(props);
@@ -25,44 +26,33 @@ class MobileHomePageUpcomingShows extends React.Component {
         );
         const showTime = moment(upcomingshow.showDateTime).format('hh:mm a');
         return (
-          <div className="centered row" key={index}>
-            {/* <div id="mobileUpcomingShowPosterContainer" className="row"> */}
+          <div className="ui grid" key={index}>
             <img
+              id="posterEmbedCroppedWidth"
               className="row"
-              id="mobileUpcomingShowPoster"
-              src="https://via.placeholder.com/300"
+              src={cleanShowPoster}
             />
-            {/* </div> */}
-            <div id="mobileUpcomingShowMajorContent" className="row">
-              {upcomingshow.showTitle}
-            </div>
-            <div id="mobileUpcomingShowMajorContent" className="row">
-              {showDate} @ {showTime}
-            </div>
-            <div id="mobileUpcomingShowMajorContent" className="row">
+            <h2 id="upcomingshows" className="row">
+              {upcomingshow.showTitle} <br /> {showDate} • {showTime} <br />
               {upcomingshow.venue}
-            </div>
-            <div id="mobileUpcomingShow" className="row">
+            </h2>
+            <p id="upcomingshows" className="row">
               {upcomingshow.showBlurb}
-            </div>
-            <div id="mobileUpcomingShow" className="row">
-              <a
-                className="row"
-                id="mobileHomePageTicket"
-                href={upcomingshow.ticketUrl}
-              >
+            </p>
+            <a id="upcomingshows" className="row" href={upcomingshow.ticketUrl}>
+              <button className="ui button" id="upcomingshowticketbutton">
                 Tickets
-              </a>
-            </div>
+              </button>
+            </a>
           </div>
         );
       });
     return (
       <div id="upcomingShowsContainer" className="ui grid">
         <h1 id="upcomingShowsTitle" className="row">
-          Upcoming Shows
+          Upcoming Show
         </h1>
-        <div className="row">{renderedList}</div>
+        {renderedList}
       </div>
     );
   }
