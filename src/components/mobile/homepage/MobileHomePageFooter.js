@@ -3,7 +3,15 @@ import React from 'react';
 class MobileHomePageFooter extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      visible: false
+    };
   }
+
+  handleShowClick = () => {
+    this.setState({ visible: !this.state.visible });
+    console.log(this.state.visible);
+  };
 
   render() {
     return (

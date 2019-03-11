@@ -6,6 +6,7 @@ import MobileHomePagePastShows from './MobileHomePagePastShows';
 import MobileHomePageNavFooter from './MobileHomePageNavFooter';
 import MobileHomePageFooter from './MobileHomePageFooter';
 import './MobileHomePage.css';
+import { Icon, Menu, Sidebar, Segment, SidebarPusher } from 'semantic-ui-react';
 
 class MobileHomePage extends React.Component {
   constructor(props) {
