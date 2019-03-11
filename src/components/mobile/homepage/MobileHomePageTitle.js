@@ -1,4 +1,5 @@
 import React from 'react';
+import { Icon, Menu, Sidebar, Segment, SidebarPusher } from 'semantic-ui-react';
 
 const crowd = require('/Users/charlescarrier/Dev/unravel_website/src/images/crowd.jpg');
 const woman = require('/Users/charlescarrier/Dev/unravel_website/src/images/woman.jpg');

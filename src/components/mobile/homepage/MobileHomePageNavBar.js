@@ -13,7 +13,6 @@ class MobileHomePageNavBar extends React.Component {
     return (
       <div>
         <div id="mobileHomePageNavBar" className="ui grid">
-          <button onClick={this.handleShowClick}>Toggle</button>
           <div
             id="leftFloatedColumn"
             className="left floated right aligned four wide column"
