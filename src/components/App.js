@@ -6,7 +6,7 @@ import Podcasts from './podcasts/Podcasts';
 import PastShows from './pastshows/PastShows';
 import StorySubmissions from './storysubmissions/StorySubmissions';
 import { Link, Route, Switch } from 'react-router-dom';
-import ImpactForms from './impacts/ImpactForms';
+import ImpactForms from './api/impacts/ImpactForms';
 import MobileHomePage from './mobile/homepage/MobileHomePage';
 
 class App extends React.Component {
@@ -352,7 +352,7 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/impact"
+            path="/api/impact"
             render={() => (
               <ImpactForms
                 className="ui segment"
