@@ -3,6 +3,8 @@ import MobileHomePageTitle from './MobileHomePageTitle';
 import MobileHomePageNavBar from './MobileHomePageNavBar';
 import MobileHomePageUpcomingShows from './MobileHomePageUpcomingShows';
 import MobileHomePagePastShows from './MobileHomePagePastShows';
+import MobileHomePageNavFooter from './MobileHomePageNavFooter';
+import MobileHomePageFooter from './MobileHomePageFooter';
 import './MobileHomePage.css';
 
 class MobileHomePage extends React.Component {
@@ -23,6 +25,8 @@ class MobileHomePage extends React.Component {
           id="mobilePastShowContainer"
           pastshows={this.props.pastshows}
         />
+        <MobileHomePageNavFooter />
+        <MobileHomePageFooter />
       </div>
     );
   }

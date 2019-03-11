@@ -1,4 +1,5 @@
 import React from 'react';
+import { Sidebar } from 'semantic-ui-react';
 
 class MobileHomePageNavBar extends React.Component {
   constructor(props) {

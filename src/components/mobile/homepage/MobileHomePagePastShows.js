@@ -9,11 +9,12 @@ class MobilePagePastShows extends React.Component {
   }
 
   render() {
+    console.log(this.props.pastshows);
     const renderedList = this.props.pastshows
-      .slice(0)
+      .slice(-3)
       .reverse()
       .map((pastshow, index) => {
-        console.log(pastshow);
+        // console.log(pastshow);
         const showDate = moment(pastshow.showDate).format('MMMM D, YYYY');
         return (
           <div className="ui grid" key={index}>

@@ -31,7 +31,11 @@ class MobileHomePageUpcomingShows extends React.Component {
               {upcomingshow.showBlurb}
             </p>
             <a id="upcomingshows" className="row" href={upcomingshow.ticketUrl}>
-              <button className="ui button" id="upcomingshowticketbutton">
+              <button
+                className="row"
+                className="ui button"
+                id="upcomingshowticketbutton"
+              >
                 Tickets
               </button>
             </a>
@@ -43,7 +47,7 @@ class MobileHomePageUpcomingShows extends React.Component {
         <h1 id="upcomingShowsTitle" className="row">
           Upcoming Show
         </h1>
-        {renderedList}
+        <p>{renderedList}</p>
       </div>
     );
   }
