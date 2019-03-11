@@ -22,7 +22,7 @@ class MobileHomePageTitle extends React.Component {
           Get Tickets To Our Next Show
         </a>
         <img id="imageEmbedFullWidth" className="row" src={crowd} />
-        <div id="testimonial" class="row">
+        <div id="testimonial" className="row">
           {' '}
           <p>
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -33,7 +33,7 @@ class MobileHomePageTitle extends React.Component {
           </p>
         </div>
         <img id="imageEmbedFullWidth" className="row" src={woman} />
-        <div id="bodyText" class="row">
+        <div id="bodyText" className="row">
           <p>
             Our mission is to facilitate the awareness of and engagement with
             our shared humanity. Stories are the most fundamental reminder that

@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'league_spartanbold';
+  src: url('%PUBLIC_URL%/leaguespartan-bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'league_spartanbold' !important;
+}

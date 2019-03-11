@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import axios from 'axios';
 import UpcomingShows from './upcomingshows/UpcomingShows';
 import Podcasts from './podcasts/Podcasts';

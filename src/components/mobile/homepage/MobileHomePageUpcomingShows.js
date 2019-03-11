@@ -21,7 +21,8 @@ class MobileHomePageUpcomingShows extends React.Component {
             <img
               id="posterEmbedCroppedWidth"
               className="row"
-              src={cleanShowPoster}
+              src={upcomingshow.posterImageLink}
+              alt="woman smiling"
             />
             <h2 id="upcomingshows" className="row">
               {upcomingshow.showTitle} <br /> {showDate} • {showTime} <br />
@@ -47,7 +48,7 @@ class MobileHomePageUpcomingShows extends React.Component {
         <h1 id="upcomingShowsTitle" className="row">
           Upcoming Show
         </h1>
-        <p>{renderedList}</p>
+        <div>{renderedList}</div>
       </div>
     );
   }

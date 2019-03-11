@@ -18,7 +18,7 @@ class MobileHomePageNavBar extends React.Component {
             className="left floated right aligned four wide column"
           >
             <div id="basicSegment" className="ui basic compact segment">
-              <i class="large bullseye icon" />
+              <i className="large bullseye icon" />
             </div>
           </div>
           <div
