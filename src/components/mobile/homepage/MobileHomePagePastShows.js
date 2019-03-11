@@ -1,5 +1,4 @@
 import React from 'react';
-import './MobileHomePage.css';
 const moment = require('moment');
 const crowd = require('/Users/charlescarrier/Dev/unravel_website/src/images/crowd.jpg');
 

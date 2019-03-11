@@ -1,5 +1,4 @@
 import React from 'react';
-import './MobileHomePage.css';
 const moment = require('moment');
 const cleanShowPoster = require('/Users/charlescarrier/Dev/unravel_website/src/images/cleanShowPoster.jpg');
 class MobileHomePageUpcomingShows extends React.Component {
