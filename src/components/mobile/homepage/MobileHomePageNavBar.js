@@ -9,6 +9,10 @@ class MobileHomePageNavBar extends React.Component {
     };
   }
 
+  openSideBar = () => {
+    this.props.openSideBar();
+  };
+
   render() {
     return (
       <div>
@@ -26,7 +30,9 @@ class MobileHomePageNavBar extends React.Component {
             className="right floated left aligned four wide column"
           >
             <div id="basicSegment" className="ui basic compact segment">
-              <i className="large bars icon" />
+              <button onClick={this.openSideBar}>
+                <i className="large bars icon" />{' '}
+              </button>
             </div>
           </div>
         </div>
