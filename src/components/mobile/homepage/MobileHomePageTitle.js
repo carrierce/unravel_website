@@ -15,15 +15,16 @@ class MobileHomePageTitle extends React.Component {
         <div id="mobileHomePageTitle" className="row">
           Harnessing the power of stories for impact and connection
         </div>
-        <a
-          id="mobileHomePageTicket"
-          href="https://www.247tickets.com/t/unravel-waves"
-        >
-          Get Tickets To Our Next Show
-        </a>
+        <div id="mobileHomePageTicket" className="row">
+          <a
+            id="mobileHomePageTicket"
+            href="https://www.247tickets.com/t/unravel-waves"
+          >
+            Get Tickets To Our Next Show
+          </a>
+        </div>
         <img id="imageEmbedFullWidth" className="row" src={crowd} />
         <div id="testimonial" className="row">
-          {' '}
           <p>
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             nec risus blandit, consequat nisi et, tempus arcu. Vestibulum ante

@@ -1,10 +1,183 @@
 @font-face {
   font-family: 'league_spartanbold';
-  src: url('%PUBLIC_URL%/leaguespartan-bold.ttf');
+  src: url('/LeagueSpartan-Bold.otf');
   font-weight: normal;
   font-style: normal;
 }
 
-body {
-  font-family: 'league_spartanbold' !important;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'league_spartanbold';
+}
+
+/* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
+
+#mobileHomePageNavBar {
+  background-color: #fff6f1;
+}
+
+#mobileHomePageTitle {
+  line-height: 1em;
+  display: flex;
+  font-size: 200%;
+  background-color: #fff6f1;
+  padding: 25px 0 25px 20px;
+}
+
+#testimonial {
+  padding: 20px 20px 20px 20px;
+  background-color: #107b8c;
+  color: #ffffff;
+}
+
+#bodyText {
+  background-color: #107b8c;
+  color: #ffffff;
+  padding: 20px;
+  margin: none;
+}
+
+#mobileHomePageTicket {
+  color: black;
+  background-color: #fff6f1;
+  text-decoration: underline;
+  text-decoration-color: #ef844f;
+  text-decoration-style: thick;
+  padding-left: 20px;
+}
+
+#mobileHomePageFile {
+  background-color: red;
+}
+
+#imageEmbedFullWidth {
+  padding: 0px;
+  width: auto;
+  height: 100%;
+}
+
+#imageEmbedCroppedWidth {
+  height: 100%;
+  width: auto;
+  background-color: #f18448;
+  padding: 20px;
+}
+
+#unravelLiveIntroduction {
+  margin: 0px;
+  background-color: #f18448;
+  padding-left: 20px;
+}
+
+#upcomingShowsTitle {
+  padding-left: 20px;
+  background-color: #fff6f1;
+}
+
+#upcomingShowsContainer {
+  background-color: #fff6f1;
+}
+
+#mobileUpcomingShow {
+  padding-left: 20px;
+  background-color: #fff6f1;
+}
+
+#mobileUpcomingShowMajorContent {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #fff6f1;
+}
+
+#mobileUpcomingShowPoster {
+  width: auto;
+  height: 100%;
+  background-color: #fff6f1;
+  padding: 20px;
+}
+
+#imageEmbedCroppedWidth {
+  height: 100%;
+  width: auto;
+  background-color: #f18448;
+  padding: 20px;
+}
+
+#mobileUpcomingShowPosterContainer {
+  padding: 50px;
+}
+
+#posterEmbedCroppedWidth {
+  /* setting height to 80% seems like a hack */
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  background-color: #fff6f1;
+  padding: 20px;
+}
+
+#upcomingshows {
+  background-color: #fff6f1;
+  padding-left: 20px;
+  margin: 0px;
+}
+
+#upcomingshowticketbutton {
+  padding-left: 20px;
+  background-color: #f18448;
+  color: black;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 1px 2px;
+  margin-bottom: 10px;
+}
+
+#mobileHomePageNavFooter {
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+  background-color: #f18448;
+  text-decoration: underline;
+  text-decoration-color: #107b8c;
+  text-decoration-style: thick;
+}
+
+#mobileHomePageNavFooterLink {
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+  text-decoration-color: #107b8c;
+  text-decoration-style: thick;
+}
+
+#mobileHomePageFooter {
+  color: white;
+  background-color: #107b8c;
+  list-style-type: none;
+  text-decoration: underline;
+  text-decoration-color: #ef844f;
+  text-decoration-style: thick;
+}
+
+#mobileHomePageFooterBackground {
+  background-color: #107b8c;
+}
+
+#mobileHomePageFooterCopyright {
+  color: white;
+  background-color: #107b8c;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#mobileHomePageFooterImage {
+  width: auto;
+  height: 100%;
+  padding-left: 20px;
 }

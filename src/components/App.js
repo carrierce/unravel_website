@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import UpcomingShows from './upcomingshows/UpcomingShows';
-import Podcasts from './podcasts/Podcasts';
-import PastShows from './pastshows/PastShows';
-import StorySubmissions from './storysubmissions/StorySubmissions';
+import UpcomingShows from './api/upcomingshows/UpcomingShows';
+import Podcasts from './api/podcasts/Podcasts';
+import PastShows from './api/pastshows/PastShows';
+import StorySubmissions from './api/storysubmissions/StorySubmissions';
 import { Link, Route, Switch } from 'react-router-dom';
 import ImpactForms from './api/impacts/ImpactForms';
 import MobileHomePage from './mobile/homepage/MobileHomePage';
+import ApiNavBar from './api/apinavbar';
 
 class App extends React.Component {
   constructor(props) {
@@ -263,34 +264,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        {/* <div className="ui inverted menu">
-          <div className="middle aligned left menu">
-            <h2 className="item">Unravel CMS</h2>
-          </div>
-          <ul className="right menu">
-            <li className="item">
-              <Link to="/mobile/homepage">MobileHomePage</Link>
-            </li>
-            <li className="item">
-              <Link to="/">Podcasts</Link>
-            </li>
-            <li className="item">
-              <Link to="/upcomingshows">Upcoming Shows</Link>
-            </li>
-            <li className="item">
-              <Link to="/pastshows">Past Shows</Link>
-            </li>
-            <li className="item">
-              <Link to="/storysubmissions">Story Submission</Link>
-            </li>
-            <li className="item">
-              <Link to="/impact">Impact</Link>
-            </li>
-          </ul>
-        </div> */}
         <div>
           <Route
-            path="/mobile/homepage"
+            exact
+            path="/"
             render={() => (
               <MobileHomePage
                 pastshows={this.state.pastshows}
@@ -299,69 +276,84 @@ class App extends React.Component {
             )}
           />
           <Route
-            exact
-            path="/"
+            // exact
+            path="/api/podcasts"
             render={() => (
-              <Podcasts
-                className="ui segment"
-                podcasts={this.state.podcasts}
-                postpodcast={this.postPodcast}
-                deletepodcast={this.deletePodcast}
-                editpodcast={this.editPodcast}
-                getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
-              />
+              <div>
+                <ApiNavBar />
+                <Podcasts
+                  className="ui segment"
+                  podcasts={this.state.podcasts}
+                  postpodcast={this.postPodcast}
+                  deletepodcast={this.deletePodcast}
+                  editpodcast={this.editPodcast}
+                  getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
+                />
+              </div>
             )}
           />
           <Route
-            path="/upcomingshows"
+            path="/api/upcomingshows"
             render={() => (
-              <UpcomingShows
-                className="ui segment"
-                upcomingshows={this.state.upcomingShows}
-                postupcomingshow={this.postUpcomingShow}
-                deleteupcomingshow={this.deleteUpcomingShow}
-                editupcomingshow={this.editUpcomingShow}
-                getupcomingshowsfromdb={this.getUpcomingShowsFromDb}
-              />
+              <div>
+                <ApiNavBar />
+                <UpcomingShows
+                  className="ui segment"
+                  upcomingshows={this.state.upcomingShows}
+                  postupcomingshow={this.postUpcomingShow}
+                  deleteupcomingshow={this.deleteUpcomingShow}
+                  editupcomingshow={this.editUpcomingShow}
+                  getupcomingshowsfromdb={this.getUpcomingShowsFromDb}
+                />
+              </div>
             )}
           />
           <Route
-            path="/pastshows"
+            path="/api/pastshows"
             render={() => (
-              <PastShows
-                className="ui segment"
-                pastshows={this.state.pastshows}
-                postpastshow={this.postPastShow}
-                deletepastshow={this.deletePastShow}
-                editpastshow={this.editPastShow}
-                getpastshowsfromdb={this.getPastShowsFromDb}
-              />
+              <div>
+                <ApiNavBar />
+                <PastShows
+                  className="ui segment"
+                  pastshows={this.state.pastshows}
+                  postpastshow={this.postPastShow}
+                  deletepastshow={this.deletePastShow}
+                  editpastshow={this.editPastShow}
+                  getpastshowsfromdb={this.getPastShowsFromDb}
+                />
+              </div>
             )}
           />
           <Route
-            path="/storysubmissions"
+            path="/api/storysubmissions"
             render={() => (
-              <StorySubmissions
-                className="ui segment"
-                storysubmissions={this.state.storysubmissions}
-                poststorysubmission={this.postStorySubmission}
-                deletestorysubmission={this.deleteStorySubmission}
-                editstorysubmission={this.editStorySubmission}
-                getstorysubmissionsfromdb={this.getStorySubmissionsFromDb}
-              />
+              <div>
+                <ApiNavBar />
+                <StorySubmissions
+                  className="ui segment"
+                  storysubmissions={this.state.storysubmissions}
+                  poststorysubmission={this.postStorySubmission}
+                  deletestorysubmission={this.deleteStorySubmission}
+                  editstorysubmission={this.editStorySubmission}
+                  getstorysubmissionsfromdb={this.getStorySubmissionsFromDb}
+                />
+              </div>
             )}
           />
           <Route
             path="/api/impact"
             render={() => (
-              <ImpactForms
-                className="ui segment"
-                impactforms={this.state.impactforms}
-                postimpactform={this.postImpactForm}
-                deleteimpactform={this.deleteImpactForm}
-                editimpactform={this.editImpactForm}
-                getimpactformsfromdb={this.getImpactFormsFromDb}
-              />
+              <div>
+                <ApiNavBar />
+                <ImpactForms
+                  className="ui segment"
+                  impactforms={this.state.impactforms}
+                  postimpactform={this.postImpactForm}
+                  deleteimpactform={this.deleteImpactForm}
+                  editimpactform={this.editImpactForm}
+                  getimpactformsfromdb={this.getImpactFormsFromDb}
+                />
+              </div>
             )}
           />
         </div>
