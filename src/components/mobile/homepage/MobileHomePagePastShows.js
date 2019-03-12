@@ -13,11 +13,12 @@ class MobilePagePastShows extends React.Component {
       .slice(-3)
       .reverse()
       .map((pastshow, index) => {
-        // console.log(pastshow);
         const showDate = moment(pastshow.showDate).format('MMMM D, YYYY');
         return (
           <div className="ui grid" key={index}>
-            <img id="posterEmbedCroppedWidth" className="row" src={crowd} />
+            <div>
+              <img id="posterEmbedCroppedWidth" className="row" src={crowd} />
+            </div>
             <h2 id="upcomingshows" className="row">
               {pastshow.showTitle} @ {pastshow.venue} <br /> {showDate}
             </h2>

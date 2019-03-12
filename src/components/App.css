@@ -5,22 +5,20 @@
   font-style: normal;
 }
 
-body {
-  font-family: 'league_spartanbold' !important;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'league_spartanbold';
 }
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
-#basicSegment {
-  border: solid 1px orange;
-}
-
 #mobileHomePageNavBar {
-  border: solid 2px blue;
   background-color: #fff6f1;
-}
-#mobileHomePageContainer {
-  border: solid 2px red;
 }
 
 #mobileHomePageTitle {
@@ -59,7 +57,6 @@ body {
 
 #imageEmbedFullWidth {
   padding: 0px;
-  border: solid 2px green;
   width: auto;
   height: 100%;
 }
@@ -74,7 +71,6 @@ body {
 #unravelLiveIntroduction {
   margin: 0px;
   background-color: #f18448;
-  border: solid 2px red;
   padding-left: 20px;
 }
 
@@ -85,7 +81,6 @@ body {
 
 #upcomingShowsContainer {
   background-color: #fff6f1;
-  border: solid 2px green;
 }
 
 #mobileUpcomingShow {
@@ -113,18 +108,15 @@ body {
   padding: 20px;
 }
 
-#mobileUpcomingShowContainer {
-  border: solid 10px red;
-}
-
 #mobileUpcomingShowPosterContainer {
   padding: 50px;
 }
 
 #posterEmbedCroppedWidth {
   /* setting height to 80% seems like a hack */
-  height: 70%;
-  width: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
   background-color: #fff6f1;
   padding: 20px;
 }
@@ -143,6 +135,7 @@ body {
   font-weight: bolder;
   padding: 10px 20px 10px 20px;
   box-shadow: 1px 2px;
+  margin-bottom: 10px;
 }
 
 #mobileHomePageNavFooter {

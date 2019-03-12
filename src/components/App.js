@@ -264,31 +264,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        {/* <div className="ui inverted menu">
-          <div className="middle aligned left menu">
-            <h2 className="item">Unravel CMS</h2>
-          </div>
-          <ul className="right menu">
-            <li className="item">
-              <Link to="/mobile/homepage">MobileHomePage</Link>
-            </li>
-            <li className="item">
-              <Link to="/">Podcasts</Link>
-            </li>
-            <li className="item">
-              <Link to="/upcomingshows">Upcoming Shows</Link>
-            </li>
-            <li className="item">
-              <Link to="/pastshows">Past Shows</Link>
-            </li>
-            <li className="item">
-              <Link to="/storysubmissions">Story Submission</Link>
-            </li>
-            <li className="item">
-              <Link to="/impact">Impact</Link>
-            </li>
-          </ul>
-        </div> */}
         <div>
           <Route
             exact
