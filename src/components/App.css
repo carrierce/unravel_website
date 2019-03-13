@@ -19,6 +19,10 @@ h6 {
 
 #mobileTellYourStoryBodyText {
   background-color: #fff6f1;
+}
+
+#mobileTellYourStoryBodyText p,
+h1 {
   margin-left: 20px;
 }
 

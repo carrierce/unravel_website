@@ -21,7 +21,7 @@ class PopUpNav extends React.Component {
         <div id="popUpLinks" className="ui grid">
           <div className="row">
             <h3 onClick={this.props.closeSideBar}>
-              <Link to="/">Unravel Live</Link>
+              <Link to="/mobile/home">Unravel Live</Link>
             </h3>
           </div>
           <div id="popUpIndented" className="row">
