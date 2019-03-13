@@ -1,6 +1,6 @@
 import React from 'react';
 const moment = require('moment');
-const cleanShowPoster = require('/Users/charlescarrier/Dev/unravel_website/src/images/cleanShowPoster.jpg');
+const cleanShowPoster = require('../../../cleanShowPoster.jpg');
 class MobileHomePageUpcomingShows extends React.Component {
   constructor(props) {
     super(props);

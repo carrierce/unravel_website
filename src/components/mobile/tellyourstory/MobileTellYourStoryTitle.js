@@ -1,8 +1,8 @@
 import React from 'react';
 
-const crowd = require('/Users/charlescarrier/Dev/unravel_website/src/images/crowd.jpg');
-const woman = require('/Users/charlescarrier/Dev/unravel_website/src/images/woman.jpg');
-const unravelLiveIntroductionCrowd = require('/Users/charlescarrier/Dev/unravel_website/src/images/unravelLiveIntroductionCrowd.jpg');
+const crowd = require('../../../crowd.jpg');
+const woman = require('../../../woman.jpg');
+const unravelLiveIntroductionCrowd = require('../../../unravelLiveIntroductionCrowd.jpg');
 class MobileTellYourStoryTitle extends React.Component {
   constructor(props) {
     super(props);

@@ -1,6 +1,6 @@
 import React from 'react';
 const moment = require('moment');
-const crowd = require('/Users/charlescarrier/Dev/unravel_website/src/images/crowd.jpg');
+const crowd = require('../../../crowd.jpg');
 
 class MobilePagePastShows extends React.Component {
   constructor(props) {
