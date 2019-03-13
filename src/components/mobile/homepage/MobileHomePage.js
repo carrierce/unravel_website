@@ -1,11 +1,11 @@
 import React from 'react';
 import MobileHomePageTitle from './MobileHomePageTitle';
-import MobileHomePageNavBar from './MobileHomePageNavBar';
+import NavBar from '../NavBar';
 import MobileHomePageUpcomingShows from './MobileHomePageUpcomingShows';
 import MobileHomePagePastShows from './MobileHomePagePastShows';
 import MobileHomePageNavFooter from './MobileHomePageNavFooter';
 import MobileHomePageFooter from './MobileHomePageFooter';
-import PopUpNav from '../popupnav';
+import PopUpNav from '../PopUpNav';
 import {
   Icon,
   Menu,
@@ -19,7 +19,7 @@ class MobileHomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: true
+      visible: false
     };
   }
 
@@ -46,7 +46,7 @@ class MobileHomePage extends React.Component {
           </Sidebar>
           <Sidebar.Pusher id="testSegement">
             <Segment basic>
-              <MobileHomePageNavBar openSideBar={this.openSideBar} />
+              <NavBar openSideBar={this.openSideBar} />
               <MobileHomePageTitle />
               <MobileHomePageUpcomingShows
                 id="mobileUpcomingShowContainer"

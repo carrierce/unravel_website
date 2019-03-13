@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class PopUpNav extends React.Component {
   render() {
@@ -19,10 +20,14 @@ class PopUpNav extends React.Component {
         </div>
         <div id="popUpLinks" className="ui grid">
           <div className="row">
-            <h3>Unravel Live</h3>
+            <h3 onClick={this.props.closeSideBar}>
+              <Link to="/">Unravel Live</Link>
+            </h3>
           </div>
           <div id="popUpIndented" className="row">
-            <h3>Tickets</h3>
+            <h3>
+              <a href="https://www.247tickets.com/t/unravel-waves">Tickets</a>
+            </h3>
           </div>
           <div id="popUpIndented" className="row">
             <h3>Submit your story</h3>
