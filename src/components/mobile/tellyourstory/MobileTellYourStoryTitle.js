@@ -12,7 +12,7 @@ class MobileTellYourStoryTitle extends React.Component {
     return (
       <div id="mobileHomePageContainer" className="ui grid">
         <div id="mobileHomePageTitle" className="row">
-          Tell Your Story
+          <h1>Tell Your Story</h1>
         </div>
         <div id="mobileTellYourStoryBodyText" className="row">
           <p>
@@ -24,6 +24,25 @@ class MobileTellYourStoryTitle extends React.Component {
           </p>
         </div>
         <img id="imageEmbedFullWidth" className="row" src={crowd} />
+        <div id="mobileTellYourStoryBodyText" className="row">
+          <h1>Story GuideLines</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            nec risus blandit, consequat nisi et, tempus arcu. Vestibulum ante
+            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+            Curae;
+          </p>
+          <p>
+            - Guideline #1: consequat nisi et, tempus arcu. Vestibulum ante
+            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+            Curae.
+          </p>
+          <p>
+            - Guideline #2: consequat nisi et, tempus arcu. Vestibulum ante
+            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+            Curae.
+          </p>
+        </div>
       </div>
     );
   }

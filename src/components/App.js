@@ -271,6 +271,7 @@ class App extends React.Component {
               <Mobile
                 pastshows={this.state.pastshows}
                 upcomingshows={this.state.upcomingShows}
+                poststorysubmission={this.postStorySubmission}
               />
             )}
           />

@@ -54,7 +54,7 @@ class CreateStorySubmission extends React.Component {
               id="name"
               value={this.state.name}
               onChange={e => this.formChange(e)}
-              placeholder="Past Show Photo Image Link"
+              placeholder="Name"
             />
             <span>{this.state.name.message}</span>
           </div>

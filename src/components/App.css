@@ -17,13 +17,58 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#mobileTellYourStoryNavFooter {
+  background-color: #fff6f1;
+}
+
+#mobileTellYourStoryStorySubmission input {
+  border: solid #007c8c 2px;
+}
+
+#mobileTellYourStoryNavFooter li {
+  list-style-type: none;
+  text-decoration: underline;
+  text-decoration-style: thick;
+  padding: 20px 0 20px 0;
+  font-size: 20px;
+}
+
+#mobileTellYourStoryStorySubmission textarea {
+  border: solid #007c8c 2px;
+}
+
+#mobileTellYourStoryNavFooterLink {
+  color: black;
+  background-color: #fff6f1;
+  list-style-type: none;
+  text-decoration-color: #ef844f;
+  text-decoration-style: thick;
+}
+
+#mobileTellYourStoryStorySubmission button {
+  background-color: #007c8c;
+  color: white;
+  font-size: 20px;
+  box-shadow: 1px 2px;
+  padding: 10px 20px 10px 20px;
+}
+
 #mobileTellYourStoryBodyText {
   background-color: #fff6f1;
+}
+
+#mobileTellYourStoryBodyText p,
+h1 {
   margin-left: 20px;
 }
 
 #mobileHomePageNavBar {
   background-color: #fff6f1;
+}
+
+#mobileTellYourStoryStorySubmission {
+  padding: 20px 0px 50px 0px;
+  background-color: #ef844f;
 }
 
 #popUpNavBar {
@@ -36,18 +81,10 @@ h6 {
   margin: 20px 0 0 10px;
 }
 
-/* kind of works */
-/* #popUpLinks h3 {
-  text-decoration: none;
-  border-bottom: 3px solid #ef844f;
-} */
-/* https://stackoverflow.com/questions/17030664/round-cap-underline-in-css */
-
 #popUpLinks h3 {
   background: transparent;
   border-radius: 5px;
   height: 3px;
-  /* width: 255px; */
   box-shadow: 0 20px 0 0 #ef844f;
   font-family: sans-serif;
   margin-bottom: 10px;
@@ -207,6 +244,8 @@ h6 {
   text-decoration: underline;
   text-decoration-color: #ef844f;
   text-decoration-style: thick;
+  padding-bottom: 20px;
+  font-size: 15px;
 }
 
 #footerBackground {
@@ -218,6 +257,8 @@ h6 {
   background-color: #107b8c;
   list-style-type: none;
   text-decoration: none;
+  font-size: 10px;
+  font-family: Courier, monospace;
 }
 
 #footerImage {
