@@ -1,4 +1,4 @@
-const UpcomingShows = require('../models/UpComingShows');
+const UpcomingShows = require('../models/UpcomingShows');
 
 exports.postUpcomingShows = (req, res) => {
   UpcomingShows.create(req.body, (err, result) => {
