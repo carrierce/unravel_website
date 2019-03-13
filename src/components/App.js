@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   getStorySubmissionsFromDb = () => {
-    axios.get('http://localhost:5000/api/storysubmission/').then(response => {
+    axios.get('http://127.0.0.1:5000/api/storysubmission/').then(response => {
       this.setState({
         storysubmissions: response.data
       });
@@ -50,7 +50,7 @@ class App extends React.Component {
   };
 
   getImpactFormsFromDb = () => {
-    axios.get('http://localhost:5000/api/impactform/').then(response => {
+    axios.get('http://127.0.0.1:5000/api/impactform/').then(response => {
       this.setState({
         impactforms: response.data
       });
@@ -58,7 +58,7 @@ class App extends React.Component {
   };
 
   getUpcomingShowsFromDb = () => {
-    axios.get('http://localhost:5000/api/upcomingshows/').then(response => {
+    axios.get('http://127.0.0.1:5000/api/upcomingshows/').then(response => {
       this.setState({
         upcomingShows: response.data
       });
@@ -66,7 +66,7 @@ class App extends React.Component {
   };
 
   getUpcomingPodcastsFromDb = () => {
-    axios.get('http://localhost:5000/api/podcasts/').then(response => {
+    axios.get('http://127.0.0.1:5000/api/podcasts/').then(response => {
       this.setState({
         podcasts: response.data
       });
@@ -74,7 +74,7 @@ class App extends React.Component {
   };
 
   getPastShowsFromDb = () => {
-    axios.get('http://localhost:5000/api/pastshows/').then(response => {
+    axios.get('http://127.0.0.1:5000/api/pastshows/').then(response => {
       this.setState({
         pastshows: response.data
       });
@@ -83,41 +83,41 @@ class App extends React.Component {
 
   deleteStorySubmission = index => {
     axios
-      .delete('http://localhost:5000/api/storysubmission/' + index)
+      .delete('http://127.0.0.1:5000/api/storysubmission/' + index)
       .then(() => {
         this.getStorySubmissionsFromDb();
       });
   };
 
   deleteImpactForm = index => {
-    axios.delete('http://localhost:5000/api/impactform/' + index).then(() => {
+    axios.delete('http://127.0.0.1:5000/api/impactform/' + index).then(() => {
       this.getImpactFormsFromDb();
     });
   };
 
   deleteUpcomingShow = index => {
     axios
-      .delete('http://localhost:5000/api/upcomingshows/' + index)
+      .delete('http://127.0.0.1:5000/api/upcomingshows/' + index)
       .then(() => {
         this.getUpcomingShowsFromDb();
       });
   };
 
   deletePodcast = index => {
-    axios.delete('http://localhost:5000/api/podcasts/' + index).then(() => {
+    axios.delete('http://127.0.0.1:5000/api/podcasts/' + index).then(() => {
       this.getUpcomingPodcastsFromDb();
     });
   };
 
   deletePastShow = index => {
-    axios.delete('http://localhost:5000/api/pastshows/' + index).then(() => {
+    axios.delete('http://127.0.0.1:5000/api/pastshows/' + index).then(() => {
       this.getPastShowsFromDb();
     });
   };
 
   postStorySubmission = storysubmission => {
     axios
-      .post('http://localhost:5000/api/storysubmission/', {
+      .post('http://127.0.0.1:5000/api/storysubmission/', {
         name: storysubmission.name,
         email: storysubmission.email,
         story: storysubmission.story,
@@ -132,7 +132,7 @@ class App extends React.Component {
 
   postImpactForm = impactform => {
     axios
-      .post('http://localhost:5000/api/impactform/', {
+      .post('http://127.0.0.1:5000/api/impactform/', {
         name: impactform.name,
         email: impactform.email,
         organization: impactform.organization,
@@ -147,7 +147,7 @@ class App extends React.Component {
 
   postUpcomingShow = upcomingShow => {
     axios
-      .post('http://localhost:5000/api/upcomingshows/', {
+      .post('http://127.0.0.1:5000/api/upcomingshows/', {
         posterImageLink: upcomingShow.posterImageLink,
         venue: upcomingShow.venue,
         showBlurb: upcomingShow.showBlurb,
@@ -164,7 +164,7 @@ class App extends React.Component {
 
   postPodcast = podcast => {
     axios
-      .post('http://localhost:5000/api/podcasts/', {
+      .post('http://127.0.0.1:5000/api/podcasts/', {
         podcastCoverImageLink: podcast.podcastCoverImageLink,
         podcastName: podcast.podcastName,
         podcastBlurb: podcast.podcastBlurb,
@@ -177,7 +177,7 @@ class App extends React.Component {
   };
   postPastShow = pastshow => {
     axios
-      .post('http://localhost:5000/api/pastshows/', {
+      .post('http://127.0.0.1:5000/api/pastshows/', {
         photoImageLink: pastshow.photoImageLink,
         showDate: pastshow.showDate,
         venue: pastshow.venue,
@@ -191,7 +191,7 @@ class App extends React.Component {
   editStorySubmission = edittedStorySubmission => {
     axios
       .put(
-        'http://localhost:5000/api/storysubmission/' +
+        'http://127.0.0.1:5000/api/storysubmission/' +
           edittedStorySubmission._id,
         {
           name: edittedStorySubmission.name,
@@ -207,7 +207,7 @@ class App extends React.Component {
 
   editImpactForm = edittedImpactForm => {
     axios
-      .put('http://localhost:5000/api/impactform/' + edittedImpactForm._id, {
+      .put('http://127.0.0.1:5000/api/impactform/' + edittedImpactForm._id, {
         name: edittedImpactForm.name,
         email: edittedImpactForm.email,
         organization: edittedImpactForm.organization,
@@ -221,7 +221,7 @@ class App extends React.Component {
   editUpcomingShow = edittedUpcomingShow => {
     axios
       .put(
-        'http://localhost:5000/api/upcomingshows/' + edittedUpcomingShow._id,
+        'http://127.0.0.1:5000/api/upcomingshows/' + edittedUpcomingShow._id,
         {
           posterImageLink: edittedUpcomingShow.posterImageLink,
           showDateTime: edittedUpcomingShow.showDateTime,
@@ -237,7 +237,7 @@ class App extends React.Component {
 
   editPodcast = edittedPodcast => {
     axios
-      .put('http://localhost:5000/api/podcasts/' + edittedPodcast._id, {
+      .put('http://127.0.0.1:5000/api/podcasts/' + edittedPodcast._id, {
         podcastCoverImageLink: edittedPodcast.podcastCoverImageLink,
         podcastName: edittedPodcast.podcastName,
         podcastBlurb: edittedPodcast.podcastBlurb,
@@ -251,7 +251,7 @@ class App extends React.Component {
 
   editPastShow = edittedPastShow => {
     axios
-      .put('http://localhost:5000/api/pastshows/' + edittedPastShow._id, {
+      .put('http://127.0.0.1:5000/api/pastshows/' + edittedPastShow._id, {
         photoImageLink: edittedPastShow.photoImageLink,
         showDate: edittedPastShow.showDate,
         venue: edittedPastShow.venue,
