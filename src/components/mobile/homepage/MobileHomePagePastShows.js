@@ -8,7 +8,6 @@ class MobilePagePastShows extends React.Component {
   }
 
   render() {
-    console.log(this.props.pastshows);
     const renderedList = this.props.pastshows
       .slice(-3)
       .reverse()

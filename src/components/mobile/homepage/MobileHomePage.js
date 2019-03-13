@@ -18,49 +18,22 @@ import {
 class MobileHomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      visible: false
-    };
   }
-
-  closeSideBar = () => {
-    this.setState({ visible: false });
-  };
-
-  openSideBar = () => {
-    this.setState({ visible: true });
-  };
 
   render() {
     return (
       <div>
-        <Sidebar.Pushable as={Segment}>
-          <Sidebar
-            animation="overlay"
-            id="popUpNavBar"
-            visible={this.state.visible}
-            width="wide"
-            direction="right"
-          >
-            <PopUpNav closeSideBar={this.closeSideBar} />
-          </Sidebar>
-          <Sidebar.Pusher id="testSegement">
-            <Segment basic>
-              <NavBar openSideBar={this.openSideBar} />
-              <MobileHomePageTitle />
-              <MobileHomePageUpcomingShows
-                id="mobileUpcomingShowContainer"
-                upcomingshows={this.props.upcomingshows}
-              />
-              <MobileHomePagePastShows
-                id="mobilePastShowContainer"
-                pastshows={this.props.pastshows}
-              />
-              <MobileHomePageNavFooter />
-              <MobileHomePageFooter />
-            </Segment>
-          </Sidebar.Pusher>
-        </Sidebar.Pushable>
+        <MobileHomePageTitle />
+        <MobileHomePageUpcomingShows
+          id="mobileUpcomingShowContainer"
+          upcomingshows={this.props.upcomingshows}
+        />
+        <MobileHomePagePastShows
+          id="mobilePastShowContainer"
+          pastshows={this.props.pastshows}
+        />
+        <MobileHomePageNavFooter />
+        <MobileHomePageFooter />
       </div>
     );
   }
