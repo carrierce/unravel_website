@@ -7,7 +7,6 @@ class MobileHomePageUpcomingShows extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const renderedList = this.props.upcomingshows
       .slice(0)
       .reverse()

@@ -266,8 +266,7 @@ class App extends React.Component {
       <div className="ui container">
         <div>
           <Route
-            exact
-            path="/"
+            path="/mobile"
             render={() => (
               <Mobile
                 pastshows={this.state.pastshows}
@@ -276,7 +275,6 @@ class App extends React.Component {
             )}
           />
           <Route
-            // exact
             path="/api/podcasts"
             render={() => (
               <div>

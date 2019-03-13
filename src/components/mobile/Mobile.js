@@ -2,15 +2,9 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import PopUpNav from './PopUpNav';
 import NavBar from './NavBar';
+import Footer from './Footer';
 import MobileHomePage from './homepage/MobileHomePage';
-import {
-  Icon,
-  Menu,
-  Sidebar,
-  Segment,
-  SidebarPusher,
-  SidebarPushable
-} from 'semantic-ui-react';
+import { Icon, Menu, Sidebar, Segment } from 'semantic-ui-react';
 
 class Mobile extends React.Component {
   constructor(props) {
@@ -44,10 +38,18 @@ class Mobile extends React.Component {
           <Sidebar.Pusher id="testSegement">
             <Segment basic>
               <NavBar openSideBar={this.openSideBar} />
-              <MobileHomePage
-                pastshows={this.props.pastshows}
-                upcomingshows={this.props.upcomingshows}
+              <Route
+                path="/mobile/home"
+                render={() => (
+                  <div>
+                    <MobileHomePage
+                      pastshows={this.props.pastshows}
+                      upcomingshows={this.props.upcomingshows}
+                    />
+                  </div>
+                )}
               />
+              <Footer />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
