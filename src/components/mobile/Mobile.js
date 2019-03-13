@@ -26,7 +26,7 @@ class Mobile extends React.Component {
   render() {
     return (
       <div>
-        <Sidebar.Pushable as={Segment}>
+        <Sidebar.Pushable className="ui segment">
           <Sidebar
             animation="overlay"
             id="popUpNavBar"
