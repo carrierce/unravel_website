@@ -17,6 +17,11 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#mobileTellYourStoryBodyText {
+  background-color: #fff6f1;
+  margin-left: 20px;
+}
+
 #mobileHomePageNavBar {
   background-color: #fff6f1;
 }

@@ -4,6 +4,7 @@ import PopUpNav from './PopUpNav';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import MobileHomePage from './homepage/MobileHomePage';
+import MobileTellYourStory from './tellyourstory/MobileTellYourStory';
 import { Icon, Menu, Sidebar, Segment } from 'semantic-ui-react';
 
 class Mobile extends React.Component {
@@ -43,6 +44,17 @@ class Mobile extends React.Component {
                 render={() => (
                   <div>
                     <MobileHomePage
+                      pastshows={this.props.pastshows}
+                      upcomingshows={this.props.upcomingshows}
+                    />
+                  </div>
+                )}
+              />
+              <Route
+                path="/mobile/tellyourstory"
+                render={() => (
+                  <div>
+                    <MobileTellYourStory
                       pastshows={this.props.pastshows}
                       upcomingshows={this.props.upcomingshows}
                     />
