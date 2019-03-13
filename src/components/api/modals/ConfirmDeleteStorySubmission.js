@@ -19,13 +19,13 @@ class ConfirmDeleteStorySubmission extends Component {
     return (
       <div>
         <Button className="negative ui button" onClick={this.open}>
-          Delete Upcoming Show
+          Delete Story Submission
         </Button>
         <Confirm
-          header="Confirm Delete Upcoming Show"
+          header="Confirm Delete Story Submission"
           content="Are you sure you want to delete this upcoming show?"
           cancelButton="Cancel"
-          confirmButton="Delete Upcoming Show"
+          confirmButton="Delete Story Submission"
           open={this.state.open}
           onCancel={this.close}
           onConfirm={this.deleteStorySubmission}

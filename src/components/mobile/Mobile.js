@@ -55,8 +55,7 @@ class Mobile extends React.Component {
                 render={() => (
                   <div>
                     <MobileTellYourStory
-                      pastshows={this.props.pastshows}
-                      upcomingshows={this.props.upcomingshows}
+                      poststorysubmission={this.props.poststorysubmission}
                     />
                   </div>
                 )}
