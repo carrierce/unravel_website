@@ -82,7 +82,7 @@ class MobileTellYourStorySubmissionForm extends React.Component {
               />
             </div>
             <div className="row">
-              <button className=" ui button" onClick={e => this.submitForm(e)}>
+              <button className="ui button" onClick={e => this.submitForm(e)}>
                 Submit
               </button>
               <div />
