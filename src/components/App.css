@@ -195,7 +195,7 @@ h6 {
   text-decoration-style: thick;
 }
 
-#mobileHomePageFooter {
+#footer {
   color: white;
   background-color: #107b8c;
   list-style-type: none;
@@ -204,18 +204,18 @@ h6 {
   text-decoration-style: thick;
 }
 
-#mobileHomePageFooterBackground {
+#footerBackground {
   background-color: #107b8c;
 }
 
-#mobileHomePageFooterCopyright {
+#footerCopyright {
   color: white;
   background-color: #107b8c;
   list-style-type: none;
   text-decoration: none;
 }
 
-#mobileHomePageFooterImage {
+#footerImage {
   width: auto;
   height: 100%;
   padding-left: 20px;

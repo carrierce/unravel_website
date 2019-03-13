@@ -1,6 +1,6 @@
 import React from 'react';
 
-class MobileHomePageFooter extends React.Component {
+class Footer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,31 +15,31 @@ class MobileHomePageFooter extends React.Component {
 
   render() {
     return (
-      <div id="mobileHomePageFooterBackground" className="ui three column grid">
+      <div id="footerBackground" className="ui three column grid">
         <div className="row">
           <img
-            id="mobileHomePageFooterImage"
+            id="footerImage"
             className="row"
             src="https://via.placeholder.com/200x100"
           />
         </div>
         <ul className="column">
-          <li id="mobileHomePageFooter">Contact Us</li>
-          <li id="mobileHomePageFooter">F.A.Q.</li>
+          <li id="footer">Contact Us</li>
+          <li id="footer">F.A.Q.</li>
         </ul>
         <ul className="column">
-          <li id="mobileHomePageFooter">Facebook</li>
-          <li id="mobileHomePageFooter">Instagram</li>
+          <li id="footer">Facebook</li>
+          <li id="footer">Instagram</li>
         </ul>
         <ul className="column">
-          <li id="mobileHomePageFooter">WeChat</li>
+          <li id="footer">WeChat</li>
         </ul>
         <ul>
-          <li id="mobileHomePageFooterCopyright">All content ©2019 Unravel</li>
+          <li id="footerCopyright">All content ©2019 Unravel</li>
         </ul>
       </div>
     );
   }
 }
 
-export default MobileHomePageFooter;
+export default Footer;

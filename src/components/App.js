@@ -7,7 +7,7 @@ import PastShows from './api/pastshows/PastShows';
 import StorySubmissions from './api/storysubmissions/StorySubmissions';
 import { Route } from 'react-router-dom';
 import ImpactForms from './api/impacts/ImpactForms';
-import MobileHomePage from './mobile/homepage/MobileHomePage';
+import Mobile from './mobile/Mobile';
 import ApiNavBar from './api/apinavbar';
 
 class App extends React.Component {
@@ -266,17 +266,15 @@ class App extends React.Component {
       <div className="ui container">
         <div>
           <Route
-            exact
-            path="/"
+            path="/mobile"
             render={() => (
-              <MobileHomePage
+              <Mobile
                 pastshows={this.state.pastshows}
                 upcomingshows={this.state.upcomingShows}
               />
             )}
           />
           <Route
-            // exact
             path="/api/podcasts"
             render={() => (
               <div>
