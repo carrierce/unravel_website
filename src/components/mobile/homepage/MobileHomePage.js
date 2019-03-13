@@ -1,32 +1,66 @@
 import React from 'react';
 import MobileHomePageTitle from './MobileHomePageTitle';
-import MobileHomePageNavBar from './MobileHomePageNavBar';
+import NavBar from '../NavBar';
 import MobileHomePageUpcomingShows from './MobileHomePageUpcomingShows';
 import MobileHomePagePastShows from './MobileHomePagePastShows';
 import MobileHomePageNavFooter from './MobileHomePageNavFooter';
 import MobileHomePageFooter from './MobileHomePageFooter';
-import { Icon, Menu, Sidebar, Segment, SidebarPusher } from 'semantic-ui-react';
+import PopUpNav from '../PopUpNav';
+import {
+  Icon,
+  Menu,
+  Sidebar,
+  Segment,
+  SidebarPusher,
+  SidebarPushable
+} from 'semantic-ui-react';
 
 class MobileHomePage extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      visible: false
+    };
   }
+
+  closeSideBar = () => {
+    this.setState({ visible: false });
+  };
+
+  openSideBar = () => {
+    this.setState({ visible: true });
+  };
 
   render() {
     return (
       <div>
-        <MobileHomePageNavBar />
-        <MobileHomePageTitle />
-        <MobileHomePageUpcomingShows
-          id="mobileUpcomingShowContainer"
-          upcomingshows={this.props.upcomingshows}
-        />
-        <MobileHomePagePastShows
-          id="mobilePastShowContainer"
-          pastshows={this.props.pastshows}
-        />
-        <MobileHomePageNavFooter />
-        <MobileHomePageFooter />
+        <Sidebar.Pushable as={Segment}>
+          <Sidebar
+            animation="overlay"
+            id="popUpNavBar"
+            visible={this.state.visible}
+            width="wide"
+            direction="right"
+          >
+            <PopUpNav closeSideBar={this.closeSideBar} />
+          </Sidebar>
+          <Sidebar.Pusher id="testSegement">
+            <Segment basic>
+              <NavBar openSideBar={this.openSideBar} />
+              <MobileHomePageTitle />
+              <MobileHomePageUpcomingShows
+                id="mobileUpcomingShowContainer"
+                upcomingshows={this.props.upcomingshows}
+              />
+              <MobileHomePagePastShows
+                id="mobilePastShowContainer"
+                pastshows={this.props.pastshows}
+              />
+              <MobileHomePageNavFooter />
+              <MobileHomePageFooter />
+            </Segment>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
       </div>
     );
   }

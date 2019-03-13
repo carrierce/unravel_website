@@ -1,13 +1,16 @@
 import React from 'react';
-import { Icon, Menu, Sidebar, Segment, SidebarPusher } from 'semantic-ui-react';
 
-class MobileHomePageNavBar extends React.Component {
+class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false
     };
   }
+
+  openSideBar = () => {
+    this.props.openSideBar();
+  };
 
   render() {
     return (
@@ -26,7 +29,9 @@ class MobileHomePageNavBar extends React.Component {
             className="right floated left aligned four wide column"
           >
             <div id="basicSegment" className="ui basic compact segment">
-              <i className="large bars icon" />
+              <button onClick={this.openSideBar}>
+                <i className="large bars icon" />
+              </button>
             </div>
           </div>
         </div>
@@ -35,4 +40,4 @@ class MobileHomePageNavBar extends React.Component {
   }
 }
 
-export default MobileHomePageNavBar;
+export default NavBar;
