@@ -35,6 +35,14 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#apiDropDownMenu {
+  margin-right: 20px;
+}
+
+#apiDropDownMenu a {
+  color: black;
+}
+
 #mobileTellYourStoryNavFooter {
   background-color: #fff6f1;
 }
