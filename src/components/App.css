@@ -11,6 +11,10 @@
   padding: 0;
 }
 
+.ui.wide.left.sidebar {
+  width: 375px;
+}
+
 @media only screen and (max-width: 767px) {
   .ui.container {
     width: auto !important;
@@ -89,6 +93,7 @@ h1 {
   margin: 0px 10px 10px 10px;
   background-color: #007c8c;
   color: #fff6f1;
+  width: 375px;
 }
 
 #popUpLinks {
@@ -241,6 +246,7 @@ h1 {
   text-decoration: underline;
   text-decoration-color: #107b8c;
   text-decoration-style: thick;
+  padding: 20px 0 20px 0;
 }
 
 #mobileHomePageNavFooterLink {
