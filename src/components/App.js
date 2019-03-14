@@ -5,7 +5,7 @@ import UpcomingShows from './api/upcomingshows/UpcomingShows';
 import Podcasts from './api/podcasts/Podcasts';
 import PastShows from './api/pastshows/PastShows';
 import StorySubmissions from './api/storysubmissions/StorySubmissions';
-import { Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ImpactForms from './api/impacts/ImpactForms';
 import Mobile from './mobile/Mobile';
 import ApiNavBar from './api/apinavbar';
@@ -263,100 +263,114 @@ class App extends React.Component {
   };
   render() {
     return (
-      <div className="ui container">
-        <div>
-          <Route
-            path="/mobile"
-            render={() => (
-              <Mobile
-                pastshows={this.state.pastshows}
-                upcomingshows={this.state.upcomingShows}
-                poststorysubmission={this.postStorySubmission}
+      <Router>
+        <div className="ui container">
+          <div>
+            <Switch>
+              <Route
+                exact
+                path={['/', '/mobile']}
+                render={() => (
+                  <Mobile
+                    pastshows={this.state.pastshows}
+                    upcomingshows={this.state.upcomingShows}
+                    poststorysubmission={this.postStorySubmission}
+                  />
+                )}
               />
-            )}
-          />
-          <Route
-            path="/api/podcasts"
-            render={() => (
-              <div>
-                <ApiNavBar />
-                <Podcasts
-                  className="ui segment"
-                  podcasts={this.state.podcasts}
-                  postpodcast={this.postPodcast}
-                  deletepodcast={this.deletePodcast}
-                  editpodcast={this.editPodcast}
-                  getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
-                />
-              </div>
-            )}
-          />
-          <Route
-            path="/api/upcomingshows"
-            render={() => (
-              <div>
-                <ApiNavBar />
-                <UpcomingShows
-                  className="ui segment"
-                  upcomingshows={this.state.upcomingShows}
-                  postupcomingshow={this.postUpcomingShow}
-                  deleteupcomingshow={this.deleteUpcomingShow}
-                  editupcomingshow={this.editUpcomingShow}
-                  getupcomingshowsfromdb={this.getUpcomingShowsFromDb}
-                />
-              </div>
-            )}
-          />
-          <Route
-            path="/api/pastshows"
-            render={() => (
-              <div>
-                <ApiNavBar />
-                <PastShows
-                  className="ui segment"
-                  pastshows={this.state.pastshows}
-                  postpastshow={this.postPastShow}
-                  deletepastshow={this.deletePastShow}
-                  editpastshow={this.editPastShow}
-                  getpastshowsfromdb={this.getPastShowsFromDb}
-                />
-              </div>
-            )}
-          />
-          <Route
-            path="/api/storysubmissions"
-            render={() => (
-              <div>
-                <ApiNavBar />
-                <StorySubmissions
-                  className="ui segment"
-                  storysubmissions={this.state.storysubmissions}
-                  poststorysubmission={this.postStorySubmission}
-                  deletestorysubmission={this.deleteStorySubmission}
-                  editstorysubmission={this.editStorySubmission}
-                  getstorysubmissionsfromdb={this.getStorySubmissionsFromDb}
-                />
-              </div>
-            )}
-          />
-          <Route
-            path="/api/impact"
-            render={() => (
-              <div>
-                <ApiNavBar />
-                <ImpactForms
-                  className="ui segment"
-                  impactforms={this.state.impactforms}
-                  postimpactform={this.postImpactForm}
-                  deleteimpactform={this.deleteImpactForm}
-                  editimpactform={this.editImpactForm}
-                  getimpactformsfromdb={this.getImpactFormsFromDb}
-                />
-              </div>
-            )}
-          />
+              <Route
+                path="/api/podcasts"
+                render={() => (
+                  <div>
+                    <ApiNavBar />
+                    <Podcasts
+                      className="ui segment"
+                      podcasts={this.state.podcasts}
+                      postpodcast={this.postPodcast}
+                      deletepodcast={this.deletePodcast}
+                      editpodcast={this.editPodcast}
+                      getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
+                    />
+                  </div>
+                )}
+              />
+              <Route
+                path="/api/upcomingshows"
+                render={() => (
+                  <div>
+                    <ApiNavBar />
+                    <UpcomingShows
+                      className="ui segment"
+                      upcomingshows={this.state.upcomingShows}
+                      postupcomingshow={this.postUpcomingShow}
+                      deleteupcomingshow={this.deleteUpcomingShow}
+                      editupcomingshow={this.editUpcomingShow}
+                      getupcomingshowsfromdb={this.getUpcomingShowsFromDb}
+                    />
+                  </div>
+                )}
+              />
+              <Route
+                path="/api/pastshows"
+                render={() => (
+                  <div>
+                    <ApiNavBar />
+                    <PastShows
+                      className="ui segment"
+                      pastshows={this.state.pastshows}
+                      postpastshow={this.postPastShow}
+                      deletepastshow={this.deletePastShow}
+                      editpastshow={this.editPastShow}
+                      getpastshowsfromdb={this.getPastShowsFromDb}
+                    />
+                  </div>
+                )}
+              />
+              <Route
+                path="/api/storysubmissions"
+                render={() => (
+                  <div>
+                    <ApiNavBar />
+                    <StorySubmissions
+                      className="ui segment"
+                      storysubmissions={this.state.storysubmissions}
+                      poststorysubmission={this.postStorySubmission}
+                      deletestorysubmission={this.deleteStorySubmission}
+                      editstorysubmission={this.editStorySubmission}
+                      getstorysubmissionsfromdb={this.getStorySubmissionsFromDb}
+                    />
+                  </div>
+                )}
+              />
+              <Route
+                path="/api/impact"
+                render={() => (
+                  <div>
+                    <ApiNavBar />
+                    <ImpactForms
+                      className="ui segment"
+                      impactforms={this.state.impactforms}
+                      postimpactform={this.postImpactForm}
+                      deleteimpactform={this.deleteImpactForm}
+                      editimpactform={this.editImpactForm}
+                      getimpactformsfromdb={this.getImpactFormsFromDb}
+                    />
+                  </div>
+                )}
+              />
+              <Route
+                render={() => (
+                  <Mobile
+                    pastshows={this.state.pastshows}
+                    upcomingshows={this.state.upcomingShows}
+                    poststorysubmission={this.postStorySubmission}
+                  />
+                )}
+              />
+            </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
