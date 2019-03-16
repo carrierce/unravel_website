@@ -35,6 +35,10 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#errorMessage {
+  color: red;
+}
+
 #apiDropDownMenu {
   margin-right: 20px;
 }

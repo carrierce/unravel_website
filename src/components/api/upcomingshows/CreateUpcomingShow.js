@@ -80,7 +80,7 @@ class CreateUpcomingShow extends React.Component {
               type="text"
             />
             {formErrors.posterImageLink.length > 0 && (
-              <span className="errorMessage">{formErrors.posterImageLink}</span>
+              <span id="errorMessage">{formErrors.posterImageLink}</span>
             )}
           </div>
           <div className="field">
