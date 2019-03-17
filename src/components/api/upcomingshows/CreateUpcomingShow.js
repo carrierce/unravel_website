@@ -1,5 +1,10 @@
 import React from 'react';
 
+// const formValid = ({ formErrors, ...rest }) => {
+//   let valid = true;
+//   Object.values
+// }
+
 class CreateUpcomingShow extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +14,15 @@ class CreateUpcomingShow extends React.Component {
       venue: '',
       showBlurb: '',
       ticketUrl: '',
-      showTitle: ''
+      showTitle: '',
+      formErrors: {
+        posterImageLink: '',
+        showDateTime: '',
+        venue: '',
+        showBlurb: '',
+        ticketUrl: '',
+        showTitle: ''
+      }
     };
     this.initialState = {
       posterImageLink: '',
@@ -21,7 +34,26 @@ class CreateUpcomingShow extends React.Component {
     };
   }
   formChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
+    e.preventDefault();
+
+    // this.setState({ [e.target.id]: e.target.value });
+    // I think i need to move the setState to a different function
+    // which runs after the formChange
+    // console.log(e.target.value.length);
+    const { id, value } = e.target;
+    let formErrors = this.state.formErrors;
+    console.log(e.target.id);
+    switch (id) {
+      case 'posterImageLink':
+        formErrors.posterImageLink =
+          value.length < 3 ? 'minium 3 characters requried' : '';
+        break;
+      default:
+        break;
+    }
+    this.setState({ formErrors, [e.target.id]: e.target.value }, () =>
+      console.log(this.state)
+    );
   };
 
   submitForm = e => {
@@ -31,6 +63,8 @@ class CreateUpcomingShow extends React.Component {
   };
 
   render() {
+    const { formErrors } = this.state;
+
     return (
       <div className="ui segment">
         <h2>Create Upcoming Show</h2>
@@ -40,10 +74,14 @@ class CreateUpcomingShow extends React.Component {
             <input
               id="posterImageLink"
               value={this.state.posterImageLink}
-              onChange={e => this.formChange(e)}
+              onChange={this.formChange}
               placeholder="Poster Image Link"
               required
+              type="text"
             />
+            {formErrors.posterImageLink.length > 0 && (
+              <span id="errorMessage">{formErrors.posterImageLink}</span>
+            )}
           </div>
           <div className="field">
             <label>
