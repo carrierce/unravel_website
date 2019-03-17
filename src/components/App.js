@@ -268,7 +268,7 @@ class App extends React.Component {
                 )}
               />
               <Route
-                path="/api/podcasts"
+                path="/cms/podcasts"
                 render={() => (
                   <div>
                     <ApiNavBar />
@@ -284,7 +284,7 @@ class App extends React.Component {
                 )}
               />
               <Route
-                path="/api/upcomingshows"
+                path="/cms/upcomingshows"
                 render={() => (
                   <div>
                     <ApiNavBar />
@@ -300,7 +300,7 @@ class App extends React.Component {
                 )}
               />
               <Route
-                path="/api/pastshows"
+                path="/cms/pastshows"
                 render={() => (
                   <div>
                     <ApiNavBar />
@@ -316,7 +316,7 @@ class App extends React.Component {
                 )}
               />
               <Route
-                path="/api/storysubmissions"
+                path="/cms/storysubmissions"
                 render={() => (
                   <div>
                     <ApiNavBar />
@@ -332,7 +332,7 @@ class App extends React.Component {
                 )}
               />
               <Route
-                path="/api/impact"
+                path="/cms/impact"
                 render={() => (
                   <div>
                     <ApiNavBar />

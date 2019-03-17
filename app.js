@@ -23,8 +23,8 @@ app.use('/api/impactform', impactFormAPI);
 
 // Uncomment the 2 lines below when running build
 // Also remember to look at localhost:5000/
-// app.use(express.static(path.join(__dirname, 'build')));
-// app.use('*', express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'build')));
+app.use('*', express.static(path.join(__dirname, 'build')));
 
 app.get('/', (req, res) => {
   res.json({ message: 'Hello World' });
