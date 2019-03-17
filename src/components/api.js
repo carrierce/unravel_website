@@ -6,4 +6,4 @@ export default axios.create({
 
 // http://127.0.0.1:5000
 
-// http://128.199.233.19/mobile/home/
+// http://128.199.233.19
