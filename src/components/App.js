@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ImpactForms from './api/impacts/ImpactForms';
 import Mobile from './mobile/Mobile';
 import ApiNavBar from './api/apinavbar';
+import api from './api';
 
 class App extends React.Component {
   constructor(props) {
