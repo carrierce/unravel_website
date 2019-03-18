@@ -28,20 +28,10 @@ class UpcomingShowItem extends React.Component {
           className="ui relaxed divided list"
         >
           <div className="item">
-            <div className="header">Poster Image Link</div>
+            <div className="header">Show Title</div>
             <div className="description">
-              {this.props.upcomingshow.posterImageLink}
+              {this.props.upcomingshow.showTitle}
             </div>
-          </div>
-          <div className="item">
-            <div className="header">Show Date Time</div>
-            <div className="description">
-              {moment(this.props.upcomingshow.showDateTime).format('LLLL')}
-            </div>
-          </div>
-          <div className="item">
-            <div className="header">Venue</div>
-            <div className="description">{this.props.upcomingshow.venue}</div>
           </div>
           <div className="item">
             <div className="header">Show Blurb</div>
@@ -50,16 +40,25 @@ class UpcomingShowItem extends React.Component {
             </div>
           </div>
           <div className="item">
+            <div className="header">Venue</div>
+            <div className="description">{this.props.upcomingshow.venue}</div>
+          </div>
+          <div className="item">
+            <div className="header">Show Date Time</div>
+            <div className="description">
+              {moment(this.props.upcomingshow.showDateTime).format('LLLL')}
+            </div>
+          </div>
+          <div className="item">
             <div className="header">Ticket URL</div>
             <div className="description">
               {this.props.upcomingshow.ticketUrl}
             </div>
           </div>
-
           <div className="item">
-            <div className="header">Show Title</div>
+            <div className="header">Poster Image Link</div>
             <div className="description">
-              {this.props.upcomingshow.showTitle}
+              {this.props.upcomingshow.posterImageLink}
             </div>
           </div>
         </div>

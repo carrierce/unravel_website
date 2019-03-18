@@ -64,6 +64,11 @@ class CreateUpcomingShow extends React.Component {
           ? ''
           : 'invalid web address';
         break;
+      case 'ticketUrl':
+        formErrors.ticketUrl = validWebsiteRegex.test(value)
+          ? ''
+          : 'invalid web address';
+        break;
       case 'showTitle':
         formErrors.showTitle = value.length < 1 ? 'Venue cannot be blank' : '';
         break;
@@ -101,19 +106,45 @@ class CreateUpcomingShow extends React.Component {
         <h2>Create Upcoming Show</h2>
         <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
-            <label>Poster Image Link</label>
+            <label>Show Title</label>
             <input
-              id="posterImageLink"
-              value={this.state.posterImageLink}
-              onChange={this.formChange}
-              placeholder="Poster Image Link"
+              id="showTitle"
+              value={this.state.showTitle}
+              onChange={e => this.formChange(e)}
+              placeholder="Show Title"
               required
-              type="text"
             />
-            {formErrors.posterImageLink.length > 0 && (
-              <span id="errorMessage">{formErrors.posterImageLink}</span>
-            )}
           </div>
+          {formErrors.showTitle.length > 0 && (
+            <span id="errorMessage">{formErrors.showTitle}</span>
+          )}
+          <div className="field">
+            <label>Show Blurb</label>
+            <input
+              id="showBlurb"
+              value={this.state.showBlurb}
+              onChange={e => this.formChange(e)}
+              placeholder="Blurb"
+              required
+            />
+          </div>
+          {formErrors.showBlurb.length > 0 && (
+            <span id="errorMessage">{formErrors.showBlurb}</span>
+          )}
+          <div className="field">
+            <label>Venue</label>
+            <textarea
+              rows="3"
+              id="venue"
+              value={this.state.venue}
+              onChange={e => this.formChange(e)}
+              placeholder="Venue"
+              required
+            />
+          </div>
+          {formErrors.venue.length > 0 && (
+            <span id="errorMessage">{formErrors.venue}</span>
+          )}
           <div className="field">
             <label>
               Show Date & Time | Month/Day/Year, Hours:Minutes AM/PM
@@ -132,46 +163,6 @@ class CreateUpcomingShow extends React.Component {
             )}
           </div>
           <div className="field">
-            <label>Show Title</label>
-            <input
-              id="showTitle"
-              value={this.state.showTitle}
-              onChange={e => this.formChange(e)}
-              placeholder="Show Title"
-              required
-            />
-          </div>
-          {formErrors.showTitle.length > 0 && (
-            <span id="errorMessage">{formErrors.showTitle}</span>
-          )}
-          <div className="field">
-            <label>Venue</label>
-            <textarea
-              rows="3"
-              id="venue"
-              value={this.state.venue}
-              onChange={e => this.formChange(e)}
-              placeholder="Venue"
-              required
-            />
-          </div>
-          {formErrors.venue.length > 0 && (
-            <span id="errorMessage">{formErrors.venue}</span>
-          )}
-          <div className="field">
-            <label>Show Blurb</label>
-            <input
-              id="showBlurb"
-              value={this.state.showBlurb}
-              onChange={e => this.formChange(e)}
-              placeholder="Blurb"
-              required
-            />
-          </div>
-          {formErrors.showBlurb.length > 0 && (
-            <span id="errorMessage">{formErrors.showBlurb}</span>
-          )}
-          <div className="field">
             <label>Ticket Url</label>
             <input
               id="ticketUrl"
@@ -180,6 +171,23 @@ class CreateUpcomingShow extends React.Component {
               placeholder="Ticket Url"
               required
             />
+          </div>
+          {formErrors.ticketUrl.length > 0 && (
+            <span id="errorMessage">{formErrors.ticketUrl}</span>
+          )}
+          <div className="field">
+            <label>Poster Image Link</label>
+            <input
+              id="posterImageLink"
+              value={this.state.posterImageLink}
+              onChange={this.formChange}
+              placeholder="Poster Image Link"
+              required
+              type="text"
+            />
+            {formErrors.posterImageLink.length > 0 && (
+              <span id="errorMessage">{formErrors.posterImageLink}</span>
+            )}
           </div>
           <button
             className="positive ui button"
