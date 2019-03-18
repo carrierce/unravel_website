@@ -1,5 +1,22 @@
 import React from 'react';
 
+const emailRegex = RegExp(
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+);
+
+const formValid = ({ formErrors, ...rest }) => {
+  let valid = true;
+
+  Object.values(formErrors).forEach(val => {
+    val.length > 0 && (valid = false);
+  });
+
+  Object.values(rest).forEach(val => {
+    val === '' && (valid = false);
+  });
+
+  return valid;
+};
 class EditStorySubmission extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +26,14 @@ class EditStorySubmission extends React.Component {
       name: props.storysubmission.name,
       email: props.storysubmission.email,
       story: props.storysubmission.story,
-      questionOrComment: props.storysubmission.questionOrComment
+      questionOrComment: props.storysubmission.questionOrComment,
+      formErrors: {
+        name: '',
+        email: '',
+        story: '',
+        questionOrComment: ''
+      },
+      submitError: false
     };
   }
 
@@ -24,13 +48,34 @@ class EditStorySubmission extends React.Component {
   }
 
   formChange = e => {
+    const { id, value } = e.target;
+    let formErrors = this.state.formErrors;
+    switch (id) {
+      case 'name':
+        formErrors.name = value.length < 1 ? 'Name cannot be blank' : '';
+        break;
+      case 'email':
+        formErrors.email = emailRegex.test(value)
+          ? ''
+          : 'invalid email address';
+        break;
+      case 'story':
+        formErrors.story = value.length < 1 ? 'Story cannot be blank' : '';
+        break;
+      default:
+        break;
+    }
     this.setState({ [e.target.id]: e.target.value });
   };
 
   submitForm = e => {
     e.preventDefault();
-    this.props.editstorysubmission(this.state);
-    this.props.toggleeditcomponent();
+    if (formValid(this.state)) {
+      this.props.editstorysubmission(this.state);
+      this.props.toggleeditcomponent();
+    } else {
+      this.setState({ submitError: true });
+    }
   };
 
   cancelEdit = () => {
@@ -38,9 +83,10 @@ class EditStorySubmission extends React.Component {
   };
 
   render() {
+    const { formErrors } = this.state;
     return (
       <div>
-        <h1>Edit Podcast</h1>
+        <h1>Edit Story Submission</h1>
         <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
             <label>Name</label>
@@ -50,9 +96,12 @@ class EditStorySubmission extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Name"
             />
+            {formErrors.name.length > 0 && (
+              <span id="errorMessage">{formErrors.name}</span>
+            )}
           </div>
           <div className="field">
-            <label>Email</label>
+            <label>Email Address</label>
             <textarea
               rows="2"
               id="email"
@@ -60,6 +109,9 @@ class EditStorySubmission extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Email"
             />
+            {formErrors.email.length > 0 && (
+              <span id="errorMessage">{formErrors.email}</span>
+            )}
           </div>
           <div className="field">
             <label>Story</label>
@@ -70,12 +122,12 @@ class EditStorySubmission extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Story"
             />
+            {formErrors.story.length > 0 && (
+              <span id="errorMessage">{formErrors.story}</span>
+            )}
           </div>
           <div className="field">
-            <label>
-              Cover Image Link (Cover image link must be at least 5 characters
-              long)
-            </label>
+            <label>Question or Comments</label>
             <input
               id="questionOrComment"
               value={this.state.questionOrComment}
@@ -96,6 +148,15 @@ class EditStorySubmission extends React.Component {
             Discard Edits
           </button>
         </form>
+        {this.state.submitError == true && (
+          <div>
+            <br />
+            <span id="errorMessage">
+              Story edit not posted, please check that all fields are not empty
+              and there are no error messages.
+            </span>
+          </div>
+        )}
       </div>
     );
   }

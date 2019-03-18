@@ -81,7 +81,6 @@ class CreateImpactForm extends React.Component {
       this.props.postimpactform(this.state);
       this.setState(this.initialState);
     } else {
-      console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
       this.setState({ submitError: true });
     }
   };

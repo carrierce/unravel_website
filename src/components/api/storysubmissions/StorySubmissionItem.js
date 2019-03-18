@@ -11,7 +11,6 @@ class StorySubmissionItem extends React.Component {
     };
   }
   handleClick = () => {
-    console.log('handleclick is called!!');
     this.props.getstorysubmissionsfromdb();
     this.setState({
       isToggle: !this.state.isToggle,
