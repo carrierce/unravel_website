@@ -1,9 +1,23 @@
 import React from 'react';
+const moment = require('moment');
 
-// const formValid = ({ formErrors, ...rest }) => {
-//   let valid = true;
-//   Object.values
-// }
+const formValid = ({ formErrors, ...rest }) => {
+  let valid = true;
+
+  Object.values(formErrors).forEach(val => {
+    val.length > 0 && (valid = false);
+  });
+
+  Object.values(rest).forEach(val => {
+    val === null && (valid = false);
+  });
+
+  return valid;
+};
+
+const validWebsiteRegex = RegExp(
+  /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+);
 
 class CreateUpcomingShow extends React.Component {
   constructor(props) {
@@ -42,11 +56,22 @@ class CreateUpcomingShow extends React.Component {
     // console.log(e.target.value.length);
     const { id, value } = e.target;
     let formErrors = this.state.formErrors;
-    console.log(e.target.id);
+    console.log(e.target.value);
     switch (id) {
       case 'posterImageLink':
-        formErrors.posterImageLink =
-          value.length < 3 ? 'minium 3 characters requried' : '';
+        formErrors.posterImageLink = validWebsiteRegex.test(value)
+          ? ''
+          : 'invalid web address';
+        break;
+      case 'showTitle':
+        formErrors.showTitle = value.length < 1 ? 'Venue cannot be blank' : '';
+        break;
+      case 'venue':
+        formErrors.venue = value.length < 1 ? 'Venue cannot be blank' : '';
+        break;
+      case 'showBlurb':
+        formErrors.showBlurb =
+          value.length < 1 ? 'Show Blurb cannot be blank' : '';
         break;
       default:
         break;
@@ -96,6 +121,9 @@ class CreateUpcomingShow extends React.Component {
               placeholder="Show Date"
               required
             />
+            {formErrors.showDateTime.length > 0 && (
+              <span id="errorMessage">{formErrors.showDateTime}</span>
+            )}
           </div>
           <div className="field">
             <label>Show Title</label>
@@ -107,6 +135,9 @@ class CreateUpcomingShow extends React.Component {
               required
             />
           </div>
+          {formErrors.showTitle.length > 0 && (
+            <span id="errorMessage">{formErrors.showTitle}</span>
+          )}
           <div className="field">
             <label>Venue</label>
             <textarea
@@ -118,6 +149,9 @@ class CreateUpcomingShow extends React.Component {
               required
             />
           </div>
+          {formErrors.venue.length > 0 && (
+            <span id="errorMessage">{formErrors.venue}</span>
+          )}
           <div className="field">
             <label>Show Blurb</label>
             <input
@@ -128,6 +162,9 @@ class CreateUpcomingShow extends React.Component {
               required
             />
           </div>
+          {formErrors.showBlurb.length > 0 && (
+            <span id="errorMessage">{formErrors.showBlurb}</span>
+          )}
           <div className="field">
             <label>Ticket Url</label>
             <input
