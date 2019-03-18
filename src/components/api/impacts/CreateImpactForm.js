@@ -66,6 +66,9 @@ class CreateImpactForm extends React.Component {
         formErrors.organization =
           value.length < 1 ? 'Organization cannot be blank' : '';
         break;
+      case 'message':
+        formErrors.message = value.length < 1 ? 'Message cannot be blank' : '';
+        break;
       default:
         break;
     }
@@ -140,6 +143,9 @@ class CreateImpactForm extends React.Component {
               placeholder="Message"
               required
             />
+            {formErrors.message.length > 0 && (
+              <span id="errorMessage">{formErrors.message}</span>
+            )}
           </div>
           <button
             className="positive ui button"

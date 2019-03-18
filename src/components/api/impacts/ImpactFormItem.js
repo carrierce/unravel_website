@@ -54,7 +54,7 @@ class ImpactFormItem extends React.Component {
         >
           <div className="item">
             <button className="positive ui button" onClick={this.handleClick}>
-              Edit Past Show
+              Edit Impact Form
             </button>
           </div>
           <div className="item">
