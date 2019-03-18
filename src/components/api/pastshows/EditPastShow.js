@@ -1,5 +1,23 @@
 import React from 'react';
 const moment = require('moment');
+
+const validWebsiteRegex = RegExp(
+  /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+);
+
+const formValid = ({ formErrors, ...rest }) => {
+  let valid = true;
+
+  Object.values(formErrors).forEach(val => {
+    val.length > 0 && (valid = false);
+  });
+
+  Object.values(rest).forEach(val => {
+    val === '' && (valid = false);
+  });
+
+  return valid;
+};
 class EditPastShow extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +27,14 @@ class EditPastShow extends React.Component {
       photoImageLink: props.pastshow.photoImageLink,
       showDate: props.pastshow.showDate,
       venue: props.pastshow.venue,
-      showTitle: props.pastshow.showTitle
+      showTitle: props.pastshow.showTitle,
+      formErrors: {
+        photoImageLink: '',
+        showDate: '',
+        venue: '',
+        showTitle: ''
+      },
+      submitError: false
     };
   }
 
@@ -24,13 +49,35 @@ class EditPastShow extends React.Component {
   }
 
   formChange = e => {
+    const { id, value } = e.target;
+    let formErrors = this.state.formErrors;
+    switch (id) {
+      case 'photoImageLink':
+        formErrors.photoImageLink = validWebsiteRegex.test(value)
+          ? ''
+          : 'invalid web address';
+        break;
+      case 'venue':
+        formErrors.venue = value.length < 1 ? 'Venue cannot be blank' : '';
+        break;
+      case 'showTitle':
+        formErrors.showTitle =
+          value.length < 1 ? 'Show Title cannot be blank' : '';
+        break;
+      default:
+        break;
+    }
     this.setState({ [e.target.id]: e.target.value });
   };
 
   submitForm = e => {
     e.preventDefault();
-    this.props.editpastshow(this.state);
-    this.props.toggleeditcomponent();
+    if (formValid(this.state)) {
+      this.props.editpastshow(this.state);
+      this.props.toggleeditcomponent();
+    } else {
+      this.setState({ submitError: true });
+    }
   };
 
   cancelEdit = () => {
@@ -38,19 +85,38 @@ class EditPastShow extends React.Component {
   };
 
   render() {
+    const { formErrors } = this.state;
+
     return (
       <div>
         <h1>Edit Past Show</h1>
         <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
-            <label>Photo Image Link</label>
-            <input
-              id="photoImageLink"
-              value={this.state.photoImageLink}
+            <label>Show Title</label>
+            <textarea
+              rows="1"
+              id="showTitle"
+              value={this.state.showTitle}
               onChange={e => this.formChange(e)}
-              placeholder="Photo Image Link"
+              placeholder="Show Title"
             />
           </div>
+          {formErrors.showTitle.length > 0 && (
+            <span id="errorMessage">{formErrors.showTitle}</span>
+          )}
+          <div className="field">
+            <label>Venue</label>
+            <textarea
+              rows="1"
+              id="venue"
+              value={this.state.venue}
+              onChange={e => this.formChange(e)}
+              placeholder="Venue"
+            />
+          </div>
+          {formErrors.venue.length > 0 && (
+            <span id="errorMessage">{formErrors.venue}</span>
+          )}
           <div className="field">
             <label>Show Date</label>
             <input
@@ -62,24 +128,16 @@ class EditPastShow extends React.Component {
             />
           </div>
           <div className="field">
-            <label>Venue</label>
-            <textarea
-              rows="3"
-              id="venue"
-              value={this.state.venue}
+            <label>Photo Image Link</label>
+            <input
+              id="photoImageLink"
+              value={this.state.photoImageLink}
               onChange={e => this.formChange(e)}
-              placeholder="Venue"
+              placeholder="Photo Image Link"
             />
-          </div>
-          <div className="field">
-            <label>Show Title</label>
-            <textarea
-              rows="3"
-              id="showTitle"
-              value={this.state.showTitle}
-              onChange={e => this.formChange(e)}
-              placeholder="Show Title"
-            />
+            {formErrors.photoImageLink.length > 0 && (
+              <span id="errorMessage">{formErrors.photoImageLink}</span>
+            )}
           </div>
           <button
             className="positive ui button"
@@ -94,6 +152,15 @@ class EditPastShow extends React.Component {
             Discard Edits
           </button>
         </form>
+        {this.state.submitError == true && (
+          <div>
+            <br />
+            <span id="errorMessage">
+              Past show not posted, please check that all fields are not empty
+              and there are no error messages.
+            </span>
+          </div>
+        )}
       </div>
     );
   }

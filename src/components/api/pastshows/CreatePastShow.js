@@ -32,12 +32,24 @@ class CreatePastShow extends React.Component {
         <h2>Create Past Show</h2>
         <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
-            <label>Photo Image Link</label>
-            <input
-              id="photoImageLink"
-              value={this.state.photoImageLink}
+            <label>Show Title</label>
+            <textarea
+              rows="1"
+              id="showTitle"
+              value={this.state.showTitle}
               onChange={e => this.formChange(e)}
-              placeholder="Past Show Photo Image Link"
+              placeholder="Show Title"
+              required
+            />
+          </div>
+          <div className="field">
+            <label>Venue</label>
+            <textarea
+              rows="1"
+              id="venue"
+              value={this.state.venue}
+              onChange={e => this.formChange(e)}
+              placeholder="Venue"
               required
             />
           </div>
@@ -53,24 +65,12 @@ class CreatePastShow extends React.Component {
             />
           </div>
           <div className="field">
-            <label>Venue</label>
-            <textarea
-              rows="3"
-              id="venue"
-              value={this.state.venue}
+            <label>Photo Image Link</label>
+            <input
+              id="photoImageLink"
+              value={this.state.photoImageLink}
               onChange={e => this.formChange(e)}
-              placeholder="Venue"
-              required
-            />
-          </div>
-          <div className="field">
-            <label>Show Title</label>
-            <textarea
-              rows="3"
-              id="showTitle"
-              value={this.state.showTitle}
-              onChange={e => this.formChange(e)}
-              placeholder="Show Title"
+              placeholder="Past Show Photo Image Link"
               required
             />
           </div>
