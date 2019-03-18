@@ -18,19 +18,19 @@ class ApiNavBar extends Component {
         >
           <Dropdown.Menu>
             <Dropdown.Item>
-              <Link to="/api/impact">Impact</Link>
+              <Link to="/cms/impact">Impact</Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              <Link to="/api/pastshows">Past Shows</Link>
+              <Link to="/cms/pastshows">Past Shows</Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              <Link to="/api/podcasts">Podcasts</Link>
+              <Link to="/cms/podcasts">Podcasts</Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              <Link to="/api/storysubmissions">Story Submission</Link>
+              <Link to="/cms/storysubmissions">Story Submission</Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              <Link to="/api/upcomingshows">Upcoming Shows</Link>
+              <Link to="/cms/upcomingshows">Upcoming Shows</Link>
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>

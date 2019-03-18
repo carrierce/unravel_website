@@ -45,19 +45,22 @@ class CreateUpcomingShow extends React.Component {
       showBlurb: '',
       ticketUrl: '',
       showTitle: '',
+      formErrors: {
+        posterImageLink: '',
+        showDateTime: '',
+        venue: '',
+        showBlurb: '',
+        ticketUrl: '',
+        showTitle: ''
+      },
       submitError: false
     };
   }
   formChange = e => {
     e.preventDefault();
 
-    // this.setState({ [e.target.id]: e.target.value });
-    // I think i need to move the setState to a different function
-    // which runs after the formChange
-    // console.log(e.target.value.length);
     const { id, value } = e.target;
     let formErrors = this.state.formErrors;
-    console.log(e.target.value);
     switch (id) {
       case 'posterImageLink':
         formErrors.posterImageLink = validWebsiteRegex.test(value)
@@ -200,8 +203,8 @@ class CreateUpcomingShow extends React.Component {
           <div>
             <br />
             <span id="errorMessage">
-              Upcoming show not posted, please check that all fields are not
-              empty and there are no error messages.
+              Impact form not posted, please check that all fields are not empty
+              and there are no error messages.
             </span>
           </div>
         )}
