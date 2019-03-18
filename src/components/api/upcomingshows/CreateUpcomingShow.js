@@ -1,5 +1,4 @@
 import React from 'react';
-const moment = require('moment');
 
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
@@ -9,7 +8,7 @@ const formValid = ({ formErrors, ...rest }) => {
   });
 
   Object.values(rest).forEach(val => {
-    val === null && (valid = false);
+    val === '' && (valid = false);
   });
 
   return valid;
@@ -36,7 +35,8 @@ class CreateUpcomingShow extends React.Component {
         showBlurb: '',
         ticketUrl: '',
         showTitle: ''
-      }
+      },
+      submitError: false
     };
     this.initialState = {
       posterImageLink: '',
@@ -44,7 +44,8 @@ class CreateUpcomingShow extends React.Component {
       venue: '',
       showBlurb: '',
       ticketUrl: '',
-      showTitle: ''
+      showTitle: '',
+      submitError: false
     };
   }
   formChange = e => {
@@ -83,8 +84,13 @@ class CreateUpcomingShow extends React.Component {
 
   submitForm = e => {
     e.preventDefault();
-    this.props.postupcomingshow(this.state);
-    this.setState(this.initialState);
+    if (formValid(this.state)) {
+      this.props.postupcomingshow(this.state);
+      this.setState(this.initialState);
+    } else {
+      console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
+      this.setState({ submitError: true });
+    }
   };
 
   render() {
@@ -182,6 +188,15 @@ class CreateUpcomingShow extends React.Component {
             Submit New Show
           </button>
         </form>
+        {this.state.submitError == true && (
+          <div>
+            <br />
+            <span id="errorMessage">
+              Upcoming show not posted, please check that all fields are not
+              empty and there are no error messages.
+            </span>
+          </div>
+        )}
       </div>
     );
   }
