@@ -117,8 +117,7 @@ class MobileImpactSubmissionForm extends React.Component {
               )}
             </div>
             <div className="field">
-              <textarea
-                rows="7"
+              <input
                 id="organization"
                 value={this.state.organization}
                 onChange={e => this.formChange(e)}
