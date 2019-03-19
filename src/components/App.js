@@ -213,6 +213,7 @@ class App extends React.Component {
   editUpcomingShow = edittedUpcomingShow => {
     api
       .put('/api/upcomingshows/' + edittedUpcomingShow._id, {
+        showTitle: edittedUpcomingShow.showTitle,
         posterImageLink: edittedUpcomingShow.posterImageLink,
         showDateTime: edittedUpcomingShow.showDateTime,
         venue: edittedUpcomingShow.venue,
