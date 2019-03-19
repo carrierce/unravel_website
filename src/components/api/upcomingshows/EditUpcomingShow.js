@@ -114,7 +114,7 @@ class EditUpcomingShow extends React.Component {
           <div className="field">
             <label>Show Blurb</label>
             <textarea
-              rows="3"
+              rows="5"
               id="showBlurb"
               value={this.state.showBlurb}
               onChange={e => this.formChange(e)}
@@ -126,8 +126,7 @@ class EditUpcomingShow extends React.Component {
           )}
           <div className="field">
             <label>Venue</label>
-            <textarea
-              rows="3"
+            <input
               id="venue"
               value={this.state.venue}
               onChange={e => this.formChange(e)}
@@ -157,19 +156,19 @@ class EditUpcomingShow extends React.Component {
             {formErrors.ticketUrl.length > 0 && (
               <span id="errorMessage">{formErrors.ticketUrl}</span>
             )}
-            <div className="field">
-              <label>Poster Image Link</label>
-              <input
-                id="posterImageLink"
-                value={this.state.posterImageLink}
-                onChange={e => this.formChange(e)}
-                placeholder="Episode Title"
-              />
-            </div>
-            {formErrors.posterImageLink.length > 0 && (
-              <span id="errorMessage">{formErrors.posterImageLink}</span>
-            )}
           </div>
+          <div className="field">
+            <label>Poster Image Link</label>
+            <input
+              id="posterImageLink"
+              value={this.state.posterImageLink}
+              onChange={e => this.formChange(e)}
+              placeholder="Episode Title"
+            />
+          </div>
+          {formErrors.posterImageLink.length > 0 && (
+            <span id="errorMessage">{formErrors.posterImageLink}</span>
+          )}
           <button
             className="positive ui button"
             onClick={e => this.submitForm(e)}

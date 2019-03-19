@@ -116,7 +116,6 @@ class CreateUpcomingShow extends React.Component {
               value={this.state.showTitle}
               onChange={e => this.formChange(e)}
               placeholder="Show Title"
-              required
             />
           </div>
           {formErrors.showTitle.length > 0 && (
@@ -124,12 +123,12 @@ class CreateUpcomingShow extends React.Component {
           )}
           <div className="field">
             <label>Show Blurb</label>
-            <input
+            <textarea
+              rows="5"
               id="showBlurb"
               value={this.state.showBlurb}
               onChange={e => this.formChange(e)}
               placeholder="Blurb"
-              required
             />
           </div>
           {formErrors.showBlurb.length > 0 && (
@@ -137,13 +136,11 @@ class CreateUpcomingShow extends React.Component {
           )}
           <div className="field">
             <label>Venue</label>
-            <textarea
-              rows="3"
+            <input
               id="venue"
               value={this.state.venue}
               onChange={e => this.formChange(e)}
               placeholder="Venue"
-              required
             />
           </div>
           {formErrors.venue.length > 0 && (
@@ -155,12 +152,10 @@ class CreateUpcomingShow extends React.Component {
             </label>
             <input
               type="datetime-local"
-              rows="2"
               id="showDateTime"
               value={this.state.showDateTime}
               onChange={e => this.formChange(e)}
               placeholder="Show Date"
-              required
             />
             {formErrors.showDateTime.length > 0 && (
               <span id="errorMessage">{formErrors.showDateTime}</span>
@@ -173,7 +168,6 @@ class CreateUpcomingShow extends React.Component {
               value={this.state.ticketUrl}
               onChange={e => this.formChange(e)}
               placeholder="Ticket Url"
-              required
             />
           </div>
           {formErrors.ticketUrl.length > 0 && (
@@ -186,7 +180,6 @@ class CreateUpcomingShow extends React.Component {
               value={this.state.posterImageLink}
               onChange={this.formChange}
               placeholder="Poster Image Link"
-              required
               type="text"
             />
             {formErrors.posterImageLink.length > 0 && (

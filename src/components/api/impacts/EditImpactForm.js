@@ -107,8 +107,7 @@ class EditImpactForm extends React.Component {
           )}
           <div className="field">
             <label>Email Address</label>
-            <textarea
-              rows="2"
+            <input
               id="email"
               value={this.state.email}
               onChange={e => this.formChange(e)}
@@ -120,8 +119,7 @@ class EditImpactForm extends React.Component {
           </div>
           <div className="field">
             <label>Organization</label>
-            <textarea
-              rows="3"
+            <input
               id="organization"
               value={this.state.organization}
               onChange={e => this.formChange(e)}
@@ -134,7 +132,7 @@ class EditImpactForm extends React.Component {
           <div className="field">
             <label>Message</label>
             <textarea
-              rows="3"
+              rows="5"
               id="message"
               value={this.state.message}
               onChange={e => this.formChange(e)}

@@ -88,8 +88,7 @@ class CreatePastShow extends React.Component {
         <form className="ui form" onSubmit={() => this.submitForm()}>
           <div className="field">
             <label>Show Title</label>
-            <textarea
-              rows="1"
+            <input
               id="showTitle"
               value={this.state.showTitle}
               onChange={e => this.formChange(e)}
@@ -102,8 +101,7 @@ class CreatePastShow extends React.Component {
           </div>
           <div className="field">
             <label>Venue</label>
-            <textarea
-              rows="1"
+            <input
               id="venue"
               value={this.state.venue}
               onChange={e => this.formChange(e)}

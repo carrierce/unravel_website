@@ -115,7 +115,7 @@ class CreatePodcast extends React.Component {
           <div className="field">
             <label>Blurb</label>
             <textarea
-              rows="2"
+              rows="5"
               id="podcastBlurb"
               value={this.state.podcastBlurb}
               onChange={e => this.formChange(e)}
@@ -129,7 +129,7 @@ class CreatePodcast extends React.Component {
           <div className="field">
             <label>Show Notes</label>
             <textarea
-              rows="3"
+              rows="5"
               id="podcastShowNotes"
               value={this.state.podcastShowNotes}
               onChange={e => this.formChange(e)}

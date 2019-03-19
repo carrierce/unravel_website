@@ -99,8 +99,6 @@ class CreateStorySubmission extends React.Component {
           <div className="field">
             <label>Email Address</label>
             <input
-              name="email"
-              type="email"
               id="email"
               value={this.state.email}
               onChange={e => this.formChange(e)}
@@ -113,7 +111,7 @@ class CreateStorySubmission extends React.Component {
           <div className="field">
             <label>Story</label>
             <textarea
-              rows="3"
+              rows="5"
               id="story"
               value={this.state.story}
               onChange={e => this.formChange(e)}
@@ -126,7 +124,7 @@ class CreateStorySubmission extends React.Component {
           <div className="field">
             <label>Question Or Comment</label>
             <textarea
-              rows="3"
+              rows="5"
               id="questionOrComment"
               value={this.state.questionOrComment}
               onChange={e => this.formChange(e)}
