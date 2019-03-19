@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import PopUpNav from './PopUpNav';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import Impact from './impact/Impact';
 import MobileHomePage from './homepage/MobileHomePage';
 import MobileTellYourStory from './tellyourstory/MobileTellYourStory';
 import { Icon, Menu, Sidebar, Segment } from 'semantic-ui-react';
@@ -49,6 +50,14 @@ class Mobile extends React.Component {
                         pastshows={this.props.pastshows}
                         upcomingshows={this.props.upcomingshows}
                       />
+                    </div>
+                  )}
+                />
+                <Route
+                  path="/mobile/impact"
+                  render={() => (
+                    <div>
+                      <Impact postimpactform={this.props.postimpactform} />
                     </div>
                   )}
                 />

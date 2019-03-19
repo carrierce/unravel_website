@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Impact from './mobile/impact/Impact';
 import UpcomingShows from './api/upcomingshows/UpcomingShows';
 import Podcasts from './api/podcasts/Podcasts';
 import PastShows from './api/pastshows/PastShows';
@@ -265,6 +266,7 @@ class App extends React.Component {
                     pastshows={this.state.pastshows}
                     upcomingshows={this.state.upcomingShows}
                     poststorysubmission={this.postStorySubmission}
+                    postimpactform={this.postImpactForm}
                   />
                 )}
               />
@@ -351,6 +353,7 @@ class App extends React.Component {
               <Route
                 render={() => (
                   <Mobile
+                    postimpactform={this.postImpactForm}
                     pastshows={this.state.pastshows}
                     upcomingshows={this.state.upcomingShows}
                     poststorysubmission={this.postStorySubmission}
