@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import PopUpNav from './PopUpNav';
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -37,46 +37,44 @@ class Mobile extends React.Component {
             <PopUpNav closeSideBar={this.closeSideBar} />
           </Sidebar>
           <Sidebar.Pusher id="testSegement">
-            <Router>
-              <Segment basic>
-                <NavBar openSideBar={this.openSideBar} />
-                <Switch>
-                  <Route
-                    exact
-                    path="/"
-                    render={() => (
-                      <div>
-                        <MobileHomePage
-                          pastshows={this.props.pastshows}
-                          upcomingshows={this.props.upcomingshows}
-                        />
-                      </div>
-                    )}
-                  />
-                  <Route
-                    path="/mobile/tellyourstory"
-                    render={() => (
-                      <div>
-                        <MobileTellYourStory
-                          poststorysubmission={this.props.poststorysubmission}
-                        />
-                      </div>
-                    )}
-                  />
-                  <Route
-                    render={() => (
-                      <div>
-                        <MobileHomePage
-                          pastshows={this.props.pastshows}
-                          upcomingshows={this.props.upcomingshows}
-                        />
-                      </div>
-                    )}
-                  />
-                </Switch>
-                <Footer />
-              </Segment>
-            </Router>
+            <Segment basic>
+              <NavBar openSideBar={this.openSideBar} />
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={() => (
+                    <div>
+                      <MobileHomePage
+                        pastshows={this.props.pastshows}
+                        upcomingshows={this.props.upcomingshows}
+                      />
+                    </div>
+                  )}
+                />
+                <Route
+                  path="/mobile/tellyourstory"
+                  render={() => (
+                    <div>
+                      <MobileTellYourStory
+                        poststorysubmission={this.props.poststorysubmission}
+                      />
+                    </div>
+                  )}
+                />
+                <Route
+                  render={() => (
+                    <div>
+                      <MobileHomePage
+                        pastshows={this.props.pastshows}
+                        upcomingshows={this.props.upcomingshows}
+                      />
+                    </div>
+                  )}
+                />
+              </Switch>
+              <Footer />
+            </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </div>
