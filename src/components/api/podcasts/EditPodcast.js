@@ -1,5 +1,23 @@
 import React from 'react';
 
+const validWebsiteRegex = RegExp(
+  /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+);
+
+const formValid = ({ formErrors, ...rest }) => {
+  let valid = true;
+
+  Object.values(formErrors).forEach(val => {
+    val.length > 0 && (valid = false);
+  });
+
+  Object.values(rest).forEach(val => {
+    val === '' && (valid = false);
+  });
+
+  return valid;
+};
+
 class EditPodcast extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +28,15 @@ class EditPodcast extends React.Component {
       podcastName: props.podcast.podcastName,
       podcastBlurb: props.podcast.podcastBlurb,
       podcastShowNotes: props.podcast.podcastShowNotes,
-      podcastEmbedLink: props.podcast.podcastEmbedLink
+      podcastEmbedLink: props.podcast.podcastEmbedLink,
+      formErrors: {
+        podcastCoverImageLink: '',
+        podcastName: '',
+        podcastBlurb: '',
+        podcastShowNotes: '',
+        podcastEmbedLink: ''
+      },
+      submitError: false
     };
   }
 
@@ -21,18 +47,58 @@ class EditPodcast extends React.Component {
       podcastName: this.props.podcast.podcastName,
       podcastBlurb: this.props.podcast.podcastBlurb,
       podcastShowNotes: this.props.podcast.podcastShowNotes,
-      podcastEmbedLink: this.props.podcast.podcastEmbedLink
+      podcastEmbedLink: this.props.podcast.podcastEmbedLink,
+      formErrors: {
+        podcastCoverImageLink: '',
+        podcastName: '',
+        podcastBlurb: '',
+        podcastShowNotes: '',
+        podcastEmbedLink: ''
+      },
+      submitError: false
     });
   }
 
   formChange = e => {
+    const { id, value } = e.target;
+    let formErrors = this.state.formErrors;
+    switch (id) {
+      case 'podcastCoverImageLink':
+        formErrors.podcastCoverImageLink = validWebsiteRegex.test(value)
+          ? ''
+          : 'invalid web address';
+        break;
+      case 'podcastName':
+        formErrors.podcastName =
+          value.length < 1 ? 'Podcast title cannot be blank' : '';
+        break;
+      case 'podcastBlurb':
+        formErrors.podcastBlurb =
+          value.length < 1 ? 'Podcast blurb cannot be blank' : '';
+        break;
+      case 'podcastShowNotes':
+        formErrors.podcastShowNotes =
+          value.length < 1 ? 'Podcast show notes cannot be blank' : '';
+        break;
+      case 'podcastEmbedLink':
+        formErrors.podcastEmbedLink = validWebsiteRegex.test(value)
+          ? ''
+          : 'invalid web address';
+        break;
+      default:
+        break;
+    }
     this.setState({ [e.target.id]: e.target.value });
   };
 
   submitForm = e => {
     e.preventDefault();
-    this.props.editpodcast(this.state);
-    this.props.toggleeditcomponent();
+    if (formValid(this.state)) {
+      this.props.editpodcast(this.state);
+      this.props.toggleeditcomponent();
+    } else {
+      this.setState({ submitError: true });
+    }
   };
 
   cancelEdit = () => {
@@ -40,6 +106,7 @@ class EditPodcast extends React.Component {
   };
 
   render() {
+    const { formErrors } = this.state;
     return (
       <div>
         <h1>Edit Podcast</h1>
@@ -52,6 +119,9 @@ class EditPodcast extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Episode Title"
             />
+            {formErrors.podcastName.length > 0 && (
+              <span id="errorMessage">{formErrors.podcastName}</span>
+            )}
           </div>
           <div className="field">
             <label>Blurb</label>
@@ -62,6 +132,9 @@ class EditPodcast extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Blurb"
             />
+            {formErrors.podcastBlurb.length > 0 && (
+              <span id="errorMessage">{formErrors.podcastBlurb}</span>
+            )}
           </div>
           <div className="field">
             <label>Show Notes</label>
@@ -72,6 +145,9 @@ class EditPodcast extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Show Notes"
             />
+            {formErrors.podcastShowNotes.length > 0 && (
+              <span id="errorMessage">{formErrors.podcastShowNotes}</span>
+            )}
           </div>
           <div className="field">
             <label>
@@ -84,6 +160,9 @@ class EditPodcast extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Cover Image Link"
             />
+            {formErrors.podcastCoverImageLink.length > 0 && (
+              <span id="errorMessage">{formErrors.podcastCoverImageLink}</span>
+            )}
           </div>
           <div className="field">
             <label>Podcast Embed Link</label>
@@ -93,6 +172,9 @@ class EditPodcast extends React.Component {
               onChange={e => this.formChange(e)}
               placeholder="Podcast Embed Link"
             />
+            {formErrors.podcastEmbedLink.length > 0 && (
+              <span id="errorMessage">{formErrors.podcastEmbedLink}</span>
+            )}
           </div>
           <button
             className="positive ui button"
@@ -107,6 +189,15 @@ class EditPodcast extends React.Component {
             Discard Edits
           </button>
         </form>
+        {this.state.submitError == true && (
+          <div>
+            <br />
+            <span id="errorMessage">
+              Podcast not updated, please check that all fields are not empty
+              and there are no error messages.
+            </span>
+          </div>
+        )}
       </div>
     );
   }

@@ -73,7 +73,8 @@ class CreateUpcomingShow extends React.Component {
           : 'invalid web address';
         break;
       case 'showTitle':
-        formErrors.showTitle = value.length < 1 ? 'Venue cannot be blank' : '';
+        formErrors.showTitle =
+          value.length < 1 ? 'Show Title cannot be blank' : '';
         break;
       case 'venue':
         formErrors.venue = value.length < 1 ? 'Venue cannot be blank' : '';
