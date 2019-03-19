@@ -90,7 +90,6 @@ class MobileImpactSubmissionForm extends React.Component {
     const { formErrors } = this.state;
     return (
       <div id="mobileTellYourStoryStorySubmission" className="ui centered grid">
-        <h2 className="row">Submission Form</h2>
         <div className="fourteen wide column">
           <form className="ui form" onSubmit={() => this.submitForm()}>
             <div className="field">

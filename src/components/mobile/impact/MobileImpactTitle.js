@@ -12,36 +12,39 @@ class MobileImpactTitle extends React.Component {
     return (
       <div id="mobileHomePageContainer" className="ui grid">
         <div id="mobileHomePageTitle" className="row">
-          <h1>Work With Us</h1>
+          <h1>Unravel Impact</h1>
         </div>
-        <div id="mobileTellYourStoryBodyText" className="row">
-          <p>
-            About the story Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Maecenas nec risus blandit, consequat nisi et, tempus arcu.
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae; Ut euismod orci sed metus vehicula, eget
-            mattis velit pharetra.
-          </p>
+        <div id="mobileImpactSubtitle" className="row">
+          <h2>Bring the power of storytelling into your organization.</h2>
         </div>
         <img id="imageEmbedFullWidth" className="row" src={crowd} />
-        <div id="mobileTellYourStoryBodyText" className="row">
-          <h1>Story GuideLines</h1>
+        <div id="mobileImpactBodyText" className="row">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-            nec risus blandit, consequat nisi et, tempus arcu. Vestibulum ante
-            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-            Curae;
+            Unravel Impact offers custom packages to organizations, companies,
+            and schools looking to achieve goals, improve skills, facilitate
+            team building or public speaking, boost morale, train storytellers,
+            or more effectively engage with employees, peers, or audiences.
           </p>
-          <p>
-            - Guideline #1: consequat nisi et, tempus arcu. Vestibulum ante
-            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-            Curae.
-          </p>
-          <p>
-            - Guideline #2: consequat nisi et, tempus arcu. Vestibulum ante
-            ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-            Curae.
-          </p>
+        </div>
+        <div id="posterEmbedCroppedWidthContainer" className="ui grid">
+          <div>
+            <img id="posterEmbedCroppedWidth" className="row" src={crowd} />
+          </div>
+          <div>
+            <p>Program Includes:</p>
+            <br />
+            <ul>
+              <li>Team Building Programs</li>
+              <li>Storytelling Workshops</li>
+              <li>Custom Liveshows</li>
+              <li>Special Edition Liveshows</li>
+            </ul>
+            <p>
+              Contact us below to learn more about how Unravel can help your
+              organization achieve its goals.
+            </p>
+            <br />
+          </div>
         </div>
       </div>
     );

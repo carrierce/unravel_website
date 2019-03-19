@@ -35,6 +35,30 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#posterEmbedCroppedWidthContainer {
+  background-color: #fff6f1;
+}
+
+#posterEmbedCroppedWidthContainer ul {
+  padding: 0 0 20px 40px;
+}
+
+#posterEmbedCroppedWidthContainer p {
+  padding: 0 30px 0 30px;
+}
+
+#mobileImpactSubtitle {
+  padding-left: 40px;
+  background-color: #fff6f1;
+}
+
+#mobileImpactBodyText {
+  background-color: #107b8c;
+  color: #fff6f1;
+  padding: 20px 40px 20px 40px;
+  font-weight: 100;
+}
+
 #errorMessage {
   color: red;
 }
