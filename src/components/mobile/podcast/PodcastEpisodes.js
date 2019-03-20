@@ -1,26 +1,24 @@
 import React from 'react';
 const crowd = require('../../../crowd.jpg');
-
 let filteredList = [];
 let renderedList = [];
-let i = -2;
-let additionalPodcasts = [];
 class PodcastEpisodes extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      i: -1,
+      filteredList: [],
+      renderedList: []
+    };
   }
 
   showMoreEpisodes = () => {
-    // console.log(filteredList);
-    additionalPodcasts = this.props.podcasts.slice(i, i + 1);
-    console.log(additionalPodcasts);
-    filteredList.push(additionalPodcasts);
-    i = i - 1;
-    console.log(filteredList);
+    this.setState({ i: this.state.i - 1 });
+    console.log(this.state.i);
   };
 
   render() {
-    filteredList = this.props.podcasts.slice(-1);
+    filteredList = this.props.podcasts.slice(this.state.i);
     renderedList = filteredList.reverse().map((podcast, index) => {
       return (
         <div className="ui grid" key={index}>
