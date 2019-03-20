@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Impact from './impact/Impact';
 import MobileHomePage from './homepage/MobileHomePage';
 import MobileTellYourStory from './tellyourstory/MobileTellYourStory';
+import Podcast from './podcast/Podcast';
 import { Icon, Menu, Sidebar, Segment } from 'semantic-ui-react';
 
 class Mobile extends React.Component {
@@ -68,6 +69,14 @@ class Mobile extends React.Component {
                       <MobileTellYourStory
                         poststorysubmission={this.props.poststorysubmission}
                       />
+                    </div>
+                  )}
+                />
+                <Route
+                  path="/mobile/podcast"
+                  render={() => (
+                    <div>
+                      <Podcast />
                     </div>
                   )}
                 />
