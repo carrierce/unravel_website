@@ -40,7 +40,9 @@ class PopUpNav extends React.Component {
             </h3>
           </div>
           <div className="row">
-            <h3>Unravel: The Podcast</h3>
+            <h3 onClick={this.props.closeSideBar}>
+              <Link to="/mobile/podcast">Unravel: The Podcast</Link>
+            </h3>
             <br />
             <br />
           </div>

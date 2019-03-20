@@ -11,17 +11,17 @@ class MobileHomePageNavFooter extends React.Component {
       <div id="mobileHomePageNavFooter" className="ui grid">
         <ul>
           <li id="mobileHomePageNavFooter">
-            <Link id="mobileHomePageNavFooterLink" to="/mobile/homepage">
+            <Link id="mobileHomePageNavFooterLink" to="/mobile/tellyourstory">
               Submit your story
             </Link>
           </li>
           <li id="mobileHomePageNavFooter">
-            <Link id="mobileHomePageNavFooterLink" to="/">
+            <Link id="mobileHomePageNavFooterLink" to="/mobile/podcast">
               Listen to the podcast
             </Link>
           </li>
           <li id="mobileHomePageNavFooter">
-            <Link id="mobileHomePageNavFooterLink" to="/upcomingshows">
+            <Link id="mobileHomePageNavFooterLink" to="/mobile/impact">
               Work with us
             </Link>
           </li>

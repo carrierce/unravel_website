@@ -11,7 +11,7 @@ class PodcastNavFooter extends React.Component {
       <div id="podcastPageNavFooter" className="ui grid">
         <ul>
           <li id="podcastPageNavFooter">
-            <Link id="podcastPageNavFooter" to="/upcomingshows">
+            <Link id="podcastPageNavFooter" to="/mobile/impact">
               Work with us
             </Link>
           </li>
@@ -21,7 +21,7 @@ class PodcastNavFooter extends React.Component {
             </Link>
           </li>
           <li id="podcastPageNavFooter">
-            <Link id="podcastPageNavFooter" to="/mobile/homepage">
+            <Link id="podcastPageNavFooter" to="/mobile/tellyourstory">
               Submit your story
             </Link>
           </li>

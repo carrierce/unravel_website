@@ -21,7 +21,7 @@ class MobileTellYourStoryNavFooter extends React.Component {
             </Link>
           </li>
           <li>
-            <Link id="mobileTellYourStoryNavFooterLink" to="/upcomingshows">
+            <Link id="mobileTellYourStoryNavFooterLink" to="/mobile/podcast">
               Listen to the podcast
             </Link>
           </li>
