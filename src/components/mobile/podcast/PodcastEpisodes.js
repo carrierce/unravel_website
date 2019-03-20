@@ -22,7 +22,7 @@ class PodcastEpisodes extends React.Component {
             <div className="row">
               <img id="podcastEmbedCroppedWidth" src={crowd} />
             </div>
-            <p id="podcasts" className="row">
+            <p id="podcastsEpisodeBlurb" className="row">
               {podcast.podcastBlurb}
             </p>
             <div id="podcastsPlayer" className="row">

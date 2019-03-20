@@ -9,7 +9,9 @@ class PodcastTitle extends React.Component {
     return (
       <div id="mobileHomePageContainer" className="ui grid">
         <div id="mobileHomePageTitle" className="row">
-          <h1>Unravel: The Podcast</h1>
+          <h1>
+            Unravel: <br /> The Podcast
+          </h1>
         </div>
         <img
           id="podcastCover"

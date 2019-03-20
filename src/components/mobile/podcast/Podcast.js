@@ -1,6 +1,7 @@
 import React from 'react';
 import PodcastTitle from './PodcastTitle';
 import PodcastEpisodes from './PodcastEpisodes';
+import PodcastNavFooter from './PodcastNavFooter';
 
 class Podcast extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class Podcast extends React.Component {
       <div>
         <PodcastTitle />
         <PodcastEpisodes podcasts={this.props.podcasts} />
+        <PodcastNavFooter />
       </div>
     );
   }

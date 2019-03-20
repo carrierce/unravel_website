@@ -35,6 +35,23 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#podcastPageNavFooter li {
+  list-style-type: none;
+  text-decoration: underline;
+  text-decoration-style: thick;
+  padding: 20px 0 20px 0;
+  font-size: 20px;
+}
+
+#podcastPageNavFooter {
+  color: black;
+  background-color: #fff6f1;
+  list-style-type: none;
+  text-decoration-color: #ef844f;
+  text-decoration-style: thick;
+  padding: 20px 0 20px 0;
+}
+
 #podcastsShowMorePodcastsButton {
   margin: 20px 0 20px 20px;
   background-color: #f18448;
@@ -47,7 +64,7 @@ h6 {
 }
 
 #podcastsShowNotesTitle {
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 #podcastsPlayer {
@@ -78,7 +95,7 @@ h6 {
 }
 
 #podcastsContainer p {
-  margin: 0 40px 0 40px;
+  margin: 0 40px 0 30px;
 }
 
 #podcastSubscribeButton {
