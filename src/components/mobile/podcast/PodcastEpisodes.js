@@ -3,12 +3,19 @@ const crowd = require('../../../crowd.jpg');
 
 let filteredList = [];
 let renderedList = [];
+let i = -2;
+let additionalPodcasts = [];
 class PodcastEpisodes extends React.Component {
   constructor(props) {
     super(props);
   }
 
   showMoreEpisodes = () => {
+    // console.log(filteredList);
+    additionalPodcasts = this.props.podcasts.slice(i, i + 1);
+    console.log(additionalPodcasts);
+    filteredList.push(additionalPodcasts);
+    i = i - 1;
     console.log(filteredList);
   };
 
