@@ -35,7 +35,9 @@ class PopUpNav extends React.Component {
             </h3>
           </div>
           <div className="row">
-            <h3>Unravel Impact</h3>
+            <h3 onClick={this.props.closeSideBar}>
+              <Link to="/mobile/impact">Unravel Impact</Link>
+            </h3>
           </div>
           <div className="row">
             <h3>Unravel: The Podcast</h3>

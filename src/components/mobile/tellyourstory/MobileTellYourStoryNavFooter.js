@@ -11,7 +11,7 @@ class MobileTellYourStoryNavFooter extends React.Component {
       <div id="mobileTellYourStoryNavFooter" className="ui grid">
         <ul>
           <li>
-            <Link id="mobileTellYourStoryNavFooterLink" to="/mobile/homepage">
+            <Link id="mobileTellYourStoryNavFooterLink" to="/mobile/impact">
               Work with us
             </Link>
           </li>

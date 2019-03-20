@@ -11,13 +11,16 @@ class MobileImpactNavFooter extends React.Component {
       <div id="mobileTellYourStoryNavFooter" className="ui grid">
         <ul>
           <li>
-            <Link id="mobileTellYourStoryNavFooterLink" to="/mobile/homepage">
-              Work with us
+            <Link id="mobileTellYourStoryNavFooterLink" to="/">
+              Come to a live show
             </Link>
           </li>
           <li>
-            <Link id="mobileTellYourStoryNavFooterLink" to="/">
-              Come to a live show
+            <Link
+              id="mobileTellYourStoryNavFooterLink"
+              to="/mobile/tellyourstory"
+            >
+              Submit your story
             </Link>
           </li>
           <li>
