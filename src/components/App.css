@@ -35,6 +35,52 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#podcastsShowMorePodcastsButton {
+  margin: 20px 0 20px 20px;
+  background-color: #f18448;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 10px 20px 10px 20px;
+  box-shadow: 1px 2px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+#podcastsShowNotesTitle {
+  margin-left: 40px;
+}
+
+#podcastsPlayer {
+  margin: 0 40px 0 40px;
+}
+
+#podcastsEpisodeName {
+  margin-left: 40px;
+  margin-top: -10px;
+}
+
+#podcastsLatestEpisodes {
+  margin-top: 40px;
+  margin-left: 30px;
+}
+
+#podcastEmbedCroppedWidth {
+  background-color: #107b8c;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  padding: 0 40px 20px 40px;
+}
+
+#podcastsContainer {
+  background-color: #107b8c;
+  color: #fff6f1;
+}
+
+#podcastsContainer p {
+  margin: 0 40px 0 40px;
+}
+
 #podcastSubscribeButton {
   margin-left: 20px;
   background-color: #f18448;
@@ -271,7 +317,6 @@ h1 {
 }
 
 #posterEmbedCroppedWidth {
-  /* setting height to 80% seems like a hack */
   height: 100%;
   width: 100%;
   object-fit: contain;

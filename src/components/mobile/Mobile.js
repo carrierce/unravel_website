@@ -76,7 +76,7 @@ class Mobile extends React.Component {
                   path="/mobile/podcast"
                   render={() => (
                     <div>
-                      <Podcast />
+                      <Podcast podcasts={this.props.podcasts} />
                     </div>
                   )}
                 />

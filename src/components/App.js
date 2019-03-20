@@ -267,6 +267,7 @@ class App extends React.Component {
                     upcomingshows={this.state.upcomingShows}
                     poststorysubmission={this.postStorySubmission}
                     postimpactform={this.postImpactForm}
+                    podcasts={this.state.podcasts}
                   />
                 )}
               />
@@ -353,6 +354,7 @@ class App extends React.Component {
               <Route
                 render={() => (
                   <Mobile
+                    podcasts={this.state.podcasts}
                     postimpactform={this.postImpactForm}
                     pastshows={this.state.pastshows}
                     upcomingshows={this.state.upcomingShows}
