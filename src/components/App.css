@@ -39,7 +39,7 @@ h6 {
   list-style-type: none;
   text-decoration: underline;
   text-decoration-style: thick;
-  padding: 20px 0 20px 0;
+  padding: 20px 0 20px 20px;
   font-size: 20px;
 }
 
@@ -92,6 +92,7 @@ h6 {
 #podcastsContainer {
   background-color: #107b8c;
   color: #fff6f1;
+  padding-bottom: 20px;
 }
 
 #podcastsContainer p {
