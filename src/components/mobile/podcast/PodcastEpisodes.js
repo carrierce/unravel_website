@@ -10,9 +10,11 @@ class PodcastEpisodes extends React.Component {
   }
 
   showMoreEpisodes = () => {
-    console.log(this.props.podcasts.length);
-    this.setState({ i: this.state.i - 1 });
-    console.log(this.state.i);
+    if (this.state.i > (this.props.podcasts.length + 1) * -1) {
+      this.setState({ i: this.state.i - 1 });
+    } else {
+      return;
+    }
   };
 
   render() {
@@ -44,7 +46,9 @@ class PodcastEpisodes extends React.Component {
         </h1>
         <div className="row">{renderedList}</div>
         {this.state.i == (this.props.podcasts.length + 1) * -1 && (
-          <span id="errorMessage">HELLO</span>
+          <div className="row">
+            <h1>No more podcasts</h1>
+          </div>
         )}
         <button
           className="row"
