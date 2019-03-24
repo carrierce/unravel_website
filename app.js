@@ -6,6 +6,7 @@ const storySubmissionAPI = require('./server/routes/storySubmission');
 const impactFormAPI = require('./server/routes/impactForm');
 const upcomingShowsAPI = require('./server/routes/upcomingShows');
 const pastShowsAPI = require('./server/routes/pastShows');
+const loginAPI = require('./server/routes/login');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('./server/db/mongoose');
@@ -20,6 +21,7 @@ app.use('/api/pastshows', pastShowsAPI);
 app.use('/api/podcasts', podcastsAPI);
 app.use('/api/storysubmission', storySubmissionAPI);
 app.use('/api/impactform', impactFormAPI);
+app.use('/api/login', loginAPI);
 
 // Uncomment the 2 lines below when running build
 // Also remember to look at localhost:5000/

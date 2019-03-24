@@ -10,6 +10,7 @@ import ImpactForms from './api/impacts/ImpactForms';
 import Mobile from './mobile/Mobile';
 import ApiNavBar from './api/apinavbar';
 import api from './api';
+import Login from './api/login/Login';
 
 class App extends React.Component {
   constructor(props) {
@@ -41,6 +42,17 @@ class App extends React.Component {
     this.getStorySubmissionsFromDb();
     this.getImpactFormsFromDb();
   }
+
+  postLoginData = loginData => {
+    api
+      .post('/api/login', {
+        userName: loginData.userName,
+        password: loginData.password
+      })
+      .then(response => {
+        console.log(response.data);
+      });
+  };
 
   getStorySubmissionsFromDb = () => {
     api.get('/api/storysubmission/').then(response => {
@@ -284,6 +296,15 @@ class App extends React.Component {
                       editpodcast={this.editPodcast}
                       getpodcastsfromdb={this.getUpcomingPodcastsFromDb}
                     />
+                  </div>
+                )}
+              />
+              <Route
+                path="/cms/login"
+                render={() => (
+                  <div>
+                    <ApiNavBar />
+                    <Login postLoginData={this.postLoginData} />
                   </div>
                 )}
               />
