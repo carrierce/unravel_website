@@ -1,4 +1,5 @@
 import React from 'react';
+const unravelLogo = require('../../UnravelLogoWithText.png');
 
 class Footer extends React.Component {
   constructor(props) {
@@ -16,12 +17,8 @@ class Footer extends React.Component {
   render() {
     return (
       <div id="footerBackground" className="ui three column grid">
-        <div className="row">
-          <img
-            id="footerImage"
-            className="row"
-            src="https://via.placeholder.com/200x100"
-          />
+        <div id="unravelLogoFooterRow" className="row">
+          <img id="unravelLogoFooter" className="row" src={unravelLogo} />
         </div>
         <ul className="column">
           <li id="footer">Contact Us</li>

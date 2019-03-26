@@ -1,4 +1,5 @@
 import React from 'react';
+const unravelLogo = require('../../UnravelLogo.png');
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -21,7 +22,9 @@ class NavBar extends React.Component {
             className="left floated right aligned four wide column"
           >
             <div id="basicSegment" className="ui basic compact segment">
-              <i className="large bullseye icon" />
+              <div>
+                <img id="unravelLogoHeader" src={unravelLogo} />
+              </div>
             </div>
           </div>
           <div

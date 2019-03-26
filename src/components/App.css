@@ -35,6 +35,22 @@ h6 {
 
 /* ALL CSS FOR THE APP.JS & ITS CHILDREN GO HERE. */
 
+#unravelLogoHeader {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+#unravelLogoFooter {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  margin-left: -100px;
+}
+#unravelLogoFooterRow {
+  margin-top: 30px;
+  height: 70px;
+}
+
 #podcastPageNavFooter li {
   list-style-type: none;
   text-decoration: underline;
